@@ -1,0 +1,84 @@
+<load target="./js/idangerous.swiper-2.1.min.js" />
+<load target="./js/widget.js" />
+{@
+	$wi = $widget_info;
+	if (!$wi->subject_cut_size) $wi->subject_cut_size = 24;
+}
+<div class="m-list m-element gridEl">
+	
+	<section class="swiper swiper-container{$s}">
+		<nav cond="$wi->tab_type == 'tab'">
+			<ul>
+				{@$i=0}
+				<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+				<li class="tab{$i}"><a href="{$tab->url}">{$tab->title}</a> </li>
+				{@$i++}
+				<!--@end-->
+			</ul>
+		</nav>
+		<!--@if($wi->tab_type == 'tab')-->
+		<ul class="swiper-wrapper">
+			{@$i=0}
+			<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+			<li class="swiper-slide slide"><ul class="list">
+			{@$widget_info->content_items = $tab->content_items}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if(is_int($_idx/($wi->list_count*$wi->page_count)) && $_idx/($wi->list_count*$wi->page_count) != 0)-->
+				</ul></li>
+				<li class="swiper-slide slide"><ul class="list">
+			<!--@elseif(is_int(($_idx+$wi->list_count)/($wi->list_count*$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide slide-before"><ul class="list">
+			<!--@elseif(is_int($_idx/$wi->list_count) && !is_int($_idx/($wi->list_count*$wi->page_count-$wi->page_count)) && !is_int(($_idx+$wi->list_count)/($wi->list_count*$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li class="clearfix<!--@if($item->getCommentCount())--> has-comment<!--@end--><!--@if($item->getThumbnail())--> has-thumb<!--@end-->">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<!--@if($item->getThumbnail())-->
+				<div class="dummy"></div>
+				<img src="{$item->getThumbnail()}" width="48px" height="48px" class="thumb-image" alt="{$item->getTitle()}" />
+				<!--@end-->
+				<div class="list-element">
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+					<span class="name el">{$item->getNickName()}</span> <span class="l">|</span>
+					<span class="date el">{$item->getRegdate("m-d")}</span> <span class="l">|</span>
+					<span class="hit el">조회 {$item->get('readed_count')>0?$item->get('readed_count'):'0'}</span>
+				</div>
+				<img src="./images/biComment@2x.png" alt="comment" width="14px" height="12px" class="comment-image" cond="$item->getCommentCount()" /><a href="{$item->getLink()}#comment" class="reply m-list-reply" cond="$item->getCommentCount()">{$item->getCommentCount()}</a>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			{@$i++}
+			</ul></li>
+			<!--@end-->
+		</ul>
+		<div class="swiper-pagination swiper-pagination{$s}"></div>
+		<!--@else-->
+		<h3>{$tab->title}</h3>
+		<ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<li class="clearfix<!--@if($item->getCommentCount())--> has-comment<!--@end--><!--@if($item->getThumbnail())--> has-thumb<!--@end-->">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<!--@if($item->getThumbnail())-->
+				<div class="dummy"></div>
+				<img src="{$item->getThumbnail(96, 96, crop)}" width="48px" height="48px" class="thumb-image" alt="{$item->getTitle()}" />
+				<!--@end-->
+				<div class="list-element">
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+					<span class="name el">{$item->getNickName()}</span> <span class="l">|</span>
+					<span class="date el">{$item->getRegdate("m-d")}</span> <span class="l">|</span>
+					<span class="hit el">조회 {$item->get('readed_count')>0?$item->get('readed_count'):'0'}</span>
+				</div>
+				<img src="./images/biComment@2x.png" alt="comment" width="14px" height="12px" class="comment-image" cond="$item->getCommentCount()" /><a href="{$item->getLink()}#comment" class="reply m-list-reply" cond="$item->getCommentCount()">{$item->getCommentCount()}</a>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+		</ul>
+		<!--@end-->
+	</section>
+</div>
+{@$s++}
+

@@ -1,0 +1,25 @@
+.btTop	{background-image: url('../images/wiTop.png'); background-size: 12px 12px;}
+input[type="checkbox"] + label span.check-dummy	{background-image: url('../images/bgCheckbox.png')}
+
+.global-search .btClose	{background-image: url('../images/wiClose.png'); background-size: 8px 9px;}
+
+.gnb li .arrowUp	{background-image: url('../images/biArrowUp.png'); background-size: 7px 5px;}
+.gnb li .arrowDown	{background-image: url('../images/biArrowDown.png'); background-size: 7px 5px;}
+
+.main-noImage	{background-image: url('../images/main_no_image.png')}
+
+input[type="checkbox"] + label span.check-dummy	{background-image: url('../images/bgCheckbox.png'); background-size: 14px 28px;}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+
+	.btTop	{background-image: url('../images/wiTop@2x.png');}
+	input[type="checkbox"] + label span.check-dummy	{background-image: url('../images/bgCheckbox@2x.png')}
+	
+	.global-search .btClose	{background-image: url('../images/wiClose@2x.png');}
+	.gnb li .arrowUp	{background-image: url('../images/biArrowUp@2x.png');}
+	.gnb li .arrowDown	{background-image: url('../images/biArrowDown@2x.png');}
+	
+}

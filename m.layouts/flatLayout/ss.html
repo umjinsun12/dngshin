@@ -1,0 +1,173 @@
+<!--@if($layout_info->mCol == 'black')--><load target="./css_color/bBlack.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cBlack.css" />
+<!--@elseif($layout_info->mCol == 'choco')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cChoco.css" />
+<!--@elseif($layout_info->mCol == 'mint')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cMint.css" />
+<!--@elseif($layout_info->mCol == 'navy')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cNavy.css" />
+<!--@elseif($layout_info->mCol == 'peachblow')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cPeachblow.css" />
+<!--@elseif($layout_info->mCol == 'pink')--><load target="./css_color/bWhite.css" /><load target="./css_color/iBlack.css" /><load target="./css_color/cPink.css" />
+<!--@elseif($layout_info->mCol == 'seagreen')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cSeagreen.css" />
+<!--@elseif($layout_info->mCol == 'skyblue')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cSkyblue.css" />
+<!--@elseif($layout_info->mCol == 'violet')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cViolet.css" />
+<!--@elseif($layout_info->mCol == 'white')--><load target="./css_color/bWhite.css" /><load target="./css_color/iBlack.css" /><load target="./css_color/cWhite.css" />
+<!--@elseif($layout_info->mCol == 'yellow')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cYellow.css" />
+<!--@elseif($layout_info->mCol == 'gOtoBlue')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/gOtoBlue.css" />
+<!--@elseif($layout_info->mCol == 'gVtoBlue')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/gVtoBlue.css" />
+<!--@elseif($layout_info->mCol == 'gVtoPink')--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/gVtoPink.css" />
+<!--@else--><load target="./css_color/bWhite.css" /><load target="./css_color/iWhite.css" /><load target="./css_color/cRed.css" />
+<!--@end-->
+<load target="../../common/js/jquery.min.js" usecdn="true" index="-100006" />
+<load target="./css/style.css" />
+<load target="./css/retina.css" />
+
+<load target="./js/jquery.box.min.js"/>
+<load target="./css/jquery.bxslider.css"/>
+<load target="./js/jquery.bxslider.min.js"/>
+
+<load target="./js/common.js" />
+<load target="css/banner.css" />
+<load target="js/jquery.glide.min.js" />
+
+  
+  
+
+
+<a href="{$layout_info->t_banner_url}" target="_blank" class="top-banner" style="background-color: {$layout_info->t_banner_color};" cond="$layout_info->top_banner"><img src="{$layout_info->top_banner}" alt="banner" /></a>
+<div id="container" class="sc"|cond="$layout_info->main_bg == 'sc1'" class="sc2"|cond="$layout_info->main_bg == 'sc2'">
+<header class="main">
+	<h1><!--@if($layout_info->site_name)-->{$layout_info->site_name}<!--@else-->Flat Mobile<!--@end--></h1>
+	<button class="menu-trigger dButton">open menu</button>
+	<a class="btPrev dButton" href="{getUrl('act','','document_srl','')}">{$lang->cmd_back}</a>
+	<a class="btCancel dButton" href="javascript:history.go(-1)">{$lang->cmd_back}</a>
+	<block cond="$layout_info->main_type != 'search'">
+	<button class="btSearch dButton">search</button>
+	<div class="global-search">
+		<form action="{getUrl()}" method="post">
+			<input type="hidden" name="vid" value="{$vid}" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="hidden" name="search_target" value="title_content" />
+			<fieldset>
+				<legend>{$lang->cmd_search}</legend>
+				<input name="is_keyword" type="search" title="Search" class="searchinput" accesskey="S" required placeholder="사이트 통합검색"  />
+				<span class="btClose">X</span>
+		</form>
+	</div>
+	</block>
+</header>
+
+
+<div id="menu-wrap" class="scrollable">
+	<div class="member-menu">
+		<!--@if(!$is_logged)-->
+		<div class="member-menu-top">
+			<a href="{getUrl('act','dispMemberLoginForm')}" class="btLogin"><span>{$lang->cmd_login}</span></a>
+			<a href="{getUrl('act','dispMemberSignUpForm')}" class="btSignup"><span>{$lang->cmd_signup}</span></a>
+		</div>
+		<!--@else-->
+		<div class="member-menu-logged">
+			<div class="member-menu-top arrowDown clearfix">
+				{@
+					$oMemberModel = &getModel('member');
+					$memberProfileImage = $oMemberModel->getProfileImage($logged_info->member_srl)
+				}
+				<div class="profile-image"><img src="{$memberProfileImage->file}" width="30" height="30" cond="$memberProfileImage->file" /></div>
+				<div class="name">{$logged_info->nick_name}</div>
+			</div>
+			<ul>
+				<!--@foreach($logged_info->menu_list as $key => $val)-->
+                <!--<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>-->
+				<!--@end-->
+				
+				<li><a href="{getUrl('act',dispMemberInfo,'member_srl','')}">회원정보 보기</a></li>
+				<li><a href="{getUrl('act',dispMemberScrappedDocument,'member_srl','')}">찜한 법무사 보기</a></li>
+
+
+
+				<!--@if($logged_info->is_admin=="Y")-->
+				<li><a href="{getUrl('','module','admin')}" class="btMemberAdmin">관리자</a></li>
+				<!--@end-->
+				<li><a href="{getUrl('act','dispMemberLogout')}" class="btLogout">{$lang->cmd_logout}</a></li>
+			</ul>
+		</div>
+		<!--@end-->
+	</div>
+	<nav id="gnb" class="gnb">
+		<ul>
+			<li cond="$layout_info->use_home != N"><a href="{$layout_info->home_url}" class="btHome">HOME</a></li>
+			<block loop="$gnb->list=>$val">
+			<!--@if($val['selected'])-->{@$selected_menu=$val}<!--@end-->
+			<!--@if($val["link"])-->
+			<li>
+				<a href="{$val['href']}" class="selected"|cond="$val['selected']">{$val["text"]}</a><span class="arrow<!--@if($layout_info->close_menu == 'Y')--> arrowDown<!--@else--> arrowUp<!--@end-->">close/open</span>
+				<!--@if($val["list"])-->
+				<ul style="display:none"|cond="$layout_info->close_menu == 'Y'">
+					<!--@foreach($val["list"] as $v)--><!--@if($v["link"])-->
+					<!--@if($v['selected'])-->{@$selected_menu=$v}<!--@end-->
+					<li>
+						<a href="{$v['href']}" class="selected"|cond="$v['selected']">{$v["text"]}</a><span class="arrow<!--@if($layout_info->close_menu == 'Y')--> arrowDown<!--@else--> arrowUp<!--@end-->">close/open</span>
+						<!--@if($v["list"])-->
+						<ul style="display:none"|cond="$layout_info->close_menu == 'Y'">
+							<!--@foreach($v["list"] as $va)--><!--@if($va["link"])-->
+							<!--@if($va['selected'])-->{@$selected_menu=$va}<!--@end-->
+							<li class="selected"|cond="$va['selected']"><a href="{$va['href']}">{$va["text"]}</a></li>
+							<!--@end--><!--@end-->
+						</ul>
+						<!--@end-->
+					</li>
+					<!--@end--><!--@end-->
+				</ul>
+				<!--@end-->
+			</li>
+			<!--@end-->
+			</block>
+		</ul>
+	</nav>
+</div>
+
+
+
+<div style="height: 93.7%;"class="content<!--@if($layout_info->page_type == 'sub_normal')--> sub-page<!--@end-->"<!--@if($layout_info->page_type == 'main')--> id="grid-content"<!--@end-->>
+	<!--@if($layout_info->page_type == 'main')-->
+		<div class="main-con" cond="$act != NULL">{$content}</div>
+<div id="menu-content" class="inside clearfix">
+	<div id="menus">
+		<a class="lmenu" id="button3">
+			<div style="float: left">
+				셀프
+				<br>
+				등기하기
+			</div>
+			<div style="float: right;margin-right: 7%">
+				<img src="./images/bt3.png" style="width:40px;">
+			</div>
+			
+		</a>
+		
+		<a class="lmenu" id="button4" href="{getUrl(mid,board_vqEn86)}">
+			<div style="float: left" >
+				법무사를 통해
+				<br>
+				등기하기
+			</div>
+			<div style="float: right;margin-right: 7%">
+				<img src="./images/bt4.png" style="width:40px;">
+			</div>
+		</a>
+
+</div>
+	
+	
+</div>
+
+
+
+
+	
+	<!--@else-->
+	<h2 class="top-title" cond="!$member_config"><!--@if($selected_menu)-->{$selected_menu['text']}<!--@else-->{$layout_info->site_name}<!--@end--></h2>
+	{$content}
+	<!--@end-->
+</div><!-- //content-->
+
+
+
+

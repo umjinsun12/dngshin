@@ -1,0 +1,8 @@
+<query id="getMobileSkinVars" action="select">
+    <tables>
+        <table name="mobileex_mobile_skins" />
+    </tables>
+    <conditions>
+        <condition operation="in" column="module_srl" var="module_srl" notnull="notnull" filter="number" />
+    </conditions>
+</query>

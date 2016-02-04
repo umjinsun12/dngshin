@@ -1,0 +1,21 @@
+<query id="getMobileAddfileList" action="select">
+    <tables>
+        <table name="files" alias="files" />
+        <table name="mobileex_add_files" alias="mobile_add_files" type="left join">
+            <conditions>
+                <condition operation="equal" column="files.file_srl" default="mobile_add_files.file_srl" />
+            </conditions>
+        </table>
+    </tables>
+    <columns>
+        <column name="files.*" />
+        <column name="mobile_add_files.rotate" />
+        <column name="mobile_add_files.align" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="mobile_add_files.upload_target_srl" var="upload_target_srl" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="mobile_add_files.regdate" order="asc" />
+    </navigation>
+</query>

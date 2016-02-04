@@ -1,0 +1,22 @@
+{@ 
+	$wi = $widget_info; 
+	$t_date = date(Ymd);
+}
+<load target="css/widget.css" />
+<load target="css/wRetina.css" />
+<load target="./js/swiper.js" />
+<load target="./js/widget.js" />
+
+<!--@if($wi->list_type == "imageNews")-->
+	<!--#include("./imageNews.html")-->
+<!--@elseif($wi->list_type == "webzine")-->
+	<!--#include("./webzine.html")-->
+<!--@elseif($wi->list_type == "gallery")-->
+	<!--#include("./gallery.html")-->
+<!--@elseif($wi->list_type == "ranking")-->
+	<!--#include("./ranking.html")-->
+<!--@elseif($wi->list_type == "comment")-->
+	<!--#include("./comment.html")-->
+<!--@else-->
+	<!--#include("./news.html")-->
+<!--@end-->

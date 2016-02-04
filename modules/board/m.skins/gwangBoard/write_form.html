@@ -1,0 +1,82 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/js_app.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/x.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
+<load target="js/edit.js" cond="$document_srl" />
+<include target="_header.html" />
+<span class="check-cancel-dummy"></span>
+<div class="write-form">
+	<h3><!--@if($document_srl)-->{$lang->cmd_modify}<!--@else-->{$lang->cmd_write}<!--@end--></h3>
+	<form action="./" method="post" name="ff" class="ff" id="ff" onsubmit="return procFilter(this, insert)">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$document_srl}" />
+		<ul>
+			<li class="clearfix" cond="$module_info->use_category == 'Y'">
+				<label for="nCategory">{$lang->category} <em>*</em></label>
+				<select name="category_srl" id="nCategory">
+					<option></option>
+					<!--@foreach($category_list as $val)-->	
+					<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected="selected"<!--@endif-->>
+						{$val->title}
+					</option>
+					<!--@end-->
+				</select>
+			</li>
+			<li>
+				<label for="nTitle">{$lang->title} <em>*</em></label>
+				<!--@if($oDocument->getTitleText())-->
+				<input name="title" type="text" id="nTitle" value="{htmlspecialchars($oDocument->getTitleText())}"/>
+				<!--@else-->
+				<input name="title" type="text" id="nTitle" />
+				<!--@end-->
+			</li>
+			<li cond="$document_srl" class="disc">글 수정시 PC에서 작성하신 HTML태그가 삭제됩니다. PC에서 작성한 글은 <a href="{getUrl('m',0)}">PC화면</a>에서 수정하는 것을 권장합니다.</li>
+			<li>
+				<label for="nText">{$lang->content} <em>*</em></label>
+				<textarea name="content" rows="8" cols="42" id="nText"><!--@if($document_srl)-->{$oDocument->getContentText()}<!--@elseif(!$document_srl && $mi->pre_inserted)-->{$mi->pre_inserted}<!--@end--></textarea>
+			</li>
+			<!--@if(!$is_logged)-->
+			<li>
+				<label for="uName">{$lang->writer} <em>*</em></label>
+				<input name="nick_name" type="text" id="uName" />
+			</li>
+			<li>
+				<label for="uPw">{$lang->password} <em>*</em></label>
+				<input name="password" type="password" id="uPw" />
+			</li>
+			<li>
+				<label for="uMail">{$lang->email_address}</label>
+				<input name="email_address" type="email" id="uMail" />
+			</li>
+			<li>
+				<label for="uSite">{$lang->homepage}</label>
+				<input name="homepage" type="url" id="uSite" value="" />
+			</li>
+			<!--@endif-->
+			<!--@if(count($extra_keys))-->
+			<!--@foreach($extra_keys as $key=> $val)-->
+			<li class="exvar">
+				<label for="ex_{$val->name}">{$val->name} <!--@if($val->is_required=="Y")--><em>*</em><!--@end--></label>
+				{$val->getFormHTML()}
+			</li>
+			<!--@endforeach-->
+			<!--@end-->
+			<li class="exvar option">
+				<input cond="$grant->manager" type="checkbox" name="is_notice" value="Y" class="iCheck" checked="checked"|cond="$oDocument->isNotice()" id="is_notice" />
+				<label cond="$grant->manager" for="is_notice">{$lang->notice}</label>
+				<input type="checkbox" name="comment_status" value="ALLOW" checked="checked"|cond="$oDocument->allowComment()" id="reAllow" />
+				<label for="reAllow">{$lang->allow_comment}</label>
+				<!--@foreach($status_list AS $key=>$value)-->
+				<input type="radio" name="status" value="{$key}" checked="checked"|cond="$oDocument->get('status') == $key" /> <label for="{$key}">{$value}</label>
+				<!--@end-->
+			</li>
+		</ul>
+		<div class="bt-wrap clearfix bt-wrap-full">
+			<a href="javascript:history.back()" class="btCancel">{$lang->cmd_cancel}</a>
+			<button type="submit" class="btSubmit">{$lang->cmd_registration}</button>
+		</div>
+	</form>
+</div>
+<include target="_footer.html" />

@@ -1,0 +1,30 @@
+/* basic set */
+.flatMessage em	{font: normal 1.2em "verdana";}	
+.flatMessage .btNone	{.btDark; background-color: transparent;}
+.flatMessage .btCancel	{display: block; float: left; width: 49%; border: none; line-height: 36px; text-align: center; font-size: 0.85em;}
+.flatMessage .btSubmit	{display: block; float: right; width: 50%; border: none;line-height: 36px; text-align: center; font-size: 0.85em;}
+.flatMessage .member-top-title	{font-size: 1.0em; position: absolute; top: 10px; left: 50%; width: 240px; height: 40px; margin-left: -120px; text-align: center; z-index: 60;}
+.flatMessage p.help-block	{margin-top: 5px; font-size: 0.85em;}
+
+/* login */
+.login-body	{margin: 0 auto; width: 90%; max-width: 320px; padding-top: 30px; text-align: center;}
+
+
+.login-form-wrap	{margin: 0 20px 0px;}
+.login-form-wrap input[type="text"],
+.login-form-wrap input[type="password"]	{display: inline-block; margin-bottom: 6px !important;}
+.login-form-wrap input[type="password"]	{margin-bottom: 12px;}
+.login-form-wrap label	{font-size: 0.9em;}
+
+.login-body .message	{margin: 0 0 20px;}
+.login-body .btLogin	{display: block; margin: 20px 0 0; width: 100%; border: none; line-height: 36px; text-align: center; font-size: 0.85em;}
+.login-body .bt-wrap2	{padding: 0;}
+.login-body .bt-wrap2 a	{display: inline-block; width: 50%; padding-top: 24px; background-color: transparent; border: none; line-height: 40px; text-align: center; font-size: 0.85em; background-repeat: no-repeat; background-position: center 12px;}
+.login-body .bt-wrap2 a.btLeft	{width: 48%; }
+.login-body .hp	{margin-top: 20px; padding: 10px; font-size: 0.75em; line-height: 1.4; text-align: left;}
+
+
+.message-wrap	{margin: 0 20px;}
+.message	{padding: 10px 0;}
+.logout	{padding-bottom: 30px; margin: 0 20px;}
+.logout .btDark	{width: 100%;}

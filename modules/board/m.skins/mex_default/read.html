@@ -1,0 +1,29 @@
+<!--@if($grant->write_comment)-->
+     <script type="text/javascript">
+     //<![CDATA[
+        cmtWriteGrant = true;
+     //]]>
+     </script>
+<!--@end-->
+
+<!--@if($mex_info->cmt_list_type == 'E')-->
+     <!--@if($rnd)-->
+          {@
+            $oMobileexModel = &getModel('mobileex');
+            $rndComment = $oMobileexModel->getMobileexComment($rnd);
+          }
+     <!--@end-->
+     <!--@if($rndComment->parent_srl || $rndComment->parent_srl != 0)-->
+          {@
+          $cmt_list_mode = 1;
+          $up_category = $rndComment->parent_srl;
+          }
+     <!--@end-->
+<!--@end-->
+
+<!--@if($cmt_list_mode && $mex_info->cmt_list_type == 'E')-->
+        <!--#include("read_sub_comments.html")-->
+<!--@else-->
+        <!--#include("read_document.html")-->
+<!--@end-->
+

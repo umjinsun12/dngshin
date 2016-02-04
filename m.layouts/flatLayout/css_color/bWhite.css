@@ -1,0 +1,145 @@
+/* image */
+.sc header.main	{background-image: url('../images/bgScan_top@2x.png'); background-size: 276px 40px;}
+.sc .login-wrap, .sc .member-header-wrap, .sc .main-normal-image, .sc .main-logo	{background-image: url('../images/bgScan@2x.png'); background-size: 276px 160px;}
+.sc2 header.main	{background-image: url('../images/bgScan2_top@2x.png'); background-size: 92px 40px;}
+.sc2 .login-wrap, .sc2 .member-header-wrap, .sc2 .main-normal-image, .sc2 .main-logo	{background-image: url('../images/bgScan2@2x.png'); background-size: 92px 80px;}
+
+.gnb li a	{background-image: url('../images/biFolder.png'); background-size: 16px 13px;}
+.gnb li a.btHome	{background-image: url('../images/biHome.png'); background-size: 17px 17px;}
+.profile-image	{background-image: url('../images/wiSpeechBubble.png'); background-size: 17px 19px;}
+
+/* board */
+.read-file li	{background-image: url('../images/biFile.png'); background-size: 12px 13px;}
+
+.comment li.indent	{background-image: url('../images/biReply.png'); background-size: 15px 15px;}
+.comment-write .btOpenWrite	{background-image: url('../images/biSpeechBubble.png'); background-size: 17px 19px;}
+
+.category-list a	{background-image: url('../images/biFolder.png'); background-size: 16px 13px;}
+
+.webzine-style .date	{background-image: url('../images/biClock.png'); background-size: 12px 12px;}
+.webzine-style .list .reply	{background-image: url('../images/biComment.png'); background-size: 14px 12px;}
+.webzine-style .author	{background-image: url('../images/biAuthor.png'); background-size: 11px 12px;}
+.webzine-style .locate	{background-image: url('../images/biLocate.png'); background-size: 6px 11px;}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+
+	.gnb li a	{background-image: url('../images/biFolder@2x.png');}
+	.gnb li a.btHome	{background-image: url('../images/biHome@2x.png');}
+	.profile-image	{background-image: url('../images/wiSpeechBubble@2x.png');}
+	
+	/* board */
+	.category-list a	{background-image: url('../images/biFolder@2x.png');}
+	
+	.read-file li	{background-image: url('../images/biFile@2x.png');}
+	
+	.comment li.indent	{background-image: url('../images/biReply@2x.png');}
+	.comment-write .btOpenWrite	{background-image: url('../images/wiSpeechBubble@2x.png');}
+	
+	.webzine-style .date	{background-image: url('../images/biClock@2x.png');}
+	.webzine-style .list .reply	{background-image: url('../images/biComment@2x.png');}
+	.webzine-style .author	{background-image: url('../images/biAuthor@2x.png');}
+	.webzine-style .locate	{background-image: url('../images/biLocate@2x.png');}
+}
+
+/* gnb */
+.gnb li ul li a	{border-left: 5px solid #CCC;}
+.gnb li a.selected, .gnb li ul li ul li.selected a	{color: #000;}
+
+
+/* baskcground color */
+body, .gnb li ul li ul, .flatBoard .paging a, .flatBoard .paging span, .title-wrap .profile-image, .read-control, .comment-el .profile-image, .m-talkbox .list, .m-blogbox .list, .flatMember .paging a, .flatMember .paging span, .comment-write button, .login-body .hp, .thumb-image.no-image
+{background-color: #e8e8e8;}
+.btAdmin, .bottom-menu1 li .btBasic, .gnb li ul, .info-table th, header.list-header .search-area, .read-file, .m-element .notice-list, .signup-form .radio-wrap, .info-body .pass_ex, .saved-body .savedContent, .comment-write textarea, .input100, .xv th, .write-form input, .write-form textarea, .origin-body, .flatBoard .message-body, .login-body, .signup-body, .find-body, .declare
+{background-color: #f1f1f1;}
+.exvar p
+{background-color: #f7f7f7;}
+.origin-body .title-wrap .profile-image
+{background-color: #DDD;}
+.btLight, .flatMember .btCancel, .flatBoard .btCancel, .m-talkbox .profile-image, .swiper-pagination-switch, .info-table button, .flatMember .paging span.current, .flatBoard .paging span.current	
+{background-color: #CCC;}
+.btBasic, .global-search, #menu-wrap, .login-wrap input[type="text"], .login-wrap input[type="password"], .login-wrap input[type="email"], .login-wrap input[type="url"], .login-wrap input[type="file"], .terms-container .terms-body, .m-list-reply, .bubble, .content, button.thumbText, .comment-view-vote, .bottom-menu1 li .btBasic.on, .category-list, .searchinput2, .paging2 a.btBasic, .read-declare button
+{background-color: #FFF;}
+.bg-dummy	
+{background-color: #000; }
+.best-comment
+{background-color: #fff3f3;}
+.best-text
+{background-color: #b42525; color: #FFF;}
+.lang-list	{box-shadow: 0 0 3px #555; -moz-box-shadow: 0 0 3px #555; -webkit-box-shadow: 0 0 3px #555;}
+
+
+/* border color */
+.btBasic, .btAdmin, .info-table input[type=text], .info-table input[type=email], .info-table input[type=url], .info-table input[type=file], .info-table input[type=password], .info-table textarea, .read-file, .m-list-reply, .input100, .comment-write textarea, .thumbText, .xv th, .xv td, .write-form input, .write-form textarea, .comment-write .disc
+{border: 1px solid #DDD}
+.bottom-menu1 li .btBasic, .login-wrap input[type="text"], .login-wrap input[type="password"], .login-wrap input[type="email"], .login-wrap input[type="url"], .login-wrap input[type="file"], .terms-container .terms-body, .login-body .hp, .signup-form .radio-wrap, .saved-body .savedContent, .comment-write button	
+{border: 1px solid #CCC}
+
+footer.main-footer
+{border-top: 1px solid #CCC;}
+.bottom-menu2 li, .xv th	
+{border-right: 1px solid #CCC;}
+.btBasic, .btAdmin, .m-list-reply, .info-body .pass_ex, .thumbText
+{border-bottom: 1px solid #CCC}
+
+.gnb li ul li, header.list-header .search-area, .comment-list li:first-child.best-comment, .login-body .bt-wrap2, .category-list li ul, .declare
+{border-top: 1px solid #DDD;}
+.info-table th, .m-list .list-element li.el, .login-body .bt-wrap2 a.btLeft
+{border-right: 1px solid #DDD;}
+.gnb li, .info-table tr, .title-wrap, .comment-list li, .m-element .notice-list li, .m-list .list li, .m-news .list li, .m-webzine .list li, .m-gallery .list, .comment-el.cWrite, .write-form li, .category-list li, .message-body.list-category h3, .fileup-input-wrap
+{border-bottom: 1px solid #DDD;}
+header.list-header, .write-form h3	
+{border-bottom: 2px solid #DDD;}
+
+.read-more li
+{border-top: 1px solid #EEE;}
+.exvar p
+{border-top: 1px dotted #DDD;}
+
+/* font color */
+body, a	
+{color: #000;}
+.comment-body .xe_content, .gnb li a, .paging2 .current
+{color: #333;}
+.btBasic, .btBasic a, .btAdmin, .bottom-menu2 li a, input[type="checkbox"] + label span, .btLight, .flatMember .btNone, .flatMember .btCancel, .flatBoard .btCancel, .login-body .bt-wrap2 a, .terms-container .terms-body, .signup-form dd .desc, .signup-form .warn, .find-body section p, .info-table td, .flatBoard .paging a, .flatBoard .paging span, header.list-header select, .m-talkbox .name-text, .login-body .hp, p.help-block, .info-table button, .info-body .pass_ex, .comment-view-vote, .flatBoard .paging span.current, .flatMember .paging span.current, .webzine-style .list .summary, .write-form .disc, .exvar p
+{color: #666;}
+.bottom-info, .bottom-info a, .login-form-wrap label, .title-wrap .under-title .el, .comment-el .date, .m-list .el, .webzine-style .list .info, .webzine-style .list .info a, .m-gallery .info, .flatMember .paging a, .flatMember .paging span, .thumbDownNum, .blind-text, .gnb li ul li ul, .page-type-num, .read-declare button
+{color: #999;}
+.thumbUpNum	
+{color: #bf3c3c;}
+
+.origin-body .title-wrap .l	
+{color: #CCC;}
+.under-title .l, .m-list .l	
+{color: #DDD;}
+.read-file li a, .comment-el .comment-body .xe_content a, .under-title a	
+{color: #255a90;}
+.m-element .category, .f-message a, #files li .bt, .write-form .disc a
+{color: #1886da;}
+
+/* pad color */
+@media screen and (min-width: 768px){
+	.inside	{background: #FFF url(../images/bgLine@2x.png) repeat-y center top; background-size: 1px 3px;}
+	.comment-control li	{border-bottom: none;}
+	.comment-control a	{background-color: #FFF; border: 1px solid #DDD; border-bottom: 1px solid #CCC; color: #666;}
+}
+/* phone color */
+@media screen and (max-width: 767px){	
+	/* board comment */
+	.comment-control li	{border-bottom: 1px solid #DDD;}
+	.comment-control li a.bt-cc-cancel	{background-color: #f1f1f1;}
+	.comment-vote button	{background-color: #FFF;}
+	.comment-vote button.thumbUp	{border: 5px solid #6197da;}
+	.comment-vote button.thumbDown	{border: 5px solid #ffa0a0;}
+	.exvar	{background-color: #f1f1f1;}
+	.write-form label	{color: #666;}
+	.write-form li	{border-bottom: 1px solid #DDD;}
+}
+
+
+/* board */
+.read-control .share a img	{box-shadow: 0 1px 2px #aaa; -moz-box-shadow: 0 1px 2px #aaa; -webkit-box-shadow: 0 1px 2px #aaa;}
+.bubble	{box-shadow: 0 1px 1px #bbb; -moz-box-shadow: 0 1px 1px #bbb; -webkit-box-shadow: 0 1px 1px #bbb;}
+.m-talkbox .bubble:after	{border-color: transparent #FFF;}

@@ -1,0 +1,14 @@
+<query id="getApplyModules" action="select">
+    <tables>
+        <table name="aroundmap_apply_modules" />
+        <table name="modules" />
+    </tables>
+    <columns>
+        <column name="aroundmap_apply_modules.*" />
+        <column name="modules.mid" alias="mid" />
+        <column name="modules.browser_title" alias="browser_title" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="aroundmap_apply_modules.module_srl" default="modules.module_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

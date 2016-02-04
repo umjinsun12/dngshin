@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module version="0.2">
+	<title xml:lang="ko">등기비 북마크</title>
+	<description xml:lang="ko">등기비 북마크 모듈</description>
+	<version>1.0</version>
+	<link>http://dgishin.com</link>
+	<category>service</category>
+	<date>2014-05-17</date>
+	<license link="http://licenseurl.com">FREE</license>
+	<author email_address="author1@yourdomain.com" link="http://author1.com">
+		<name xml:lang="ko">Author1</name>
+	</author>
+	<author email_address="author2@yourdomain.com" link="http://author2.com">
+		<name xml:lang="ko">Author2</name>
+	</author>
+</module>

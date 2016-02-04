@@ -1,0 +1,8 @@
+<filter name="set_api_key" module="aroundmap" act="procAroundmapAdminSetApiKey" confirm_msg_code="confirm_submit">
+  <form />
+  <parameter />
+  <response>
+    <tag name="error" />
+    <tag name="message" />
+  </response>
+</filter>

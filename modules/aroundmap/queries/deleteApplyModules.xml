@@ -1,0 +1,5 @@
+<query id="deleteApplyModules" action="delete">
+    <tables>
+        <table name="aroundmap_apply_modules" />
+    </tables>
+</query>

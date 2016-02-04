@@ -1,0 +1,55 @@
+<include target="./member_header.html" />
+<h2 class="member-top-title">{$lang->member_info}</h2>
+<div class="member-header-wrap">
+<div class="member-header">
+	{@
+		$oMemberModel = &getModel('member');
+		if ($member_srl == $logged_info->member_srl || !$member_srl) $memberProfileImage = $oMemberModel->getProfileImage($logged_info->member_srl);
+		else $memberProfileImage = $oMemberModel->getProfileImage($member_srl);
+	}
+	<div class="profile-image"><a href="{getUrl('act','dispMemberInfo','member_srl','')}"><img src="{$memberProfileImage->file}" alt="profile-image" width="80" height="80" cond="$memberProfileImage->file" /></a></div>
+	<ul class="member-menu">
+		<!--@if($member_srl == $logged_info->member_srl || !$member_srl)-->
+		<li cond="$member_config->identifier == 'email_address'">
+			<a href="{getUrl('act', 'dispMemberModifyEmailAddress')}">{$lang->cmd_modify_member_email_address}</a>
+		</li>
+		<li>
+			<a href="{getUrl('act','dispMemberModifyInfo','member_srl','')}">{$lang->cmd_modify_member_info}</a>
+		</li>
+		<li>
+			<a href="{getUrl('act','dispMemberModifyPassword','member_srl','')}">{$lang->cmd_modify_member_password}</a>
+		</li>
+		<!--@else-->
+		<li><a href="javascript:history.back()" class="active">{$lang->cmd_back}</a></li>
+		<!--@end-->
+	</ul>
+</div>
+</div>
+<div class="info-body">
+	<table class="info-table" cellpadding="0" cellspacing="0">
+		<caption>{$lang->member_info}</caption>
+		<tr loop="$displayDatas => $item">
+			<th>{$item->title} <em cond="$item->required || $item->mustRequired">*</em></th>
+			<td>{$item->value}</td>
+		</tr>
+		<tr>
+			<th>{$lang->member_group}</th>
+			<td>{implode(', ', $memberInfo['group_list'])}</td>
+		</tr>
+		<tr>
+			<th>{$lang->signup_date}</th>
+			<td>{zdate($memberInfo[regdate],"Y-m-d")}</td>
+		</tr>
+		<!--@if($memberInfo[member_srl] == $logged_info->member_srl || $logged_info->is_admin == 'Y' )-->
+		<tr>
+			<th>{$lang->last_login}</th>
+			<td>{zdate($memberInfo[last_login],"Y-m-d")}</td>
+		</tr>
+		<!--@end-->
+	</table>
+	<div class="bt-wrap" cond="$member_srl == $logged_info->member_srl || !$member_srl">
+		<a href="{getUrl('act','dispMemberLeave','member_srl','')}" class="btWithdraw btLight">{$lang->cmd_leave}</a>
+	</div>
+</div>
+<include target="./member_footer.html" />
+

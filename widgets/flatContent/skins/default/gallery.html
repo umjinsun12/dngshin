@@ -1,0 +1,74 @@
+{@
+	if (!$wi->subject_cut_size) $wi->subject_cut_size = 26;
+	$t_date = date(Ymd);
+}
+
+<div class="m-gallery m-element gridEl">
+	<section class="swiper"|cond="$wi->tab_type == 'tab' || $wi->page_count>1">
+		<include target="_tab.html" cond="$wi->tab_type == 'tab'" />
+		<!--@if($wi->tab_type == 'tab')-->
+		<ul class="swiper-wrapper">
+			{@$i=0}
+			<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+			<li class="swiper-slide slide slide{$i}"><ul class="list">
+			{@$widget_info->content_items = $tab->content_items}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && !is_int($_idx/($wi->list_count*$wi->page_count-$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li>
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"><span class="gr" cond="$item->getCommentCount() && $wi->show_info == 'Y'">{$item->getCommentCount()}</span></div>
+				<div class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</div>
+				<div class="title">{$item->getTitle($wi->subject_cut_size)}  <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+				<div class="info" cond="$wi->show_info == 'Y'"><span class="name">{$item->getNickName()}</span> <!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			{@$i++}
+			</ul></li>
+			<!--@end-->
+		</ul>
+		<div class="swiper-pagination"></div>			
+		<!--@elseif($wi->tab_type == 'none' && $wi->page_count>1)-->
+		<include target="_title.html" />
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide"><ul class="list clearfix">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && $_idx/$wi->list_count !=0)-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li>
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"><span class="gr" cond="$item->getCommentCount() && $wi->show_info == 'Y'">{$item->getCommentCount()}</span></div>
+				<div class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</div>
+				<div class="title">{$item->getTitle($wi->subject_cut_size)}  <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+				<div class="info" cond="$wi->show_info == 'Y'"><span class="name">{$item->getNickName()}</span> <!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			</ul></li>
+		</ul>
+		<div class="swiper-pagination"></div>
+		<!--@else-->
+		<include target="_title.html" />
+		<ul class="list cleafix">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<li>
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"><span class="gr" cond="$item->getCommentCount() && $wi->show_info == 'Y'">{$item->getCommentCount()}</span></div>
+				<div class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</div>
+				<div class="title">{$item->getTitle($wi->subject_cut_size)}  <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+				<div class="info" cond="$wi->show_info == 'Y'"><span class="name">{$item->getNickName()}</span> <!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+		</ul>
+		<!--@end-->
+	</section>
+</div>

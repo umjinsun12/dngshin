@@ -1,0 +1,102 @@
+<!--@if($receiver_info->member_srl && $document_srl)-->
+ <!--#include("./member_header.html")-->
+<!--%import("filter/mobile_send_message.xml")-->
+ 
+ {@ 
+	$oDocumentModel=getModel('document');
+	$oDocument = $oDocumentModel->getDocument($doc_srl);
+	$_extra_vars=$oDocument->getExtraVars();
+ }
+ <form action="./" method="get" onsubmit="return procFilter(this,mobile_send_message)">
+        <input type="hidden" name="receiver_srl" value="{$receiver_info->member_srl}" />
+        <input type="hidden" name="document_srl" value="{$document_srl}" />
+        <input type="hidden" name="receiver_nick_name" id="mrud" class="input_box" value="{$receiver_info->nick_name}" readonly="readonly" />
+        <input type="hidden" name="title" id="message_title" class="input_box" value="{$_extra_vars[1]->getValueHTML()} 법무사 견적 요청" readonly="readonly" />
+        <input type="hidden" class="textarea_box" id="mcnt" name="content" value="{$document_srl}" readonly="readonly"/>
+        
+        
+        
+        <div class="bmsg">
+        		<div style="margin-top:10%;margin-bottom: 10px">
+        		계산된 견적을 <br>{$_extra_vars[1]->getValueHTML()} 법무사에게 보냅니다.
+        		</div>
+				<div class="btn_area" >
+				<a style="margin-right:10px;float:left;background-color: #245580"class="gbutton" href="javascript:history.back()">취소</a>
+		        <button style="float:right;"class="gbutton" type="submit" title="{$lang->cmd_send_message}">견적 보내기</button>
+	    		</div>
+	    </div>
+
+</form>
+<!--@else-->
+
+<!--#include("./member_header.html")-->
+<!--%import("filter/mobile_send_message.xml")-->
+<div class="member_info_wrap">
+    <h3 class="p_tit">{$lang->cmd_send_message}</h3>
+    <form action="./" method="get" onsubmit="return procFilter(this,mobile_send_message)">
+        <input type="hidden" name="receiver_srl" value="{$receiver_info->member_srl}" />
+        <input type="hidden" name="document_srl" value="{$document_srl}" />
+
+        <!-- 받는이 -->
+        <div class="mb_box">
+          <table class="mb_tbl2">
+          		<colgroup><col style="width:70px"><col></colgroup>
+          		<tbody>
+          		<!--@if($receiver_info->member_srl)-->
+          		<tr>
+             		<th scope="row">{$lang->receiver}</th>
+             		<td><span class="input_area"><input type="text" name="receiver_nick_name" id="mrud" class="input_box" value="{$receiver_info->nick_name}" readonly="readonly" /><span class="txt"></span></span></td>
+          		</tr>
+          		<!--@else-->
+          		<tr>
+             		<th scope="row">{$lang->receiver}</th>
+             		<td><span class="input_area"><input type="text" name="receiver_user_id" id="mrud" class="input_box" /><span class="txt">아이디를 입력해주세요. (이메일X)</span></span></td>
+          		</tr>
+          		<!--@end-->
+          		</tbody>
+          	</table>
+        </div>
+        <!-- 타이틀 -->
+        <div class="mb_box2">
+          <table class="mb_tbl2">
+          		<colgroup><col style="width:70px"><col></colgroup>
+          		<tbody>
+          		<!--@if($document_srl)-->
+          		<tr>
+             		<th scope="row">견적서</th>
+             		<td><span class="input_area"><input type="text" name="title" id="message_title" class="input_box" value="{$document_srl}" readonly="readonly" /><span class="txt"></span></span></td>
+          		</tr>
+          		<!--@else-->
+          		<tr>
+             		<th scope="row">{$lang->title}</th>
+             		<td><span class="input_area"><input type="text" name="title" id="message_title" class="input_box" value="{$source_message->title}" /><span class="txt"></span></span></td>
+          		</tr>
+          		<!--@end-->
+          		</tbody>
+          	</table>
+        </div>
+        <!-- 옵션 -->
+        <!--<div class="mb_box2"><table class="mb_tbl2"><colgroup><col style="width:70px"><col></colgroup><tbody><tr><th scope="row">{$lang->cmd_option}</th><td><input type="checkbox" value="Y" name="send_mail"  /><label for="">메일발송</label></td></tr></tbody></table></div>-->
+        
+        <!-- 받는이 -->
+        <div class="mb_box2">
+          <table class="mb_tbl2">
+          		<!--@if($document_srl)-->
+          		<tr>
+             		<td><span class="text_area"><input type="text" class="textarea_box" id="mcnt" name="content" value="위와 같이 견적 부탁드립니다." readonly="readonly"></textarea></span></td>
+          		</tr>
+          		<!--@else-->
+          		<tr>
+             		<td><span class="text_area"><textarea class="textarea_box" id="mcnt" name="content"></textarea></span></td>
+          		</tr>
+          		<!--@end-->
+          	</table>
+        </div>
+          <div class="btn_area">
+          	   <a href="{getUrl('act','dispMobileexMessages','page','','message_type','','receiver_srl','','message_srl','')}" class="btn" title="{$lang->cmd_back}" style="height:27px; line-height:27px; margin-top:-2px ">{$lang->cmd_list}</a>
+		        <button class="btn bt_btn" type="submit" title="{$lang->cmd_send_message}">{$lang->cmd_send_message}</button>
+	       </div>
+	       
+	   <!--@end-->
+     </form>
+</div>

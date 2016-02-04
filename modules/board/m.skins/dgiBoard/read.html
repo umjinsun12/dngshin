@@ -1,0 +1,364 @@
+<load target="https://developers.kakao.com/sdk/js/kakao.min.js" />
+<span class="check-prev-dummy"></span>
+<article>
+	<div>
+			<div class="hero-image">
+          <div class="hero-image-title">
+            <h2>등기비 결과보기</h2>
+            <div class="sub-title-small">등기계산 결과입니다.</div>
+          </div>
+          <div class="hero-image-img"><img src="images/photo-1429032021766-c6a53949594f.jpg">
+          </div>
+    	</div>
+		<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+		<form action="./" method="get" class="read-secret" onsubmit="return procFilter(this, input_password)">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="page" value="{$page}" />
+		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+			<input type="password" name="password" id="cpw" required placeholder="{$lang->msg_is_secret}" class="input100" />
+			<div class="bt-wrap clearfix bt-wrap-full">
+				<a href="{getUrl('document_srl','')}" class="btCancel">{$lang->cmd_cancel}</a>
+				<button type="submit" class="btSubmit">{$lang->cmd_input}</button>
+			</div>
+		</form>
+		<!--@else-->
+		<!--@if($oDocument->isExtraVarsExists())-->
+		
+			{@ $_extra_vars = $oDocument->getExtraVars(); }
+			
+            <div class="dgi-header">
+              		<h2 class="dgi-heading-title">입력값</h2>
+            </div>
+            	
+			<table style="background-color: rgba(236, 229, 229, 0.46);" cellpadding="0" cellspacing="0" class="xv">
+				
+			<!--@if($_extra_vars[1]->value)-->
+				<tr>
+					<th>{$_extra_vars[1]->name}</th>
+					<td>{$_extra_vars[1]->getValueHTML()} 원</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[2]->value)-->
+				<tr>
+					<th>{$_extra_vars[2]->name}</th>
+					<td>{$_extra_vars[2]->getValueHTML()} 원</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[3]->value)-->
+				<tr>
+					<th>{$_extra_vars[3]->name}</th>
+					<td>{$_extra_vars[3]->getValueHTML()}</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[4]->value)-->
+				<tr>
+					<th>{$_extra_vars[4]->name}</th>
+					<td>{$_extra_vars[4]->getValueHTML()}</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[5]->value)-->
+				<tr>
+					<th>{$_extra_vars[5]->name}</th>
+					<td>{$_extra_vars[5]->getValueHTML()}</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[6]->value)-->
+				<tr>
+					<th>{$_extra_vars[6]->name}</th>
+					<td>{$_extra_vars[6]->getValueHTML()}</td>
+				</tr>
+			<!--@endif-->
+			<!--@if($_extra_vars[7]->value)-->
+				<tr>
+					<th>{$_extra_vars[7]->name}</th>
+					<td>{$_extra_vars[7]->getValueHTML()}</td>
+				</tr>
+			<!--@endif-->
+			</table>
+			
+			
+			      <div class="dgi-header">
+              		<h2 class="dgi-heading-title">결과값</h2>
+            </div>
+            
+			<table style="background-color: rgba(236, 229, 229, 0.46);"  cellpadding="0" cellspacing="0" class="xv">
+			
+			
+				{@
+					
+					$maemaega=(int)preg_replace("/[^\d]/","",$_extra_vars[1]->value);
+					$siga = preg_replace("/[^\d]/","",$_extra_vars[2]->value); 
+					$sojae = $_extra_vars[3]->value;
+					$pyung = $_extra_vars[4]->value;
+					$chaehal = $_extra_vars[5]->value;
+				}
+				
+				<!--@if($maemaega <= 600000000)-->
+				{@
+					if($pyung=='85m² 이하 주택') $nong=0;
+					else $nong = round($maemaega*0.002);
+					
+					$chui = round($maemaega*0.01);
+					$gyo = round($maemaega*0.001);
+				}
+				
+				<!--@elseif($maemaega <= 900000000)-->
+				{@					
+					if($pyung=='85m² 이하 주택') $nong=0;
+					else $nong=round($maemaega*0.002);
+					
+					$chui=round($maemaega*0.02);
+					$gyo = round($maemaega*0.002);
+				}
+				<!--@else-->
+				{@
+					if($pyung=='85m² 이하 주택') $nong=0;
+					else $nong=round($maemaega*0.002);
+					
+					$chui = round($maemaega*0.03);
+					$gyo = round($maemaega*0.003);
+				}
+				<!--@end-->
+				
+				
+				
+				{@
+					$jungji = 15000;
+					
+					if($maemaega > 1000000000) $inji = 150000;
+					elseif($maemaega > 100000000) $inji = 150000;
+					elseif($maemaega > 50000000) $inji = 70000;
+					elseif($maemaega > 30000000) $inji = 40000;
+					else $inji = 20000;
+					
+					if(!$siga) $siga=$maemaega*0.7;
+				}
+				
+				<!--@if($siga < 50000000)-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.013;
+					else $chae = $siga*0.013;	
+				}
+				<!--@elseif($siga < 100000000)-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.019;
+					else $chae = $siga*0.014;	
+				}
+				<!--@elseif($siga < 160000000)-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.021;
+					else $chae = $siga*0.016;	
+				}
+				<!--@elseif($siga < 260000000)-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.023;
+					else $chae = $siga*0.018;	
+				}
+				<!--@elseif($siga < 600000000)-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.026;
+					else $chae = $siga*0.021;	
+				}
+				<!--@else-->
+				{@
+					if($sojae = '특별시/광역시') $chae = $siga*0.031;
+					else $chae = $siga*0.026;	
+				}
+				<!--@end-->
+				{@
+					$chae=round($chae)*0.025;
+					if($chae > 10000) $chae = round($chae,-4)*0.025;
+					else $chae = round($chae)*0.025;
+					
+					$dggibu = 3000;
+					
+					$total = $chui + $nong + $gyo + $jungji + $inji + $chae + $dggibu;
+				}
+				
+				{@
+					$chui = number_format($chui);
+					$nong = number_format($nong);
+					$gyo = number_format($gyo);
+					$jungji = number_format($jungji);
+					$inji = number_format($inji);
+					$chae = number_format($chae);
+					$dggibu = number_format($dggibu);
+					$total = number_format($total);
+				}
+				
+				<tr>
+					<th>취득세</th>
+					<td>{$chui} 원</td>
+				</tr>
+				<tr>
+					<th>농어촌특별세</th>
+					<td>{$nong} 원</td>
+				</tr>
+				<tr>
+					<th>교육세</th>
+					<td>{$gyo} 원</td>
+				</tr>
+				<tr>
+					<th>증지</th>
+					<td>{$jungji} 원</td>
+				</tr>
+				<tr>
+					<th>인지</th>
+					<td>{$inji} 원</td>
+				</tr>
+				<tr>
+					<th>주택채권액</th>
+					<td>{$chae} 원</td>
+				</tr>
+				<tr>
+					<th>부동산 등기부등본</th>
+					<td>{$dggibu} 원</td>
+				</tr>
+				<tr>
+					<th>공과금 소계</th>
+					<td>{$total} 원</td>
+				</tr>
+			</table>
+			
+
+		
+		
+		<!--@end-->
+		
+		<div style="padding:10px;margin-bottom: 20px">
+		<!--@if($dgi_way==1)-->
+		<div class="clearfix" style="float: left;background-color:#286090"><a href="{getUrl('','act','dispMobileexSendMessage','document_srl',$document_srl,'receiver_srl',$receiver_srl,doc_srl,$doc_srl)}" class="vbutton">견적 보내기</a></div>
+		<!--@elseif($dgi_way==2)-->
+		<div class="clearfix" style="float: left;background-color:#286090"><a href="javascript:history.back()" class="vbutton">돌아가기</a></div>
+		
+		<!--@else-->
+		<div class="clearfix" style="float: left;background-color:#286090"><a href="{getUrl('','mid','dgibi_niWQ69','act','dispDgibiContent')}" class="vbutton">셀프등기 하러가기</a></div>
+		<!--@end-->
+		<!--@if($oDocument->isEditable())-->
+		<a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}" class="vbutton" style="float: right;background-color: #272B30">수정하기</a>
+		<!--@end-->
+		</div>
+		
+		<!--@end-->
+	
+	</div>
+</article>
+<!--// 
+Source form : http://www.xpressengine.com/21617245 & sketchbook5 http://xe.sketchbooks.co.kr/
+-->
+<block loop="$document_list=>$no,$document" cond="$document_srl==$document->document_srl">
+<!--// prev-next page -->
+<block cond="!$search_keyword">
+<block cond="(!$document_list[$no+1]->document_srl && $page!=1) || (!$document_list[$no-1]->document_srl && $page!=$total_page)">
+{@
+	$oModuleModel = &getModel('module');
+	$module_srl_temp = $oModuleModel->getModuleSrlByMid($mid);
+	if(is_array($module_srl_temp)) $module_srl = $module_srl_temp[0];
+	else $module_srl = $module_srl_temp;
+	$args = new stdClass();
+	$args->module_srl = $module_srl;
+	$args->category_srl = $category;
+	$args->list_count = $module_info->list_count;
+	$args->sort_index = $module_info->order_target;
+	if($sort_index) $args->sort_index = $sort_index;
+	$args->order_type = $module_info->order_type;
+	if($sort_index) $args->order_type = $order_type;
+	if($module_info->except_notice=='Y') $prevnext_except_notice=1;
+}
+<!--@if(!$document_list[$no+1]->document_srl && $page!=1)-->
+{@
+	$is_prevnext='P';
+	$args->page = $page-1;
+	$prevnext_list = executeQueryArray('document.getDocumentList',$args);
+	$prevnext_data = array_reverse($prevnext_list->data);
+}
+<!--@else if(!$document_list[$no-1]->document_srl && $page!=$total_page)-->
+{@
+	$is_prevnext='N';
+	$args->page = $page+1;
+	$prevnext_list = executeQueryArray('document.getDocumentList',$args);
+	$prevnext_data = $prevnext_list->data;
+}
+<!--@end-->
+<!--@foreach($prevnext_data as $no2 => $document2)-->
+<block cond="!$prevnext_except_notice || ($prevnext_except_notice && $document2->is_notice!='Y')">
+{@
+	$prevnext_doc = $document2->document_srl;
+	$prevnext_title = $document2->title;
+	$prevnext_date = $document2->regdate;
+	$prevnext_nick = $document2->nick_name;
+	$prevnext_comment = $document2->comment_count;
+	break;
+}
+</block>
+<!--@end-->
+</block>
+</block>
+<ul class="read-more" cond="$mi->use_more == 'Y'">
+	<block loop="$document_list=>$no,$document" cond="$document_srl==$document->document_srl">
+	<li cond="$document_list[$no+1]->document_srl"><a href="{getUrl('document_srl',$document_list[$no+1]->document_srl)}"><span class="prev">이전글</span> {$document_list[$no+1]->getTitle(34)} <span class="thumbUpNum" cond="$document_list[$no+1]->getCommentCount()">[{$document_list[$no+1]->getCommentCount()}]</span></a></li>
+	
+	<block cond="$is_prevnext">
+	<!--@if($is_prevnext=='P')-->
+	<li><a href="{getUrl('document_srl',$prevnext_doc,'page','','cpage','')}"><span class="prev">이전글</span> {$prevnext_title} <span class="thumbUpNum" cond="$prevnext_comment">[{$prevnext_comment}]</span> </a></li>
+	<!--@else-->
+	<li><a href="{getUrl('document_srl',$prevnext_doc,'page','','cpage','')}"><span class="next">다음글</span> {$prevnext_title} <span class="thumbUpNum" cond="$prevnext_comment">[{$prevnext_comment}]</span> </a></li>
+	<!--@end-->
+	</block>
+	
+	<li cond="$document_list[$no-1]->document_srl"><a href="{getUrl('document_srl',$document_list[$no-1]->document_srl)}"><span class="next">다음글</span> {$document_list[$no-1]->getTitle(34)} <span class="thumbUpNum" cond="$document_list[$no-1]->getCommentCount()">[{$document_list[$no-1]->getCommentCount()}]</span></a></li>
+	</block>
+</ul>
+{@ break;}
+</block>
+<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+<!--@else-->
+<div id="comment">
+<div class="declare clearfix">
+	<p class="thumbUpNum">[주의] 이 글을 신고합니다.</p>
+	<div class="bt-wrap">
+		<button class="btLight">{$lang->cmd_cancel}</button>
+		<button onclick="doCallModuleAction('document','procDocumentDeclare','{$document_srl}');return false;" class="btDark">{$lang->cmd_declare}</button>
+	</div>		
+</div>
+<div class="read-control">
+
+	<div class="share">
+		<!--
+		<a href="javascript:sendLink()" id="kakao-link-btn"><img src="images/siKakao@2x.png" alt="kakao talk" width="40px" height="40px" /></a>
+		<script>
+			Kakao.init('e3e9be789541293e7e335eb60cd4b931');
+			
+			function sendLink() {
+				Kakao.Link.sendTalkLink({
+					label: '[{$layout_info->site_name}] {$oDocument->getTitleText()}',
+					webLink: {
+						text: '{$oDocument->getPermanentUrl()}',
+						url: '{$oDocument->getPermanentUrl()}'
+					}
+				});
+			}
+		</script>
+		-->
+		<script type="text/javascript">
+		  function executeKakaoStoryLink()
+		  {
+		    kakao.link("story").send({   
+		        post : "{$oDocument->getPermanentUrl()}",
+		        appid : "m.kakao.com",
+		        appver : "1.0",
+		        appname : "{$layout_info->site_name}",
+		        urlinfo : JSON.stringify({title:"{$oDocument->getTitleText()}", imageurl:["{$oDocument->getThumbnail(320, auto, ratio)}"], type:"article"})
+		    });
+		  }
+		</script>
+  		<a onclick="javascript:executeKakaoStoryLink()"><img src="images/siKakaoStory@2x.png" alt="kakao story" width="40px" height="40px" /></a>
+  		<a href="https://www.facebook.com/sharer/sharer.php?u={$oDocument->getPermanentUrl()}"><img src="images/siFacebook@2x.png" alt="Facebook" width="40px" height="40px" /></a>
+		<a href="http://twitter.com/share?url={$oDocument->getPermanentUrl()}&text={$oDocument->getTitle()}"><img src="images/siTwitter@2x.png" alt="Twitter" width="40px" height="40px" /></a>
+	</div>
+</div>
+<!--<include target="comment.html" /> 잠깐지워보쟝-->
+</div>
+<!--@end-->
+
+

@@ -1,0 +1,96 @@
+{@
+	if (!$wi->subject_cut_size) $wi->subject_cut_size = 32;
+	$t_date = date(Ymd);
+}
+
+<div class="m-ranking m-news m-element gridEl<!--@if($wi->show_info == 'Y')--> webzine-style<!--@end-->">
+	<section class="swiper"|cond="$wi->tab_type == 'tab' || $wi->page_count>1">
+		<include target="_tab.html" cond="$wi->tab_type == 'tab'" />
+		<!--@if($wi->tab_type == 'tab')-->
+		<ul class="swiper-wrapper">
+			{@$i=0}
+			<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+			{@$rank=0}
+			<li class="swiper-slide slide slide{$i}"><ul class="list">
+			{@$widget_info->content_items = $tab->content_items}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && !is_int($_idx/($wi->list_count*$wi->page_count-$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+				{@$rank++}
+				<li>
+					<a href="{$item->getLink()}" class="list-link"></a>
+					<span class="rank-num">{$rank}</span>
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+					<span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span>
+					<div class="info">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply" cond="$item->getCommentCount()">{$item->getCommentCount()}</a>
+					</div>
+				</li>
+			{@$_idx++}
+			<!--@end-->
+			{@$i++}
+			</ul></li>
+			<!--@end-->
+		</ul>
+		<div class="swiper-pagination"></div>
+		<!--@elseif($wi->tab_type == 'none' && $wi->page_count>1)-->
+		<include target="_title.html" />
+		<ul class="swiper-wrapper">
+			{@$rank=0}
+			<li class="swiper-slide"><ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && $_idx/$wi->list_count !=0)-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+				{@$rank++}
+				<li>
+					<a href="{$item->getLink()}" class="list-link"></a>
+					<span class="rank-num">{$rank}</span>
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+					<span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span>
+					<div class="info">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply" cond="$item->getCommentCount()">{$item->getCommentCount()}</a>
+					</div>
+				</li>
+			{@$_idx++}
+			<!--@end-->
+			</ul></li>
+		</ul>
+		<div class="swiper-pagination"></div>
+		<!--@else-->
+		<include target="_title.html" />
+		<ul class="list">
+			{@$rank=0}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+				{@$rank++}
+				<li>
+					<a href="{$item->getLink()}" class="list-link"></a>
+					<span class="rank-num">{$rank}</span>
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+					<span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span>
+					<div class="info">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply" cond="$item->getCommentCount()">{$item->getCommentCount()}</a>
+					</div>
+				</li>
+			{@$_idx++}
+			<!--@end-->
+		</ul>
+		<!--@end-->
+	</section>
+</div>
+

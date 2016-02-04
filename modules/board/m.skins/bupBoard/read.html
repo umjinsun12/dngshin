@@ -1,0 +1,178 @@
+<load target="https://developers.kakao.com/sdk/js/kakao.min.js" />
+{@ $_extra_vars = $oDocument->getExtraVars(); }
+
+		{@ 
+			$receiver_user_id = $_extra_vars[3]->value;
+			$oMemberModel = &getModel('member');
+			$columnList = array('member_srl');
+			$receiver_info = $oMemberModel->getMemberInfoByEmailAddress($receiver_user_id); 
+            if(!$receiver_srl)
+            	$receiver_srl = $receiver_info->member_srl;
+            else
+            	$receiver_srl = 4; 
+		}
+		
+
+<article>
+		
+	<div>
+
+	
+		<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+		<form action="./" method="get" class="read-secret" onsubmit="return procFilter(this, input_password)">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="page" value="{$page}" />
+		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+			<input type="password" name="password" id="cpw" required placeholder="{$lang->msg_is_secret}" class="input100" />
+			<div class="bt-wrap clearfix bt-wrap-full">
+				<a href="{getUrl('document_srl','')}" class="btCancel">{$lang->cmd_cancel}</a>
+				<button type="submit" class="btSubmit">{$lang->cmd_input}</button>
+			</div>
+		</form>
+		<!--@else-->
+		
+		<div class="bup_image">
+		<div class="image-content">
+		<img src="{$oDocument->getThumbnail()}" style="width:120px;height:120px">
+		</div>
+		
+		<div class="bup-title">
+			{$_extra_vars[1]->getValueHTML()} 법무사	
+		</div>
+		</div>
+		
+		<div class="bup_contact">
+
+			
+			<a href="{getUrl('','mid','board_zhaH13','act','dispBoardWrite','dgi_way','1','receiver_srl',$receiver_srl,'doc_srl',$document_srl)}">
+			<div style="float: left;width: 50%;height:100%;padding: 10px;background-color: #F15A22">
+				<div>
+				<img src="./images/bup_con.png" style="width:35px;height:35px;float: left;margin-right: 15px">
+				</div>
+				<div style="color: white;font-size:14px;font-weight: bolder;margin:10px">
+				견적 문의하기
+				</div>
+			</div>
+			</a>
+			
+			<a href="tel:01055026392">
+			<div style="float: right;width: 50%;height:100%;padding: 10px;background-color:#245580">
+				<div>
+				<img src="./images/bup_phone.png" style="width:35px;height:35px;float: left;margin-right: 15px">
+				</div>
+				<div style="color: white;font-size:14px;font-weight: bolder;margin:10px">
+					전화걸기
+				</div>
+			</div>
+			</a>
+		</div>
+		
+		
+		<div style="padding-left: 20px;padding-top: 10px">
+		<div>
+                <div class="separator-fields"></div>
+                <h2 class="title-new">{$_extra_vars[2]->name}</h2>
+                <div class="separator-fields"></div>
+                <p class="description-new">{$_extra_vars[2]->getValueHTML()}</p>
+                <div class="separator-button"></div>
+        </div>
+        
+        <div>
+                <div class="separator-fields"></div>
+                <h2 class="title-new">{$_extra_vars[3]->name}</h2>
+                <div class="separator-fields"></div>
+                <p class="description-new">{$_extra_vars[3]->getValueHTML()}</p>
+                <div class="separator-button"></div>
+        </div>
+        
+            
+		
+		<div>
+                <div class="separator-fields"></div>
+                <h2 class="title-new">법무사 소개</h2>
+                <div class="separator-fields"></div>
+                <p class="description-new">{$oDocument->getContent(false)}</p>
+                <div class="separator-button"></div>
+        </div>
+        
+		
+		
+		
+		<!--@end-->
+	
+
+		
+		
+	
+</div>
+</article>
+<!--// 
+Source form : http://www.xpressengine.com/21617245 & sketchbook5 http://xe.sketchbooks.co.kr/
+-->
+<block loop="$document_list=>$no,$document" cond="$document_srl==$document->document_srl">
+<!--// prev-next page -->
+<block cond="!$search_keyword">
+<block cond="(!$document_list[$no+1]->document_srl && $page!=1) || (!$document_list[$no-1]->document_srl && $page!=$total_page)">
+{@
+	$oModuleModel = &getModel('module');
+	$module_srl_temp = $oModuleModel->getModuleSrlByMid($mid);
+	if(is_array($module_srl_temp)) $module_srl = $module_srl_temp[0];
+	else $module_srl = $module_srl_temp;
+	$args = new stdClass();
+	$args->module_srl = $module_srl;
+	$args->category_srl = $category;
+	$args->list_count = $module_info->list_count;
+	$args->sort_index = $module_info->order_target;
+	if($sort_index) $args->sort_index = $sort_index;
+	$args->order_type = $module_info->order_type;
+	if($sort_index) $args->order_type = $order_type;
+	if($module_info->except_notice=='Y') $prevnext_except_notice=1;
+}
+<!--@if(!$document_list[$no+1]->document_srl && $page!=1)-->
+{@
+	$is_prevnext='P';
+	$args->page = $page-1;
+	$prevnext_list = executeQueryArray('document.getDocumentList',$args);
+	$prevnext_data = array_reverse($prevnext_list->data);
+}
+<!--@else if(!$document_list[$no-1]->document_srl && $page!=$total_page)-->
+{@
+	$is_prevnext='N';
+	$args->page = $page+1;
+	$prevnext_list = executeQueryArray('document.getDocumentList',$args);
+	$prevnext_data = $prevnext_list->data;
+}
+<!--@end-->
+<!--@foreach($prevnext_data as $no2 => $document2)-->
+<block cond="!$prevnext_except_notice || ($prevnext_except_notice && $document2->is_notice!='Y')">
+{@
+	$prevnext_doc = $document2->document_srl;
+	$prevnext_title = $document2->title;
+	$prevnext_date = $document2->regdate;
+	$prevnext_nick = $document2->nick_name;
+	$prevnext_comment = $document2->comment_count;
+	break;
+}
+</block>
+<!--@end-->
+</block>
+</block>
+
+</block>
+<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+<!--@else-->
+
+<div id="comment">
+
+<div class="read-control">
+	<ul class="clearfix">
+		<li class="comment-num title-new" style="font-weight: bold">&nbsp리뷰 <span class="num">{$oDocument->getCommentCount()}</span> 건</li>
+	</ul>
+	
+</div>
+<include target="bup_comment.html" />
+</div>
+</div>
+<!--@end-->
+
+

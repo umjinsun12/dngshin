@@ -1,0 +1,11 @@
+<filter name="module_delete" module="mobileex" act="procMobileexAdminModuleDelete">
+    <form>
+        <node target="module_srl" required="true" />
+        <node target="module" required="true" />
+    </form>
+    <response callback_func="completeModuleDelete">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="page" />
+    </response>
+</filter>

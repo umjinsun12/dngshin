@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">스포츠 게시판</title>
+    <description xml:lang="ko">스포츠 전용 게시판입니다.</description>
+    <version>1.0</version>
+    <link>http://igrus.inha.ac.kr</link>
+    <date>2013-11-27</date>
+    <category>content</category>
+
+    <author email_address="umjinsun12@gmail.com" link="http://igrus.inha.ac.kr">
+        <name xml:lang="ko">IGRUS</name>
+    </author>
+</module>

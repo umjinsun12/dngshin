@@ -1,0 +1,28 @@
+<!--%import("js/mobileex_admin.js")-->
+<!--@if($xe_ver == 7)-->
+<!--%import("css/before_admin_css.css")-->
+<div class="x_page-header">
+	<h1>
+         {$lang->mobileex} <span class="gray">{$lang->cmd_management}</span>
+	</h1>
+</div>
+<ul class="x_nav x_nav-tabs">
+        <li <!--@if($act=='dispMobileexAdminConfig')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispMobileexAdminConfig')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='dispMobileexAdminModuleList')-->class="x_active"<!--@end-->><a href="{getUrl('act','dispMobileexAdminModuleList')}">{$lang->cmd_each_config} {$lang->item_module}</a></li>
+        <!--@if($act=='dispMobileexAdminEachConfig' && $module_srl)--><li class="x_active"><a href="{getUrl('act','dispMobileexAdminEachConfig')}">{$module_info->browser_title}{$lang->cmd_each_config}</a></li><!--@end-->
+        <!--@if($act=='dispMobileexAdminMobileSkinInfo' && $module_srl)--><li class="x_active"><a href="{getUrl('act','dispMobileexAdminMobileSkinInfo')}">{$module_info->browser_title} 모바일스킨설정</a></li><!--@end-->
+</ul>
+<!--@else-->
+
+<h3 class="xeAdmin">{$lang->mobileex} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="header4 gap1">
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispMobileexAdminConfig')-->class="on"<!--@end-->><a href="{getUrl('act','dispMobileexAdminConfig')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='dispMobileexAdminModuleList')-->class="on"<!--@end-->><a href="{getUrl('act','dispMobileexAdminModuleList')}">{$lang->cmd_each_config} {$lang->item_module}</a></li>
+        <!--@if($act=='dispMobileexAdminEachConfig' && $module_srl)--><li class="on"><a href="{getUrl('act','dispMobileexAdminEachConfig')}">{$module_info->browser_title}{$lang->cmd_each_config}</a></li><!--@end-->
+        <!--@if($act=='dispMobileexAdminMobileSkinInfo' && $module_srl)--><li class="on"><a href="{getUrl('act','dispMobileexAdminMobileSkinInfo')}">{$module_info->browser_title} 모바일스킨설정</a></li><!--@end-->
+    </ul>
+</div>
+
+<!--@end-->

@@ -1,0 +1,26 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/js_app.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
+{@ Context::loadLang('./modules/board/m.skins/default/lang')}
+<include target="_header.html" />
+<!--@if($oDocument->isExists())-->
+<include target="read.html" />
+<!--@else-->
+	<!--@if($mi->board_type == 'news')-->
+	<include target="_list_news.html" />
+	<!--@elseif($mi->board_type == 'webzine')-->
+	<include target="_list_webzine.html" />
+	<!--@elseif($mi->board_type == 'gallery')-->
+	<include target="_list_gallery.html" />
+	<!--@elseif($mi->board_type == 'blogBox')-->
+	<include target="_list_blogBox.html" />
+	<!--@elseif($mi->board_type == 'talkBox')-->
+	<include target="_list_talkBox.html" />
+	<!--@else-->
+	<include target="_list.html" />
+	<!--@end-->
+<!--@end-->
+<include target="_footer.html" />
+

@@ -1,0 +1,9 @@
+<!--%import("css/member_info.css")-->
+<!--%import("js/member_info.js")-->
+
+<ul class="mhnav">
+	<li class="mhnav_l<!--@if($act=='dispMobileexMemberInfo' || $act=='dispMobileexModifyPassword')--> mhnav_on<!--@end-->" style="width:33.3%"><a class="mhnav_a" href="{getUrl('act','dispMobileexMemberInfo','page','','message_type','','receiver_srl','','message_srl','')}">{$lang->member_info}</a></li>
+	<li class="mhnav_l<!--@if($act=='dispMobileexScrappedDocument')--> mhnav_on<!--@end-->" style="width:33.3%"><a class="mhnav_a" href="{getUrl('act','dispMobileexScrappedDocument','page','','message_type','','receiver_srl','','message_srl','')}">찜</a></li>
+	<li class="mhnav_l<!--@if($act=='dispMobileexMessages')--> mhnav_on<!--@end-->" style="width:33.3%"><a class="mhnav_a" href="{getUrl('act','dispMobileexMessages','page','','message_type','','receiver_srl','','message_srl','')}">견적상담내역</a></li>
+</ul>
+

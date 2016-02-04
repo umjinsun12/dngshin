@@ -1,0 +1,55 @@
+.paging a, .flatBoard .paging span	{background-size: 5px 7px;}
+.paging .prev	{background-image: url('../images/biArrowLeft.png');}
+.paging .next	{background-image: url('../images/biArrowRight.png');}
+
+header.list-header .btSearch	{background-image: url('../images/biSearch.png'); background-size: 12px 12px;}
+header.list-header select	{background-image: url('../images/biArrowDown.png'); background-size: 7px 5px;}
+
+.read-more .prev	{background-image:url('../images/biArrowUp.png'); background-size: 7px 5px;}
+.read-more .next	{background-image:url('../images/biArrowDown.png'); background-size: 7px 5px;}
+
+.read-control a.btList	{background-image: url('../images/wiPrev.png'); background-size: 19px 16px;}
+.read-control button.btShare	{background-image: url('../images/wiShare.png'); background-size: 16px 16px;}
+.read-control button.btScrap	{background-image: url('../images/wiScrap2.png'); background-size: 19px 18px;}
+.read-control button.btFile	{background-image: url('../images/wiAttached.png'); background-size: 15px 16px;}
+.read-control button.btVote	{background-image: url('../images/wiVote.png'); background-size: 18px 18px;}
+.read-control button.btBlame	{background-image: url('../images/wiBlame.png'); background-size: 18px 18px;}
+.read-control button.btDeclare, .write-form .disc, .comment-write .disc	{background-image: url('../images/wiWarn.png'); background-size: 19px 18px;}
+
+.category-list li ul a, .exvar p	{}
+.category-list li ul li ul a	{}
+
+.m-element .thumb-image.no-image	{background-image: url('../images/bgNoImage.png'); background-size: 31px 24px;}
+
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+	
+	.paging .prev	{background-image: url('../images/biArrowLeft@2x.png');}
+	.paging .next	{background-image: url('../images/biArrowRight@2x.png');}
+	
+	header.list-header button.btSearch	{background-image: url('../images/biSearch@2x.png');}
+	header.list-header select	{background-image: url('../images/biArrowDown@2x.png');}
+		
+	.read-more .prev	{background-image:url('../images/biArrowUp@2x.png');}
+	.read-more .next	{background-image:url('../images/biArrowDown@2x.png');}
+	
+	.read-control a.btList	{background-image: url('../images/wiPrev@2x.png');}
+	.read-control button.btShare	{background-image: url('../images/wiShare@2x.png');}
+	.read-control button.btScrap	{background-image: url('../images/wiScrap2@2x.png');}
+	.read-control button.btFile	{background-image: url('../images/wiAttached@2x.png');}
+	.read-control button.btVote	{background-image: url('../images/wiVote@2x.png');}
+	.read-control button.btBlame	{background-image: url('../images/wiBlame@2x.png');}
+	.read-control button.btDeclare, .write-form .disc, .comment-write .disc	{background-image: url('../images/wiWarn@2x.png'); }
+	
+	/* category */
+	.category-list li ul a, .exvar p	{}
+	.category-list li ul li ul a	{}
+	/*** end flat board style ***/
+	
+	/* list basic set */
+	.m-element .thumb-image.no-image	{background-image: url('../images/bgNoImage@2x.png');}
+	
+}

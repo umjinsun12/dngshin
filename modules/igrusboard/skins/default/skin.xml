@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin version="0.2">
+	<title xml:lang="ko">스포츠 게시판 기본 스킨</title>
+	<description xml:lang="ko">스포츠 게시판 기본 스킨입니다.</description>
+	<date>2015-01-02</date>
+	<link>http://igrus.inha.ac.kr</link>
+	<license link="http://licence.com">FREE</licence>
+	<version>1.0</version>
+	<author email_address="umjinsun12@gmail.com" link="http://igrus.inha.ac.kr">
+		<name xml:lang="ko">IGRUS</name>
+	</author>
+	<author email_address="umjinsun12@gmail.com" link="http://igrus.inha.ac.kr">
+		<name xml:lang="ko">IGRUS2</name>
+	</author>
+	<extra_vars />
+</skin>

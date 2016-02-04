@@ -1,0 +1,99 @@
+/* baskcground color */
+.member-menu-top .profile-image, .member-menu-logged ul, .flatBoard .login-wrap, .m-element .notice-list li .notice-text, .m-imagenews .info span.category, .swiper-active-switch, .m-ranking .rank-num
+{background-color: #7371b4;} /* @mCol */
+.btDark, .flatMember .btSubmit, .flatBoard .btSubmit, .login-body .btLogin, .lang-list
+{background-color: #32323f} /* @sCol */
+
+header.main, .main-logo, .login-wrap, .member-header-wrap, .main-image-wrap, .main-normal-image
+{background: -webkit-gradient(linear, left top, right top, from(#d17ca6), to(#7371b4)); background: -webkit-linear-gradient(left, #7371b4, #d17ca6);}
+
+
+.sc header.main{
+	background-image: url('../images/bgScan_top.png'), -webkit-gradient(linear, left top, right top, from(#d17ca6), to(#7371b4)); 
+	background-image: url('../images/bgScan_top.png'), -webkit-linear-gradient(left, #7371b4, #d17ca6);
+	background-size: auto;
+}
+
+.sc .login-wrap, .sc .member-header-wrap, .sc .main-normal-image, .sc .main-logo{
+	background-image: url('../images/bgScan.png'), -webkit-gradient(linear, left top, right top, from(#d17ca6), to(#7371b4)); 
+	background-image: url('../images/bgScan.png'), -webkit-linear-gradient(left, #7371b4, #d17ca6);
+	background-size: auto;
+}
+
+.sc2 header.main{
+	background-image: url('../images/bgScan2_top.png'), -webkit-gradient(linear, left top, right top, from(#d17ca6), to(#7371b4)); 
+	background-image: url('../images/bgScan2_top.png'), -webkit-linear-gradient(left, #7371b4, #d17ca6);
+	background-size: auto;
+}
+
+.sc2 .login-wrap, .sc2 .member-header-wrap, .sc2 .main-normal-image, .sc2 .main-logo{
+	background-image: url('../images/bgScan2.png'), -webkit-gradient(linear, left top, right top, from(#d17ca6), to(#7371b4)); 
+	background-image: url('../images/bgScan2.png'), -webkit-linear-gradient(left, #7371b4, #d17ca6);
+	background-size: auto;
+}
+
+.m-element nav ul, .m-element section h3, .member-header ul
+{background: -webkit-gradient(linear, left top, right top, from(#a76385), to(#5e5890)); background: -webkit-linear-gradient(left, #5e5890, #a76385);}
+.read-control li:not(.comment-num) a, .read-control li:not(.comment-num) button
+{background-color: #d17ca6;}/* g right */
+.global-search .btClose, .read-control .num2 span
+{background-color: #a76385}/* g right d */
+.member-menu-top, .m-imagenews .info span.name	
+{background-color: #6a63a2}/* g left */
+.main-search button
+{background-color: #000; opacity: 0.4;}
+
+
+/* border color */
+.member-menu-top a.btLogin	
+{border-right: 1px solid #5f5990;} /* @mCol_line */
+.member-menu-logged li	
+{border-bottom: 1px solid #6a68a5;} /* @mCol_line */
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="file"]:focus, input[type="password"]:focus, textarea:focus	
+{border: 1px solid #7371b4;} /* @mCol */
+.lang-list:after
+{border-color: #32323f transparent} /* @sCol */
+
+.member-header .profile-image
+{box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2);}
+.searchinput2	
+{box-shadow: 0px 0px 0px 8px rgba(0,0,0,0.4);}
+
+.gnb li ul li a.selected
+{border-left: 5px solid #7371b4;}
+
+/* font color */
+.flatMember em, .read-control li.comment-num .num, .write-form em, .gnb li ul li ul li.selected
+{color: #7371b4 !important;} /* @mCol */
+.category-list em
+{color: #d17ca6;}/* g right */
+header.main h1, .global-search .btClose, .member-menu-top a, .member-menu-top .name, .flatMember .btSubmit, .flatBoard .btSubmit, .read-control .num2 span, .m-element .notice-list li .notice-text, .member-top-title, .top-title	{color: #FFF;} /* @mCol_l */
+.member-menu-logged li a, .social-login h2, .main-search button
+{color: #FFF;} /* @mCol_l2 */
+.m-list-reply	
+{color: #344d62;} /* @sCol_l3 */
+.login-body .btLogin, .btDark, .lang-list li button	
+{color: #c7d0dd;} /* @sCol_l */
+.m-element nav a, .member-header .member-menu li a
+{color: #FFF; opacity: 0.4;} /* @sCol_l2 */
+.m-element nav li.active a, .m-element section h3 span, .member-header .member-menu li a.active
+{color: #FFF; opacity: 0.8;}
+
+
+/* etc */
+.login-body, .signup-body, .find-body, .flatBoard .origin-body, .flatBoard .message-body	
+{box-shadow: 0 0 10px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);}
+
+/* pad color */
+@media screen and (min-width: 768px){
+	.leftCol .m-element nav ul, .leftCol .m-element section h3	{background: -webkit-gradient(linear, left top, right top, from(#825f8a), to(#5e5890)); background: -webkit-linear-gradient(left, #5e5890, #825f8a);}
+	.rightCol .m-element nav ul, .rightCol .m-element section h3	{background: -webkit-gradient(linear, left top, right top, from(#a76385), to(#825f8a)); background: -webkit-linear-gradient(left, #825f8a, #a76385);}
+}
+/* phone color */
+@media screen and (max-width: 767px){	
+	/* board comment */
+	.comment-control li span	{background-color: #8e8cc0; border-bottom: 1px solid #7371b4;} /* mCol_l2 */
+	.comment-control li span.im	{background-color: #7371b4; border-bottom: 1px solid #6a68a5;} /* @mCol_line */
+	
+	
+}

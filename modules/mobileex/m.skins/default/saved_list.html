@@ -1,0 +1,27 @@
+<!--#include("./member_header.html")-->
+<div class="member_info_wrap">
+	  <h3 class="p_tit">{$member_title = $lang->cmd_view_saved_document} <span class="tn">{number_format($total_count)}</span></h3>
+      <ul class="mblst_list">
+      	<!--@if(number_format($total_count) == 0)-->
+        <li class="empty">저장된 글이 없습니다.</li>
+        <!--@else-->
+        {@$lst_num = 1; }
+        <li loop="$document_list=>$no,$val" id="saved_document_{$val->document_srl}">
+        	   <span class="mblst_num">{$lst_num}</span> 
+        		<span class="mblst_date">{$val->getRegdate("Y-m-d")}</span> 
+        		<a class="mblst_link" href="#saved_document_{$val->document_srl}">
+        			<span class="mblst_title">{$val->getTitle()}</span>
+        			<span class="mblst_content">{$val->getContent(false)}</span>
+        		</a>
+        		<button type="button" class="mblst_delete" onclick="doDeleteSavedDocument('{$val->document_srl}','{$lang->confirm_delete}');">{$lang->cmd_delete}</button>
+        		 {@$lst_num++}
+        	</li>
+        	<!--@end-->
+      </ul>
+     <div class="mb_paging">
+       <a href="<!--@if($page==1 || !$page)-->#none<!--@else-->{getUrl('page',$page-1,'module_srl','')}<!--@end-->" class="btn_page btn_prev"><span class="img_arrow ico_prev">이전</span></a>
+             <span class="blind">현재페이지</span><span class="num_page">{$page}</span> <span class="txt_bar">/</span> {$total_page}
+        <a href="<!--@if($page==$page_navigation->last_page || $total_page == 1)-->#none<!--@else-->{getUrl('page',$page+1,'module_srl','')}<!--@end-->" class="btn_page btn_next"><span class="img_arrow ico_next">다음</span></a>
+     </div>
+
+</div>

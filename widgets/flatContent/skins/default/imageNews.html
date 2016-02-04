@@ -1,0 +1,72 @@
+<div class="m-imagenews m-element gridEl">
+	<section class="swiper"|cond="$wi->tab_type == 'tab' || $wi->page_count>1">
+		<include target="_tab.html" cond="$wi->tab_type == 'tab'" />
+		<!--@if($wi->tab_type == 'tab')-->
+		<ul class="swiper-wrapper">
+			{@$i=0}
+			<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+			<li class="swiper-slide slide slide{$i}"><ul class="list">
+			{@$widget_info->content_items = $tab->content_items}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && !is_int($_idx/($wi->list_count*$wi->page_count-$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li style="background-image: url({$item->getThumbnail()});<!--@if($wi->thumbnail_height)--> height: {$wi->thumbnail_height/2}px;<!--@end-->">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="info">
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="name" cond="$wi->show_info == 'Y'">{$item->getNickName()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+				</div>
+			</li>			
+			{@$_idx++}
+			<!--@end-->
+			{@$i++}
+			</ul></li>
+			<!--@end-->
+		</ul>
+		<div class="swiper-pagination"></div>			
+		<!--@elseif($wi->tab_type == 'none' && $wi->page_count>1)-->
+		<include target="_title.html" />
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide slide"><ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && $_idx/$wi->list_count !=0)-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->	
+			<li style="background-image: url({$item->getThumbnail()});<!--@if($wi->thumbnail_height)--> height: {$wi->thumbnail_height/2}px;<!--@end-->">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="info">
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="name" cond="$wi->show_info == 'Y'">{$item->getNickName()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+				</div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			</ul></li>
+		</ul>
+		<div class="swiper-pagination"></div>
+		<!--@else-->
+		<include target="_title.html" />
+		<ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<li style="background-image: url({$item->getThumbnail()});<!--@if($wi->thumbnail_height)--> height: {$wi->thumbnail_height/2}px;<!--@end-->">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="info">
+					<span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span>
+					<span class="name" cond="$wi->show_info == 'Y'">{$item->getNickName()}</span>
+					<span class="title">{$item->getTitle($widget_info->subject_cut_size)}</span>
+				</div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+		</ul>
+		<!--@end-->
+	</section>
+</div>

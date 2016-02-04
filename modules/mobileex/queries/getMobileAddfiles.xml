@@ -1,0 +1,11 @@
+<query id="getMobileAddfiles" action="select">
+    <tables>
+        <table name="mobileex_add_files" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="upload_target_srl" var="upload_target_srl" filter="number" notnull="notnull" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" defualt="regdate" order="asc" />
+    </navigation>
+</query>

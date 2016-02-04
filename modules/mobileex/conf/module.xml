@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions>
+        <permission action="dispMobileexAdminConfig" target="manager" />
+        <permission action="dispMobileexAdminModuleList" target="manager" />
+        <permission action="dispMobileexAdminEachConfig" target="manager" />
+        <permission action="procMobileexAdminInsertEachConfig" target="manager" />
+    </permissions>
+    <actions>
+    	   <action name="MEIS" type="view" standalone="true" />
+    	   <action name="dispMobileexMemberInfo" type="view" standalone="true" />
+    	   <action name="dispMobileexModifyPassword" type="view" standalone="true" />
+    	   <action name="dispMobileexScrappedDocument" type="view" standalone="true" />
+    	   <action name="dispMobileexSavedDocument" type="view" standalone="true" />
+    	   <action name="dispMobileexOwnDocument" type="view" standalone="true" />
+    	   <action name="dispMobileexMessages" type="view" standalone="true" />
+    	   <action name="dispMobileexMessageView" type="view" standalone="true" />
+    	   <action name="dispMobileexSendMessage" type="view" standalone="true" />
+        <action name="mobileFileDelete" type="controller" standalone="true" />
+        <action name="mobileFileUpload" type="controller" standalone="true" />
+        <action name="mobileInsertAddFile" type="controller" standalone="true" />
+        <action name="mobileDeleteAddFile" type="controller" standalone="true" />
+        <action name="mobileUpdateAddFile" type="controller" standalone="true" />
+        <action name="dispMobileexAdminConfig" type="view" admin_index="true" />
+        <action name="dispMobileexAdminModuleList" type="view" standalone="true" />
+        <action name="dispMobileexAdminEachConfig" type="view" standalone="true" />
+        <action name="dispMobileexAdminModuleDelete" type="view" standalone="true" />
+        <action name="dispMobileexAdminMobileSkinInfo" type="view" standalone="true" />
+        <action name="procMobileexAdminInsertConfig" type="controller" ruleset="insertConfig" />
+        <action name="procMobileexAdminInsertEachConfig" type="controller" ruleset="insertEachConfig" />
+        <action name="procMobileexAdminModuleDelete" type="controller" standalone="true" />
+        <action name="procMobileexAdminUpdateSkinInfo" type="controller" standalone="true" />
+        <action name="procMobileexModifyPassword" type="controller" standalone="true" />
+        <action name="procMobileexDeleteMessage" type="controller" standalone="true" />
+        <action name="procMobileexSendMessage" type="controller" standalone="true" />
+        <action name="getMobileexCommentList" type="mobile" />
+        <action name="getMobileexSubCommentList" type="mobile" />
+    </actions>
+</module>

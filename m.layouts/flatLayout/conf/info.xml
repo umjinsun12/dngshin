@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">flat mobile layout</title>
+    <description xml:lang="ko">
+    	플랫 모바일 레이아웃
+    </description>
+    <version>1.0</version>
+    <date>2013-11-30</date>
+    <link>http://studio02.co.kr</link>
+
+    <author email_address="studio02xe@gmail.com" link="http://studio02.co.kr">
+        <name xml:lang="ko">studio02</name>
+    </author>
+
+    <extra_vars>
+    	<var name="site_name" type="text">
+    		<title xml:lang="ko">사이트이름</title>
+    		<description xml:lang="ko">사이트이름을 입력하세요.</description>
+    	</var>
+    	
+    	<var name="home_url" type="text">
+    		<title xml:lang="ko">홈주소</title>
+    		<description xml:lang="ko">홈버튼 클릭시 이동할 주소를 넣으세요.</description>
+    	</var>
+	        
+    	<var name="mCol" type="select">
+    		<title xml:lang="ko">컬러</title>
+    		<description xml:lang="ko">전체 컬러테마를 선택합니다.</description>
+    		<options value="red">
+    			<title xml:lang="ko">레드</title>
+    		</options>
+    		<options value="skyblue">
+    			<title xml:lang="ko">블루</title>
+    		</options>
+    		<options value="navy">
+    			<title xml:lang="ko">네이비</title>
+    		</options>
+    		<options value="choco">
+    			<title xml:lang="ko">초코</title>
+    		</options>
+    		<options value="seagreen">
+    			<title xml:lang="ko">바다초록</title>
+    		</options>
+    		<options value="violet">
+    			<title xml:lang="ko">보라</title>
+    		</options>
+    		<options value="yellow">
+    			<title xml:lang="ko">노랑</title>
+    		</options>
+    		<options value="mint">
+    			<title xml:lang="ko">민트</title>
+    		</options>
+    		<options value="peachblow">
+    			<title xml:lang="ko">피치</title>
+    		</options>
+    		<options value="pink">
+    			<title xml:lang="ko">핑크</title>
+    		</options>
+    		<options value="white">
+    			<title xml:lang="ko">화이트</title>
+    		</options>
+    		<options value="black">
+    			<title xml:lang="ko">블랙</title>
+    		</options>
+    		<options value="gOtoBlue">
+    			<title xml:lang="ko">오렌지-블루</title>
+    		</options>
+    		<options value="gVtoBlue">
+    			<title xml:lang="ko">보라-블루</title>
+    		</options>
+    		<options value="gVtoPink">
+    			<title xml:lang="ko">보라-핑크</title>
+    		</options>
+    	</var>
+	        
+    	<var name="main_bg" type="select">
+    		<title xml:lang="ko">배경선택</title>
+    		<description xml:lang="ko">상단에 들어갈 배경을 선택해주세요</description>
+    		<options value="no">
+    			<title xml:lang="ko">배경없음</title>
+    		</options>
+    		<options value="sc1">
+    			<title xml:lang="ko">북유럽배경1</title>
+    		</options>
+    		<options value="sc2">
+    			<title xml:lang="ko">북유럽배경2</title>
+    		</options>
+    	</var>
+	        
+    	<var name="close_menu" type="select">
+    		<title xml:lang="ko">메뉴 펼침/닫힘</title>
+    		<description xml:lang="ko">메인네비게이션을 항상펼침으로 둘지 닫힘으로 둘지 설정합니다.</description>
+    		<options value="N">
+    			<title xml:lang="ko">펼침</title>
+    		</options>
+    		<options value="Y">
+    			<title xml:lang="ko">닫힘</title>
+    		</options>
+    	</var>
+	        
+    	<var name="use_home" type="select">
+    		<title xml:lang="ko">홈메뉴 사용/사용안함</title>
+    		<description xml:lang="ko">메인네비게이션에 홈으로 가는 메뉴 사용여부를 설정합니다.</description>
+    		<options value="Y">
+    			<title xml:lang="ko">사용</title>
+    		</options>
+    		<options value="N">
+    			<title xml:lang="ko">사용안함</title>
+    		</options>
+    	</var>
+	        
+    	<var name="page_type" type="select">
+    		<title xml:lang="ko">메인/서브 선택</title>
+    		<description xml:lang="ko">메인페이지와 서브페이지를 선택합니다.</description>
+    		<options value="main">
+    			<title xml:lang="ko">메인</title>
+    		</options>
+    		<options value="sub">
+    			<title xml:lang="ko">서브 (게시판)</title>
+    		</options>
+    		<options value="sub_normal">
+    			<title xml:lang="ko">서브 (일반)</title>
+    		</options>
+    	</var>
+    	
+    	<var name="main_type" type="select">
+    		<title xml:lang="ko">┗ 메인 상단 형태 선택</title>
+    		<description xml:lang="ko">메인페이지의 경우 상단 이미지 형태를 선택할 수 있습니다. </description>
+    		<options value="logo">
+    			<title xml:lang="ko">로고형</title>
+    		</options>
+    		<options value="normal_image">
+    			<title xml:lang="ko">기본 이미지형</title>
+    		</options>
+    		<options value="image">
+    			<title xml:lang="ko">전체 이미지형</title>
+    		</options>
+    		<options value="none">
+    			<title xml:lang="ko">사용하지않음</title>
+    		</options>
+    	</var>
+    	
+    	
+    	<var name="logo" type="image">
+    		<title xml:lang="ko">┗ 로고형 이미지</title>
+    		<description xml:lang="ko">로고이미지 업로드 (이미지 가로 400px 이상) </description>
+    	</var>
+    	
+    	<var name="main_normal_image" type="image">
+    		<title xml:lang="ko">┗ 기본 이미지형 이미지</title>
+    		<description xml:lang="ko">상단이미지 업로드 </description>
+    	</var>
+    	
+    	<var name="m_width" type="text">
+    		<title xml:lang="ko">┗ 기본 이미지형 이미지 가로길이</title>
+    		<description xml:lang="ko">기본 이미지형일 경우 이미지의 가로길이를 입력해주셔야 합니다. (이미지는 화면에 보여질 크기의 2배크기로 제작해주세요)</description>
+    	</var>
+    	
+    	<var name="main_image" type="image">
+    		<title xml:lang="ko">┗ 전체 이미지형 이미지</title>
+    		<description xml:lang="ko">상단이미지 업로드 (이미지 가로 640px 이상) </description>
+    	</var>
+    	
+    	<var name="main_code" type="textarea">
+    		<title xml:lang="ko">┗ 메인 위젯코드</title>
+    		<description xml:lang="ko">메인페이지에 들어갈 위젯코드를 입력하세요.</description>
+    	</var>
+    	
+    	<var name="top_banner" type="image">
+    		<title xml:lang="ko">상단배너 이미지</title>
+    		<description xml:lang="ko">상단에 표시될 배너 이미지를 업로드하세요. (가로길이 640px이상)</description>
+    	</var>
+    	
+    	<var name="t_banner_url" type="text">
+    		<title xml:lang="ko">ㄴ 상단배너 URL</title>
+    		<description xml:lang="ko">상단배너 클릭시 이동할 URL을 입력하세요. </description>
+    	</var>
+    	
+    	<var name="t_banner_color" type="text">
+    		<title xml:lang="ko">ㄴ 상단배너 배경색</title>
+    		<description xml:lang="ko">상단배너영역 배경색을 입력하세요. (예: #cc0000)</description>
+    	</var>
+    	
+    	<var name="bottom_banner" type="image">
+    		<title xml:lang="ko">하단배너 이미지</title>
+    		<description xml:lang="ko">하단에 표시될 배너 이미지를 업로드하세요. (가로길이 640px이상)</description>
+    	</var>
+    	
+    	<var name="b_banner_url" type="text">
+    		<title xml:lang="ko">ㄴ 하단배너 URL</title>
+    		<description xml:lang="ko">하단배너 클릭시 이동할 URL을 입력하세요. </description>
+    	</var>
+    	
+    	<var name="b_banner_color" type="text">
+    		<title xml:lang="ko">ㄴ 하단배너 배경색</title>
+    		<description xml:lang="ko">하단배너영역 배경색을 입력하세요. (예: #cc0000)</description>
+    	</var>
+    	
+    	<var name="address" type="text">
+    		<title xml:lang="ko">하단 주소</title>
+    		<description xml:lang="ko">하단에 표시될 주소를 입력하세요.</description>
+    	</var>
+    	
+    	<var name="tel" type="text">
+    		<title xml:lang="ko">하단 전화번호</title>
+    		<description xml:lang="ko">하단에 표시될 전화번호를 입력하세요.</description>
+    	</var>
+    	
+    	<var name="fax" type="text">
+    		<title xml:lang="ko">하단 팩스번호</title>
+    		<description xml:lang="ko">하단에 표시될 팩스번호를 입력하세요.</description>
+    	</var>
+    	    
+    	<var name="main_slider1" type="image">
+    		<title xml:lang="ko">┗ 메인 광고 이미지1</title>
+    		<description xml:lang="ko">상단이미지 업로드 가로 360 세로 80에 최적화 </description>
+    	</var>
+    	<var name="main_slider2" type="image">
+    		<title xml:lang="ko">┗ 메인 광고 이미지2</title>
+    		<description xml:lang="ko">상단이미지 업로드 </description>
+    	</var>
+    	<var name="main_slider3" type="image">
+    		<title xml:lang="ko">┗ 메인 광고 이미지3</title>
+    		<description xml:lang="ko">상단이미지 업로드 </description>
+    	</var>
+    	
+    </extra_vars>
+
+    <menus>
+        <menu name="gnb" maxdepth="3" default="true">
+            <title xml:lang="ko">메인메뉴</title>
+            <title xml:lang="en">Main Menu</title>
+        </menu>
+        <menu name="bottom_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">하단메뉴</title>
+            <title xml:lang="en">Bottom Menu</title>
+        </menu>
+    </menus>
+    
+</layout>

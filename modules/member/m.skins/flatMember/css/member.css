@@ -1,0 +1,137 @@
+/*** flat member style ***/
+
+/* basic set */
+.flatMember em	{font: normal 1.2em "verdana";}	
+.flatMember .btNone	{.btDark; background-color: transparent;}
+.flatMember .btCancel	{display: block; float: left; width: 49%; border: none; line-height: 36px; text-align: center; font-size: 0.85em;}
+.flatMember .btSubmit	{display: block; float: right; width: 50%; border: none;line-height: 36px; text-align: center; font-size: 0.85em;}
+.flatMember .member-top-title	{font-size: 1.0em; position: absolute; top: 10px; left: 50%; width: 240px; height: 40px; margin-left: -120px; text-align: center; z-index: 60;}
+.flatMember p.help-block	{margin-top: 5px; font-size: 0.85em;}
+
+/* login */
+.login-body, .signup-body, .find-body	{margin: 0 auto; width: 90%; max-width: 320px;}
+.login-body	{padding-top: 100px; text-align: center;}
+
+
+.login-form-wrap	{margin: 0 20px 0px;}
+.login-form-wrap input[type="text"],
+.login-form-wrap input[type="password"]	{display: inline-block;margin-bottom: 6px !important;}
+.login-form-wrap input[type="password"]	{margin-bottom: 12px;}
+.login-form-wrap label	{font-size: 0.9em;}
+
+.login-body .message	{margin: 0 0 20px;}
+.login-body .btLogin	{display: block; margin: 20px 0 0; width: 100%; border: none; line-height: 36px; text-align: center; font-size: 0.85em;}
+.login-body .bt-wrap2	{padding: 0;}
+.login-body .bt-wrap2 a	{display: inline-block; width: 50%; padding-top: 24px; background-color: transparent; border: none; line-height: 40px; text-align: center; font-size: 0.85em; background-repeat: no-repeat; background-position: center 12px;}
+.login-body .bt-wrap2 a.btLeft	{width: 48%; }
+.login-body .hp	{margin-top: 20px; padding: 10px; font-size: 0.75em; line-height: 1.4; text-align: left;}
+
+
+
+.social-login	{padding-top: 20px; text-align: center;}
+.social-login h2	{font-size: 1.0em; font-weight: normal;}
+.social-login ul	{padding-top: 15px;}
+.social-login li {display: inline-block; margin-right: 10px;}
+.social-login a	{display: inline-block; width: 60px; height: 40px; background-position: center center; background-repeat: no-repeat; text-indent: -9999px;}
+.social-login a.btTwitter	{background-image: url('../images/wsiTwitter.png'); background-size: 22px 18px;}
+.social-login a.btFacebook	{background-image: url('../images/wsiFacebook.png'); background-size: 9px 18px;}
+.social-login a.btMeto	{background-image: url('../images/wsiMeto.png'); background-size: 16px 19px;}
+.social-login li:last-child	{margin-right: 0;}
+
+/* sign up */
+
+.terms-container	{padding: 20px 20px 0;}
+.terms-container .terms-body	{padding: 5px; margin-bottom: 5px; height: 100px; font-size: 0.85em; line-height: 1.4; overflow: auto; -webkit-overflow-scrolling: touch;}
+.terms-container label	{font-size: 0.85em;}
+
+.signup-form	{padding: 20px 20px 0; font-size: 0.85em;}
+.signup-form dt	{ margin-bottom: 5px;}
+.signup-form dd	{ margin-bottom: 20px;}
+.signup-form dd .desc	{margin-top: 5px;}
+.signup-form .warn	{text-align: right; font-size: 0.85em;}
+.signup-form .radio-wrap	{padding: 10px;}
+.signup-form .radio-wrap input	{vertical-align: middle;}
+.signup-form .next-radio	{font-size: 0.85em; margin-right: 5px;}
+
+.signup-body .bt-wrap	{padding: 20px;}
+
+/* find pw/id */
+.find-body	{padding: 0 0 10px;}
+.find-body section	{padding: 20px 20px 10px;}
+.find-body section h3	{font-size: 1.0em;}
+.find-body section p	{font-size: 0.85em; line-height: 1.4;}
+.find-body section h3, .find-body section p, .find-body section input, .find-body section select	{margin-bottom: 5px;}
+.find-body section .btDark	{width: 100%;}
+
+/* member header */
+.member-header	{position: relative; padding-top: 105px; height: 55px; text-align: center; background-repeat: no-repeat; background-position: center 20px;}
+.member-header .profile-image	{position: absolute; top: 10px; left: 50%; margin-left: -40px; width: 80px; height: 80px;}
+.member-header .profile-image a	{display: block;}
+.member-header .member-menu	{display: inline-block;  -webkit-border-radius: 16px; -moz-border-radius: 16px; -ms-border-radius: 16px; -o-border-radius: 16px; border-radius: 16px}
+.member-header .member-menu li	{display: inline-block; font-size: 0.85em; margin-right: 1px;}
+.member-header .member-menu li a	{display: block; padding: 0 10px; line-height: 34px;}
+.member-header .member-menu li:first-child a	{padding: 0 10px 0 15px; -webkit-border-radius: 16px 0 0 16px; -moz-border-radius: 16px 0 0 16px; -ms-border-radius: 16px 0 0 16px; -o-border-radius: 16px 0 0 16px; border-radius: 16px 0 0 16px;}
+.member-header .member-menu li:last-child	{ margin-right: 0;}
+.member-header .member-menu li:last-child a	{padding: 0 15px 0 10px; -webkit-border-radius: 0 16px 16px 0; -moz-border-radius: 0 16px 16px 0; -ms-border-radius: 0 16px 16px 0; -o-border-radius: 0 16px 16px 0; border-radius: 0 16px 16px 0;}
+.member-header .member-menu li:only-child a	{padding: 0 15px 0; -webkit-border-radius: 16px; -moz-border-radius: 16px; -ms-border-radius: 16px; -o-border-radius: 16px; border-radius: 16px;}
+
+
+/* member info */
+.info-table	{width: 100%; border-collapse: collapse;}
+.info-table caption	{display: none;}
+.info-table td, .info-table th	{padding: 10px 10px 10px 15px;font-size: 0.85em; word-break: break-all;}
+.info-table th	{text-align: left; min-width: 100px;}
+.info-table input[type=text], 
+.info-table input[type=email],
+.info-table input[type=url],
+.info-table input[type=file],
+.info-table input[type=password],
+.info-table textarea	{-webkit-appearance: none; padding: 5px; width: 160px; background: none;}
+.info-table img	{vertical-align: middle; margin-bottom: 5px; max-width: 80px; height: auto;}
+.info-table button	{display: inline-block; vertical-align: middle; line-height: 31px; padding: 0 10px; margin: 0 5px; border: none; font-size: 0.85em;}
+.info-body .pass_ex	{padding: 12px; font-size: 0.85em;}
+
+/* scrap, saved */
+/* .scrap-body.m-list .list li, .saved-body.m-list .list li	{padding-right: 70px;}
+.scrap-body .list li button, .saved-body .list li button	{display: block; position: absolute; top: 0; right: 0; width: 60px; height: 100%; background: #FFF url(../images/biTrash@2x.png) no-repeat center center; background-size: 20px 21px; border: none; border-left: 1px solid #DDD; text-indent: -9999px; z-index: 20; cursor: pointer;} */
+.saved-body .savedContent	{margin: 10px 10px 0; padding: 10px;}
+
+/* paging */
+.flatMember .paging	{clear: both; text-align: center; padding: 30px 0;}
+.flatMember .paging a, .flatMember .paging span	{display: inline-block; padding: 6px 8px; margin-right: 1px;}
+.flatMember .paging .direction	{display: inline-block; padding: 6px 0; width: 28px; height: 100%; background-repeat: no-repeat; background-position: center center; text-indent: -9999px;}
+.flatMember .paging .prev	{-webkit-border-radius: 20px 0 0 20px; -moz-border-radius: 20px 0 0 20px; -ms-border-radius: 20px 0 0 20px; -o-border-radius: 20px 0 0 20px; border-radius: 20px 0 0 20px;}
+.flatMember .paging .next	{-webkit-border-radius: 0 20px 20px 0; -moz-border-radius: 0 20px 20px 0; -ms-border-radius: 0 20px 20px 0; -o-border-radius: 0 20px 20px 0; border-radius: 0 20px 20px 0;}
+
+
+/*** end flat member style ***/
+
+.m-element .list-link	{display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 10;}
+.m-element .list li	{position: relative; clear: both;}
+
+.m-list .list li	{padding: 10px 0;}
+.m-list .list-element	{padding: 0 10px;}
+.m-list .list li .list-element li	{padding-top: 0; padding-bottom: 0; border-top: none; border-bottom: none;}
+.m-list .list-element li:first-child, .m-list .list-element li:last-child	{border-right: none !important;}
+.m-list .list-element li.el	{display: inline-block; padding: 0 6px; font-size: 0.75em; line-height: 0.75em;}
+.m-list .list-element li:nth-child(2)	{padding-left:0;}
+
+
+/* phone style */
+@media screen and (max-width: 767px){
+	/* member */
+	.info-body .btWithdraw	{width: 100%;}
+	.info-body .bt-wrap	{padding: 12px;}
+}
+
+
+/* pad style */
+@media screen and (min-width: 768px){
+	/* member */
+	.flatMember .bt-wrap-full .btCancel, .flatMember .bt-wrap-full .btSubmit	{float: none; display: inline-block; padding: 0 15px; width: auto;}
+	.info-body	{margin: 0 auto; width: 80%;}
+	.info-table	{margin: 30px 0; border: 1px solid #DDD;}
+	.info-body .btWithdraw	{padding: 0 15px;}
+	.info-body .bt-wrap	{padding: 0 0 30px;}
+	.info-body .pass_ex	{border: 1px solid #CCC; margin-bottom: 30px;}
+}

@@ -1,0 +1,6 @@
+<table name="dgibi2">
+    <column name="dgibi2_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="link" type="varchar" size="255" notnull="notnull" />
+    <column name="title" type="varchar" size="255" notnull="notnull" />
+    <column name="description" type="bigtext" />
+</table>

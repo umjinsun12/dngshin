@@ -1,0 +1,32 @@
+<!--#include("./member_header.html")-->
+<div class="member_info_wrap">
+    <h3 class="p_tit">{$lang->member_info}</h3>
+    	<table class="mb_tbl">
+        <colgroup>
+        	  <col style="width:140px">
+        	  <col>
+        	</colgroup>
+    		<tr loop="$displayDatas => $item">
+    			<th scope="row" >{$item->title} <em cond="$item->required || $item->mustRequired">*</em></th>
+    			<td class="text">{$item->value}</td>
+    		</tr>
+    		<tr>
+    			<th scope="row">{$lang->member_group}</th>
+    			<td class="text">{implode(', ', $memberInfo['group_list'])}</td>
+    		</tr>
+    		<tr>
+    			<th>{$lang->signup_date}</th>
+    			<td>{zdate($memberInfo[regdate],"Y-m-d")}</td>
+    		</tr>
+    		<!--@if($memberInfo[member_srl] == $logged_info->member_srl || $logged_info->is_admin == 'Y' )-->
+    		<tr>
+    			<th>{$lang->last_login}</th>
+    			<td>{zdate($memberInfo[last_login],"Y-m-d")}</td>
+    		</tr>
+    		<!--@end-->
+        </table>
+        
+   <p class="info_msg msg2" style="margin-top: 30px">
+		비밀번호를 변경하시려면? <a href="{getUrl('act','dispMobileexModifyPassword','member_srl','')}" title="{$lang->cmd_modify_member_password}">{$lang->cmd_modify_member_password}</a>
+	</p>
+</div>

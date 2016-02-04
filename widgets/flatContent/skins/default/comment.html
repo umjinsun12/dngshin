@@ -1,0 +1,32 @@
+{@
+	$t_date = date(Ymd);
+}
+<div class="m-talkbox m-element webzine-style gridEl<!--@if($wi->list_type == 'comment')--> comment-type<!--@end-->">
+<section>
+	<include target="_title.html" />
+	<ul class="list">
+		{@$_idx=0}
+		<!--@foreach($widget_info->content_items as $key => $item)-->
+		<li class="clearfix">
+			<div class="name">
+				{@
+					$oMemberModel = &getModel('member');
+					$memberProfileImage = $oMemberModel->getProfileImage($item->getMemberSrl())
+				}
+				<div class="profile-image"><img src="{$memberProfileImage->file}" width="40" height="40" cond="$memberProfileImage->file" /></div>
+				<div class="name-text">{$item->getNickName()}</div>
+			</div>
+			<div class="bubble">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="title el">{$item->getTitle($widget_info->content_cut_size)}  <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+				<div class="info el">
+					<span class="locate">{$item->browser_title}</span>
+					<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+				</div>
+			</div>
+		</li>
+		{@$_idx++}
+		<!--@end-->
+	</ul>
+</section>
+</div>

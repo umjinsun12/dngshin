@@ -1,0 +1,19 @@
+<table name="mobileex_config">
+    <column name="module_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="module" type="varchar" size="80" notnull="notnull" index="idx_module" />
+    <column name="file_config_use" type="char" size="1" notnull="notnull" default="N" />
+    <column name="allowed_filesize" type="number" size="11" default="0" notnull="notnull" />
+    <column name="allowed_attach_size" type="number" size="11" default="0" notnull="notnull" />
+    <column name="allowed_filetypes" type="varchar" size="250" />
+    <column name="img_resize_width" type="number" size="11" default="0" notnull="notnull" />
+    <column name="img_resize_height" type="number" size="11" default="0" notnull="notnull" />
+    <column name="addfile_use" type="char" size="1" notnull="notnull" default="Y" />
+    <column name="addfile_auto" type="char" size="1" notnull="notnull" default="N" />
+    <column name="pcimg_view" type="char" size="1" notnull="notnull" default="Y" />
+    <column name="addfile_thumb_use" type="char" size="1" notnull="notnull" default="Y" />
+    <column name="addfile_thumb_size" type="number" size="11" default="800" notnull="notnull" />
+    <column name="addfile_btn" type="char" size="1" notnull="notnull" default="Y" />
+    <column name="addfile_view_type" type="char" size="1" notnull="notnull" default="S" />
+    <column name="addfile_min_size" type="number" size="11" default="120" notnull="notnull" />
+    <column name="pcmode_addfile_view" type="char" size="1" notnull="notnull" default="Y" />
+</table>

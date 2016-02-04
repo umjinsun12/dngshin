@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">모바일EX 모바일 기본스킨</title>
+    <description xml:lang="ko">모바일EX 모듈의 모바일 기본스킨</description>
+    <version>0.2</version>
+    <date>2013-04-27</date>
+    <author email_address="comsinnet@naver.com" link="http://comsin.net/">
+        <name xml:lang="ko">COMSIN</name>
+        <name xml:lang="en">COMSIN</name>
+    </author>
+    <colorset />
+    <extra_vars />
+</skin>

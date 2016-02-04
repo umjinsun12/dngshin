@@ -1,0 +1,54 @@
+<!--#include("_setting.html")-->
+<div class="bd rd">
+	<div class="hx h2">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$module_info->browser_title}</a></h2>
+	</div>
+
+	<!--@if($oSourceComment->isExists())-->
+	<div class="origin">{$oSourceComment->getContent(false)}</div>
+	<!--@end-->
+
+	<form action="./" method="post" class="ff tgo open" onsubmit="return procFilter(this, insert_comment);">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="document_srl" value="{$oComment->get('document_srl')}" />
+		<input type="hidden" name="comment_srl" value="{$oComment->get('comment_srl')}" />
+		<input type="hidden" name="parent_srl" value="{$oComment->get('parent_srl')}" />
+		<ul>
+			<!--@if(!$is_logged)-->
+			<li>
+				<label for="uName">{$lang->writer}</label>
+				<input name="nick_name" type="text" id="uName" value="{htmlspecialchars($oComment->get('nick_name'))}"  title="{$lang->writer}" onfocus="if(this.value==this.title)this.value='';return false;" />
+			</li>
+			<li>
+				<label for="uMail">{$lang->email_address}</label>
+				<input name="email_address" type="text" id="uMail" value="{htmlspecialchars($oComment->get('email_address'))}" title="{$lang->email_address}" onfocus="if(this.value==this.title)this.value='';return false;" />
+			</li>
+			<li>
+				<label for="uPw">{$lang->password}</label>
+				<input name="password" type="password" id="uPw" />
+			</li>
+			<li>
+				<label for="uSite">{$lang->homepage}</label>
+				<input name="homepage" type="text" id="uSite" value="{htmlspecialchars($oComment->get('homepage'))}" title="{$lang->homepage}" onfocus="if(this.value==this.title)this.value='';return false;" />
+			</li>
+			<!--@endif-->
+			<li>
+            <div class="comment_box">
+              <div class="cmt_frm"><textarea name="content" cols="20" rows="5" id="rText"><!--@if($oComment->getContentText())-->{$oComment->getContentText()}<!--@end--></textarea></div>
+              <!--@if($comment_mode == 'P' && $oComment->getContentText())-->
+              <div class="cmt_frm_block" id="commentBlock">
+            		<span class="block_msg">{$lang->msg_cmt_modify}</span>
+                 <button onclick="commentModifyOn();" class="modify_on" type="button">{$lang->cmd_modify}</button>
+              </div>
+              <!--@end-->
+            </div>
+			
+			</li>
+
+		</ul>
+		<div class="bna">
+			<input name="" type="submit" class="bn dark" value="{$lang->cmd_comment_registration}" />
+		</div>
+	</form>
+
+</div>

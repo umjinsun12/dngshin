@@ -1,0 +1,170 @@
+<!--#include("_setting.html")-->
+
+
+<div class="bd">
+	<div class="hx h2">
+		<h2><a href="{getUrl('','vid',$vid,'mid',$mid)}">{$mex_info->board_title}</a></h2>
+	</div>
+	<div class="hx h3">
+		<h3>{$lang->cmd_write}</h3>
+	</div>
+	<form action="./" method="post" id="mform" class="ff" onsubmit="return procFilter(this, insert)">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$document_srl}" />
+		<ul>
+			<!--@if($module_info->use_category == "Y")-->
+			<li>
+				<label for="nCategory">{$lang->category}</label>
+				<select name="category_srl" id="nCategory">
+					<option value=""<!--@if(!$category_srl)--> selected="selected"<!--@end-->>{$lang->category}</option>
+					<!--@foreach($category_list as $val)-->	
+					<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected="selected"<!--@endif-->>
+					{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} ({$val->document_count})
+					</option>
+					<!--@end-->
+				</select>
+			</li>
+			<!--@end-->
+			<li>
+				<label for="nTitle">{$lang->title}</label>
+				<!--@if($oDocument->getTitleText())-->
+				<input name="title" type="text" id="nTitle" value="{htmlspecialchars($oDocument->getTitleText())}"/>
+				<!--@else-->
+				<input name="title" type="text" id="nTitle" />
+				<!--@end-->
+			</li>
+			<!--@if(!$is_logged)-->
+			<li>
+				<label for="uName">{$lang->writer}</label>
+				<input name="nick_name" type="text" id="uName" value="{htmlspecialchars($oDocument->get('nick_name'))}" />
+			</li>
+			<li>
+				<label for="uMail">{$lang->email_address}</label>
+				<input name="email_address" type="text" id="uMail" value="{htmlspecialchars($oDocument->get('email_address'))}" />
+			</li>
+			<li>
+				<label for="uPw">{$lang->password}</label>
+				<input name="password" type="password" id="uPw" />
+			</li>
+			<li>
+				<label for="uSite">{$lang->homepage}</label>
+				<input name="homepage" type="text" id="uSite" value="{htmlspecialchars($oDocument->get('homepage'))}" />
+			</li>
+			<!--@endif-->
+			 <!--@if($xe_version =='5')-->
+			<li>
+				<input type="checkbox" name="comment_status" value="ALLOW" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
+				<label for="reAllow">{$lang->allow_comment}</label>
+				<input type="checkbox" name="allow_trackback" value="Y" <!--@if($oDocument->allowTrackback())-->checked="checked"<!--@end--> id="trAllow" />
+				<label for="trAllow">{$lang->allow_trackback}</label>
+
+				<!--@if(is_array($status_list))-->
+				<div>
+					{$lang->status}
+					<!--@foreach($status_list AS $key=>$value)-->
+					<input type="radio" name="status" value="{$key}" <!--@if($oDocument->get('status') == $key)-->checked<!--@end--> /> {$value}
+					<!--@end-->
+				</div>
+				<!--@end-->
+
+			</li>
+			 <!--@else-->
+			<li>
+				<input type="checkbox" name="allow_comment" value="Y" <!--@if($oDocument->allowComment())-->checked="checked"<!--@end--> id="reAllow" />
+				<label for="reAllow">{$lang->allow_comment}</label>
+				<input type="checkbox" name="allow_trackback" value="Y" <!--@if($oDocument->allowTrackback())-->checked="checked"<!--@end--> id="trAllow" />
+				<label for="trAllow">{$lang->allow_trackback}</label>
+				<!--@if($module_info->secret=="Y")-->
+				<input type="checkbox" name="is_secret" value="Y" <!--@if($oDocument->isSecret())-->checked="checked"<!--@end--> id="secret" />
+				<label for="secret">{$lang->secret}</label>
+				<!--@end-->
+			</li>
+			 <!--@end-->
+			<!--@if(count($extra_keys))-->
+			<!--@foreach($extra_keys as $key=> $val)-->
+			<li class="exvar">
+				<label for="ex_{$val->name}">{$val->name} <!--@if($val->is_required=="Y")-->*<!--@end--></label>
+				{$val->getFormHTML()}
+			</li>
+			<!--@endforeach-->
+			<!--@end-->
+			<li>
+				<!--@if($document_srl && !$is_mobile_docment)-->
+            <input type="hidden" name="content" value="{$oDocument->getContentText()}" />
+            <div class="content_box" id="contentBox">
+            	<div class="add_img_list" id="addImgListBox"></div>
+            	<!--#include("add_file_config.html")-->
+            	{$oDocument->getContent(false)}
+            	<div class="content_box_block">
+            		<span class="block_msg">{$lang->msg_not_modify}</span>
+              </div>
+            </div>
+				<!--@else-->
+
+				<div class="content_box" id="contentBox">
+					<div class="add_img_list" id="addImgListBox">
+						<!--@if($add_file_list)-->
+    						<!--@foreach($add_file_list as $key => $add_file)--> 
+    						<span class="add_img" id="addImg_{$add_file->file_srl}"><a title="{$add_file->rotate}" onclick="configAddFile({$add_file->file_srl});"><img src="{$add_file->preview_thumb}"></a></span>
+    						<!--@end-->
+						<!--@end-->
+					</div>
+					<!--#include("add_file_config.html")-->
+					<textarea name="content" rows="8" cols="42" id="nText">{$oDocument->getContentText()}</textarea>
+				</div>
+				<!--@end-->
+			</li>
+</form>
+      <!--@if($mobileex_config && $muploader_active == 'Y')-->
+			<li>
+       <!-- file upload -->
+					<form action="./" enctype="multipart/form-data" id="fform" name="fform" method="post" target="hiddenIframe" class="uf">
+					<input type="hidden" name="act" id="mFileAct" value="mobileFileUpload" />
+					<input type="hidden" name="file_srl" id="mFileSrl" value="" />
+					<input type="hidden" name="mid" value="{$mid}" />
+					<input type="hidden" name="upload_type" value="document" />
+				   <input type="hidden" name="upload_target_srl" value="{$document_srl}" />
+			    <div class="upload_file_box">
+               <div class="upload_btn_wrap">
+                  <input type="button" value="{$lang->file_upload}" class="upload_btn choice" />
+                  <input type="file" name="Filedata" id="mFileData" class="file_input" onchange="javascript: document.getElementById('fileName').value = this.value" />
+               </div>
+            </div>
+            <ul class="upload_file_list" id="uploadFileList"<!--@if(!$oDocument->hasUploadedFiles())--> style="border:0"<!--@endif-->>
+            	  <!--@if($oDocument->hasUploadedFiles() && $uploaded_list)-->
+            	      <!--@foreach($uploaded_list as $key => $file)-->
+                 	 <li id="file_{$file->file_srl}"><span class="img"><img src="{$file->preview_thumb}" border="0" width="100%" height="100%"></span>
+                 	 	  <span class="name">{$file->source_filename}<em>{$file->size}</em></span>
+                 	 	  <!--@if($mobileex_config->addfile_use == 'Y')-->
+                 	 	  <span class="addbtn"><!--@if($file->img_ext == 'Y')--><input type="button" value="<!--@if($file->is_added == 'Y')-->D<!--@else-->I<!--@end-->" id="fileAddBtn_{$file->file_srl}" onclick="javascript:addFileSubmit({$file->file_srl});" class="<!--@if($file->is_added == 'Y')-->delfile<!--@else-->addfile<!--@end-->"><!--@end--></span>
+                 	 	  <!--@end-->
+                 	 	  <span class="delbtn"><input type="button" value="D" onclick="javascript:fFormSubmit('D','{$file->file_srl}');" class="delete"></span>
+                 	 </li>
+                 	 <!--@end-->
+                 <!--@endif-->
+            </ul>
+             <div class="file_loading_box" id="fileLoadingBox" style="display:none">
+                     <div class="file_loading">
+                          <img src="./modules/mobileex/tpl/images/icon_loading.gif" border="0"> 
+                     </div>
+             </div>
+				</form>
+				<!-- file uploader -->
+			</li>
+         <!--@end-->
+		</ul>
+		<div class="bna">
+			<a href="javascript:mFormSubmit();" class="bn dark">{$lang->cmd_registration}</a>
+		</div>
+</div>
+
+
+<!--@if($mobileex_config && $muploader_active == 'Y')-->
+<!-- 파일을 보낼 아이프레임 -->
+<form action="./" enctype="multipart/form-data" id="afform" name="afform" method="post" target="hiddenIframe">
+<input type="hidden" name="act" id="addFileAct" value="mobileInsertAddFile" />
+<input type="hidden" name="upload_target_srl" value="{$document_srl}" />
+<input type="hidden" name="add_file_srl" id="addFileSrl" value="" />
+</form>
+<iframe name="hiddenIframe" src="about:blank" width="0" height="0" frameborder="0"></iframe>
+<!--@end-->

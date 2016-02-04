@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">XE 기본스킨-모바일XE연동버전</title>
+    <description xml:lang="ko">
+        XE 게시판의 기본 스킨에 모바일 XE연동한 버전입니다.
+        COMSIN (comsinnet@naver.com) 
+    </description>
+    <version>0.5</version>
+    <date>2013-05-15</date>
+    <author email_address="comsinnet@naver.com" link="http://comsin.net/">
+        <name xml:lang="ko">COMSIN</name>
+    </author>
+    <colorset />
+	<extra_vars>
+		<group>
+		<title xml:lang="ko">기본 설정</title>
+        <var name="list_style" type="select">
+            <title xml:lang="ko">기본 형태</title>
+            <title xml:lang="en">Default Form</title>
+            <description xml:lang="ko">
+                목록형, 웹진형, 갤러리형 기본 스타일을 지정할 수 있습니다.
+                포럼형 스타일은 정렬대상을 updated로 하셔야 합니다.
+            </description>
+            <description xml:lang="en">
+                You may select default styles such as list style, webzine style, gallery stylz or forum style.
+                Align Target for forum style is required to be selected as 'updated'.
+            </description>
+            <options value="list">
+                <title xml:lang="ko">목록</title>
+                <title xml:lang="en">list</title>
+            </options>
+            <options value="webzine">
+                <title xml:lang="ko">웹진</title>
+                <title xml:lang="en">webzine</title>
+            </options>
+            <options value="gallery">
+                <title xml:lang="ko">갤러리</title>
+                <title xml:lang="en">gallery</title>
+            </options>
+        </var>
+        <var name="board_title" type="text">
+            <title xml:lang="ko">게시판 제목</title>
+            <title xml:lang="en">Title of Board</title>
+            <description xml:lang="ko">게시판의 제목을 적어주세요.</description>
+            <description xml:lang="en">Plase input the title of board.</description>
+        </var>
+      </group>
+	 <group>
+		<title xml:lang="ko">리스트 설정</title>
+        <var name="subject_cut_size" type="text">
+            <title xml:lang="ko">제목 글자수</title>
+            <title xml:lang="en">Length of Subject</title>
+            <description xml:lang="ko">제목 글자수를 지정할 수 있습니다. (0또는 비워주시면 자르지 않습니다 - 웹진형기본값:35 , 갤러리형 기본값:25, 리스트형 기본값:0)</description>
+            <description xml:lang="en">You may set length of title. (0 or blank value will not restrict the length)</description>
+        </var>
+		<var name="content_cut_size" type="text">
+			<title xml:lang="ko">내용 글자수</title>
+			<title xml:lang="en">Length of Content</title>
+			<description xml:lang="ko">내용 글자수를 지정할 수 있습니다. (기본 100)</description>
+			<description xml:lang="en">Length of Content can be assigned. (default 100)</description>
+		</var>
+			<var name="list_category" type="select">
+				<title xml:lang="ko">카테고리 표시(리스트)</title>
+				<description xml:lang="ko">리스트에 카테고리 출력 여부를 정할 수 있습니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">표시(기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">표시 안함</title>
+				</options>
+			</var>
+        <var name="duration_new" type="text" default="24">
+            <title xml:lang="ko">new표시 시간 (hours)</title>
+            <title xml:lang="en">Duration of indication for new item</title>
+            <description xml:lang="ko">새로 등록된 게시물의 new 표시시간을 정할 수 있습니다. </description>
+            <description xml:lang="en">You may set the duration of indication for fresh item. </description>
+        </var>
+         <var name="thumb_width" type="text" default="79">
+            <title xml:lang="ko">썸네일 가로크기(웹진형시)</title>
+            <title xml:lang="en">Width of Thumbnail</title>
+            <description xml:lang="ko">웹진형시 썸네일의 가로 크기를 지정할 수 있습니다. (갤러리형인경우 사이즈는 모바일특성상 96으로 지정됩니다.)</description>
+            <description xml:lang="en">Set the width of thumbnail. Default is 79px.</description>
+	        </var>
+        <var name="thumb_height" type="text" default="59">
+            <title xml:lang="ko">썸네일 세로크기(웹진형시)</title>
+            <title xml:lang="en">Height of Thumbnail</title>
+            <description xml:lang="ko">웹진형시 세로 크기를 지정할 수 있습니다. (갤러리형인경우 사이즈는 모바일특성상 97으로 지정됩니다.) </description>
+            <description xml:lang="en">Set the height of thumbnail. Default is 59px.</description>
+        </var>
+    </group>
+	 <group>
+		<title xml:lang="ko">코멘트 설정</title>
+			<var name="auto_commentlist_view" type="select">
+				<title xml:lang="ko">코멘트리스트 펼치기</title>
+				<description xml:lang="ko">등록된 코멘트가 있을경우 코멘트 리스트를 펼쳐줍니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">사용(기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안함</title>
+				</options>
+			</var>
+			<var name="cmt_list_type" type="select">
+				<title xml:lang="ko">코멘트리스트 보기타입</title>
+				<description xml:lang="ko">코멘트 리스트 출력타입을 지정하실 수 있습니다.</description>
+				<options value="D">
+					<title xml:lang="ko">기본형(기본)</title>
+				</options>
+				<options value="E">
+					<title xml:lang="ko">모바일EX형</title>
+				</options>
+			</var>
+        <var name="cmt_list_count" type="text" default="10">
+            <title xml:lang="ko">코멘트 목록수</title>
+            <description xml:lang="ko">코멘트 리스트 출력타입을 모바일EX형으로 설정하였을경우 한번에 보일 코멘트 목록수입니다.</description>
+        </var>
+	</group>
+	 <group>
+		<title xml:lang="ko">기타 설정</title>
+			<var name="send_message_use" type="select">
+				<title xml:lang="ko">모바일쪽지 발송 사용</title>
+				<description xml:lang="ko">모바일EX를 통하여 글쓴이에게 쪽지를 보낼수 있도록 합니다. ( 단 모바일EX 0.6이상이 설치되어있어야합니다.)</description>
+				<options value="Y">
+					<title xml:lang="ko">사용(기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용 안함</title>
+				</options>
+			</var>
+	</group>
+	</extra_vars>
+	
+</skin>

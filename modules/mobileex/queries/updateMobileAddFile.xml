@@ -1,0 +1,12 @@
+<query id="updateMobileAddFile" action="update">
+    <tables>
+        <table name="mobileex_add_files" />
+    </tables>
+    <columns>
+        <column name="rotate" var="rotate" notnull="notnull" default="0" />
+        <column name="align" var="align" notnull="notnull" default="center" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="file_srl" var="file_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

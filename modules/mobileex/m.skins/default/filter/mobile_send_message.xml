@@ -1,0 +1,11 @@
+<filter name="mobile_send_message" module="mobileex" act="procMobileexSendMessage" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="title" required="true" minlength="1" maxlength="240" />
+        <node target="content" required="true" minlength="1" />
+    </form>
+    <parameter />
+    <response callback_func="completeMobileexSendMessage">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

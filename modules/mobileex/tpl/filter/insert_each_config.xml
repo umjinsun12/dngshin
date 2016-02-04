@@ -1,0 +1,5 @@
+<filter name="insert_each_config" module="mobileex" act="procMobileexAdminInsertEachConfig" confirm_msg_code="confirm_submit">
+    <form />
+    <parameter />
+    <response />
+</filter>

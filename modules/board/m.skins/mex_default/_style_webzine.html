@@ -1,0 +1,36 @@
+<ul class="lt">
+	<!--@foreach($notice_list as $no => $document)-->
+	<li>
+		<a href="{getUrl('document_srl', $document->document_srl)}">
+		<span class="title"><span class="notice">{$lang->notice}</span> <!--@if($module_info->use_category == "Y" && $mex_info->list_category == 'Y' && $document->get('category_srl'))-->{$category_list[$document->get('category_srl')]->title} &rsaquo;<!--@end--> <strong>{$document->getTitle($module_info->subject_cut_size)}</strong> <!--@if($document->getCommentCount())--><em>[{$document->getCommentCount()}]</em><!--@endif--></span>
+			<span class="auth"><strong>{$document->getNickName()}</strong> <span class="time">{$document->getRegDate("Y.m.d")}</span></span>
+		</a>
+	</li>
+	<!--@end-->
+	
+    {@
+      $wpl = (int)$mex_info->thumb_width + 10;
+      $wmh = (int)$mex_info->thumb_height;
+    }
+
+	<!--@foreach($document_list as $no => $document)-->
+	<li>
+		<a href="{getUrl('document_srl', $document->document_srl)}"<!--@if($list_config['thumbnail'] && $document->getThumbnail($mex_info->thumb_width, $mex_info->thumb_height,'crop'))--> style="padding-left:{$wpl}px;min-height:{$wmh}px"<!--@end-->>
+                <!--@if($list_config['thumbnail'] && $document->getThumbnail($mex_info->thumb_width, $mex_info->thumb_height,'crop'))--><span class="thumb"><img src="{$document->getThumbnail($mex_info->thumb_width, $mex_info->thumb_height,'crop')}" alt="" /></span><!--@end-->
+    			     <!--@if($list_config['title'])-->
+    			     <span class="title"><!--@if($module_info->use_category == "Y" && $mex_info->list_category == 'Y' && $document->get('category_srl'))-->{$category_list[$document->get('category_srl')]->title} &rsaquo;<!--@end--> 
+    			     <strong>{$document->getTitle($mex_info->subject_cut_size)}{$document->is_mobile}{$document->printExtraImages(60*60*$mex_info->duration_new)}</strong> 
+    			     <!--@if($document->getCommentCount())--><em>[{$document->getCommentCount()}]</em><!--@end--></span>
+    			     <!--@end-->
+                <!--@if($list_config['nick_name'])--><span class="auth"><strong>{$document->getNickName()}</strong> </span><!--@end-->
+    			     <!--@if($list_config['regdate'])--><span class="time">{$document->getRegDate("Y.m.d")}</span><!--@end-->
+    			     <!--@if($list_config['readed_count'])--><span class="cnt">{$lang->readed_count} : {$document->get('readed_count')>0?$document->get('readed_count'):0} </span><em class="bar">|</em><!--@end-->
+    			     <!--@if($list_config['voted_count'])--><span class="cnt">{$lang->voted_count} : {$document->get('voted_count')!=0?$document->get('voted_count'):0} </span><em class="bar">|</em><!--@end-->
+    			     <!--@foreach($list_config_e as $key => $extra)-->
+                   <span class="extra" cond="$document->getExtraValueHTML($key)"><strong>{$extra}</strong>: {$document->getExtraValueHTML($key)}&nbsp;</span>
+                <!--@end-->
+                <!--@if($list_config['summary'])--><p class="summary">{$document->getSummary($mex_info->content_cut_size)}<!--@if($list_config['last_update'])--><span class="time">{zdate($document->get('last_update'),'Y-m-d')}</span><!--@end--></p><!--@end-->
+		</a>
+	</li>
+	<!--@end-->
+</ul>

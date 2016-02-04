@@ -1,0 +1,49 @@
+<!--#include("./member_header.html")-->
+    <div class="mbtab_box">
+        <ul class="mbtab_menu">
+            <li<!--@if(!$message_type || $message_type == 'R')--> class="on"<!--@end-->><a href="{getUrl('message_srl','','message_type','R')}" class="link_tab">받은 견적 요청</a></li>
+            <li<!--@if($message_type == 'S')--> class="on"<!--@end-->><a href="{getUrl('message_srl','','message_type','S')}" class="link_tab">보낸 견적 요청</a></li><!-- 선택된 탭인경우 em으로 변경 -->
+
+        </ul>
+    </div>
+<!--@if($message_type == 'S')-->
+{@ $msg_name = '보낸 견적'; }
+<!--@elseif($message_type == 'T')-->
+{@ $msg_name = '보관된 견적'; }
+<!--@else-->
+{@ $msg_name = '받은 견적'; }
+<!--@end-->
+<div class="member_info_wrap">
+	  <h3 class="p_tit">{$msg_name}함&nbsp;<span class="tn">{number_format($total_count)}</span></h3>
+     <form action="./" method="get" onsubmit="return procFilter(this, delete_checked_message)" id="fo_message_list">
+     <input type="hidden" name="message_type" value="{$message_type}" />
+      <ul class="mblst_list">
+      	<!--@if(number_format($total_count) == 0)-->
+        <li class="empty">{$msg_name}이 없습니다.</li>
+        <!--@else-->
+        {@$lst_num = 1; }
+        <block loop="$message_list=>$no => $val">
+        <li<!--@if($val->readed !='Y')--> class="new"<!--@end-->>
+        	   <span class="mblst_num">{$lst_num}</span> 
+        		<span class="mblst_date">{zdate($val->regdate,"Y-m-d")}</span>
+        		<a class="mblst_link" href="{getUrl('act','dispMobileexMessageView','message_srl',$val->message_srl,'message_type','')}">
+        			<span class="mblst_username">{$val->nick_name}</span><!--@if($val->readed=="Y")--><span class="mblst_read_date">{zdate($val->readed_date,"Y-m-d H:i:s")} [읽음]</span><!--@end-->
+        			<span class="mblst_subject">{$val->title}</span>
+        		</a>
+        		<button type="button" class="mblst_delete" onclick="doDeleteMessages({$val->message_srl},'{$lang->confirm_delete}');">{$lang->cmd_delete}</button>
+        	</li>
+        	{@$lst_num++}
+        </block>
+        	<!--@end-->
+      </ul>
+    </form>
+     <div class="mb_paging">
+       <a href="<!--@if($page==1 || !$page)-->#none<!--@else-->{getUrl('page',$page-1,'module_srl','')}<!--@end-->" class="btn_page btn_prev"><span class="img_arrow ico_prev">{$lang->cmd_prev}</span></a>
+             <span class="blind">현재페이지</span><span class="num_page">{$page}</span> <span class="txt_bar">/</span> {$total_page}
+        <a href="<!--@if($page==$page_navigation->last_page || $total_page == 1)-->#none<!--@else-->{getUrl('page',$page+1,'module_srl','')}<!--@end-->" class="btn_page btn_next"><span class="img_arrow ico_next">{$lang->cmd_next}</span></a>
+     </div>
+
+</div>
+
+
+

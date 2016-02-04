@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.2">
+    <title xml:lang="ko">모달 팝업 위젯</title>
+    <description xml:lang="ko">모달 팝업 위젯입니다.</description>
+    <version>0.1</version>
+    <date>2014-10</date>
+
+    <author email_address="kolaskks@naver.com" link="http://xenara.co.kr/">
+        <name xml:lang="ko">등기의신</name>
+    </author>
+
+    <extra_vars>
+        <group>
+            <title xml:lang="ko">기타 설정</title>
+            <var id="m_scroll_top" type="text">
+                <name xml:lang="ko">모바일 목록 스크롤 상단위치</name>
+                <description xml:lang="ko">모바일 목록을 클릭 시 스크롤이동 상단위치를 입력하세요. 지원하는 스킨에만 적용가능합니다. (기본: 100)</description>
+            </var>
+        </group>
+    </extra_vars>
+</widget>

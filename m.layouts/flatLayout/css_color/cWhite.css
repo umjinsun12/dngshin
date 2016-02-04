@@ -1,0 +1,74 @@
+/* extra */
+.global-search	{top: 41px !important;}
+.member-header .profile-image	{top: 12px !important;}
+
+/* baskcground color */
+header.main, .main-logo, .login-wrap, .member-header, .flatBoard .login-wrap, .m-element .notice-list li .notice-text, .m-imagenews .info span.category, .m-ranking .rank-num, .top-title, .main-image-wrap, .main-normal-image, .member-menu-top
+{background-color: #FFF;} /* @mCol */
+.member-menu-top .profile-image, .global-search .btClose
+{background-color: #BBB;}
+.member-header .profile-image, .member-header .member-menu li a
+{background-color: #EEE;}
+.read-control .num2 span
+{background-color: #cc0000;}
+.member-menu-logged ul
+{background-color: #f1f1f1;}
+.m-imagenews .info span.name	
+{background-color: #666;} /* @mCol_d */
+.btDark, .flatMember .btSubmit, .flatBoard .btSubmit, .login-body .btLogin, .lang-list, .swiper-active-switch, .read-control li:not(.comment-num) a, .read-control li:not(.comment-num) button
+{background-color: #292e36} /* @sCol */
+.main-search button
+{background-color: #DDD;}
+
+
+
+/* border color */
+.login-body, .signup-body, .find-body, .flatBoard .origin-body, .flatBoard .message-body
+{border: 1px solid #DDD;}
+header.main
+{border-bottom: 1px solid #CCC;}
+.m-element nav ul, .m-element section h3
+{border-top: 1px solid #DDD; border-bottom: 1px solid #CCC; background-color: #f1f1f1; }
+.m-element nav a, .m-element section h3 span
+{padding: 6px 10px !important;}
+header.list-header, .write-form h3, .member-menu-top, .member-menu-logged li, .member-header	
+{border-bottom: 1px solid #DDD !important;}
+.f-message
+{border-top: 1px solid #DDD;}
+.member-menu-top a.btLogin	
+{border-right: 1px solid #DDD;} /* @mCol_line */
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="file"]:focus, input[type="password"]:focus, textarea:focus	
+{border: 1px solid #292e36;} /* @mCol */
+.lang-list:after
+{border-color: #292e36 transparent} /* @sCol */
+
+.searchinput2	{box-shadow: 0px 0px 0px 8px #DDD;}
+
+.gnb li ul li a.selected
+{border-left: 5px solid #666;}
+
+/* font color */
+.main-search button, .gnb li ul li ul li.selected
+{color: #666;}
+.flatMember em, .read-control li.comment-num .num, .write-form em, .m-ranking .rank-num
+{color: #cc0000 !important;} /* @mCol */
+header.main h1, .global-search .btClose, .member-menu-top a, .member-menu-top .name, .m-element .notice-list li .notice-text, .member-top-title, .top-title, .m-element nav li.active a, .m-element nav a, .m-element section h3, .member-menu-logged li a, .member-header .member-menu li a, .m-element section h3 a
+{color: #000;} /* @mCol_l */
+.m-list-reply	
+{color: #292e36;} /* @sCol_l3 */
+.login-body .btLogin, .btDark, .lang-list li button, .read-control .num2 span, .flatMember .btSubmit, .flatBoard .btSubmit
+{color: #FFF;} /* @sCol_l */
+
+
+.member-header .member-menu li a, .m-element nav a	
+{opacity: 0.5;}
+.member-header .member-menu li a.active, .m-element nav li.active a
+{opacity: 1.0;}
+
+
+/* phone color */
+@media screen and (max-width: 767px){
+	/* board comment */
+	.comment-control li span	{background-color: #464b52; border-bottom: 1px solid #383c41;} /* mCol_l2 */
+	.comment-control li span.im	{background-color: #292e36; border-bottom: 1px solid #202329;} /* @mCol_line */
+}

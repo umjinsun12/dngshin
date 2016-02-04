@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">XENARA 지도 위경도 삽입 애드온</title>
+    <description xml:lang="ko">
+	    지도 위경도를 문서DB에 삽입하는 애드온입니다.
+    </description>
+    <version>0.1</version>
+    <date>2013-12</date>
+    <author email_address="kolaskks@naver.com" link="http://xenara.co.kr">
+        <name xml:lang="ko">XENARA</name>
+    </author>
+
+  	<extra_vars>
+      <group>
+        <title xml:lang="ko">기본설정</title>
+	  	  <var name="google_map_key" type="text">
+		  	    <title xml:lang="ko">구글지도 API KEY</title>
+			      <description xml:lang="ko">구글지도 API KEY를 입력하세요. (필수)</description>
+  		  </var>
+	  	  <var name="map_latitude_eid" type="text">
+		  	    <title xml:lang="ko">지도위도 사용자정의이름</title>
+			      <description xml:lang="ko">지도위도로 사용하는 사용자정의이름(eid)를 입력하세요. (기본: map_latitude)</description>
+  		  </var>
+	  	  <var name="map_longitude_eid" type="text">
+		  	    <title xml:lang="ko">지도경도 사용자정의이름</title>
+			      <description xml:lang="ko">지도경도로 사용하는 사용자정의이름(eid)를 입력하세요. (기본: map_longitude)</description>
+  		  </var>
+
+	  	  <var name="map_address_eid" type="text">
+		  	    <title xml:lang="ko">지도주소 사용자정의이름</title>
+			      <description xml:lang="ko">지도주소로 사용하는 사용자정의이름(eid)를 입력하세요. 위경도 사용자정의가 없을 경우에 사용합니다. (기본: map_address)</description>
+  		  </var>
+      </group>
+  	</extra_vars>
+</addon>

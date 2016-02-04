@@ -1,0 +1,14 @@
+<?php if(!defined("__XE__")) exit();
+$info = new stdClass;
+$info->default_index_act = 'dispCympusadminIndex';
+$info->setup_index_act='';
+$info->simple_setup_index_act='';
+$info->admin_index_act = 'dispCympusadminIndex';
+$info->action = new stdClass;
+$info->action->dispCympusadminIndex = new stdClass;
+$info->action->dispCympusadminIndex->type='view';
+$info->action->dispCympusadminIndex->grant='guest';
+$info->action->dispCympusadminIndex->standalone='true';
+$info->action->dispCympusadminIndex->ruleset='';
+$info->action->dispCympusadminIndex->method='';
+return $info;

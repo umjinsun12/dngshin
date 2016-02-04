@@ -1,0 +1,14 @@
+<!-- load target="css/bWhite.css" / -->
+{@ 
+	$mi = $module_info;
+	if (!$mi->duration_new) $mi->duration_new = 24;
+	$t_date = date(Ymd);
+}
+<load target="css/board.css" />
+<load target="css/bRetina.css" />
+<load target="./js/bCommon.js" />
+<load target="./js/mboard.js" />
+<load target="./js/kakaolink.js" />
+<load target="./js/video.js" cond="$mi->video == 'Y'" />
+	
+<section class="flatBoard">

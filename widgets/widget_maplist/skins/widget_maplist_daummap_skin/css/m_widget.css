@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+
+
+
+.widget_maplist_daummap_skin .map_list_wrap { position:relative; top:0px; right:0px; width:auto; border:0px; border-top:1px solid #ccc; height:216px}
+.widget_maplist_daummap_skin .preload { position:absolute; top:0px; left:0px; width:100%; opacity: 0.5; filter:alpha(opacity=50); background:#fff url(../images/loading.gif) no-repeat center center; }
+
+
+/* 지도 마커 InfoWindow 내용 CSS */
+.widget_maplist_daummap_skin .map_canvas .map_info_content { position:relative; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .title_area .title { font-size:12px; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .content_area { padding-bottom:0px !important; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .content_area .content { font-size:10px; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars { position:relative; padding:0px; margin:5px 0px 0px 0px; border:0px; border-top:1px solid #ccc; border-right:1px solid #ccc; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td { padding:0px; margin:0px; border:0px; border-bottom:1px solid #ccc; border-left:1px solid #ccc; font-size:10px; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td.name { padding:3px 5px; font-weight:bold; white-space:nowrap; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td.value { padding:3px 5px; }
+

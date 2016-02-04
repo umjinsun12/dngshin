@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lang>
+	<item name="igrusboard_title">
+		<value xml:lang="ko"><![CDATA[게시판 제목]]></value>
+	</item>
+	<item name="about_igrusboard_title">
+		<value xml:lang="ko"><![CDATA[게시판 상단에 표시할 제목입니다.]]></value>
+	</item>
+	<item name="nick_name">
+		<value xml:lang="ko">닉네임</value>
+	</item>
+	<item name="title">
+		<value xml:lang="ko">제목</value>
+	</item>
+	<item name="cmd_registration">
+		<value xml:lang="ko">등록</value>
+	</item>								
+</lang>

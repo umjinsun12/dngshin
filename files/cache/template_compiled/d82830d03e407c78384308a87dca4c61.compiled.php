@@ -1,0 +1,223 @@
+<?php if(!defined("__XE__"))exit;?>
+    <title>등기의신</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSS 
+        ================================================== -->
+    <!-- Bootstrap 3-->
+    <!--#Meta:layouts/igrus_layout/css/bootstrap.min.css--><?php $__tmp=array('layouts/igrus_layout/css/bootstrap.min.css','','','');Context::loadFile($__tmp);unset($__tmp); ?>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <!-- Template Styles -->
+    <!--#Meta:layouts/igrus_layout/css/style.css--><?php $__tmp=array('layouts/igrus_layout/css/style.css','','','');Context::loadFile($__tmp);unset($__tmp); ?>
+	  
+	  <!-- NAVBAR
+	      ================================================== -->
+	  <nav class="navbar navbar-default" role="navigation">
+	  	  <div class="container">
+			  <div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			      <span class="sr-only">Toggle navigation</span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+			    
+			    <!--Replace text with your app name or logo image-->
+			    <a class="navbar-brand" href="#">등기의신</a>
+			    
+			  </div>
+			  <div class="collapse navbar-collapse navbar-ex1-collapse">
+			    <ul class="nav navbar-nav">
+			      <li><a onclick="$('header').animatescroll({padding:71});">Start</a></li>
+			      <li><a onclick="$('.detail').animatescroll({padding:71});">Screens</a></li>
+			      <li><a onclick="$('.features').animatescroll({padding:71});">Features</a></li>
+			      <li><a onclick="$('.social').animatescroll({padding:71});">Social	</a></li>
+			    </ul>
+			  </div>
+		  </div>
+	  </nav>
+	  
+	  
+	   <!-- HEADER
+	   ================================================== -->	  
+	  <header>
+		 <div class="container">
+			 <div class="row">
+				 <div class="col-md-12">
+					  <h1>등기의 신!</h1>
+					  <p class="lead">쉽고 빠른 등기를 도와주는 어플리케이션 입니다.</p>
+					  
+					  <div class="carousel-iphone">
+					  	<div id="carousel-example-generic" class="carousel slide">
+					    
+					    <!-- Indicators -->
+					    <ol class="carousel-indicators">
+					      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					    </ol>
+					  
+					    <!-- Wrapper for slides -->
+					    <div class="carousel-inner">
+					      <div class="item active">
+					        <img src="/layouts/igrus_layout/img/screenshots/app-1.png" alt="App Screen 1">
+					      </div>
+					      <div class="item">
+					        <img src="/layouts/igrus_layout/img/screenshots/app-2.png" alt="App Screen 2">
+					      </div>
+					      <div class="item">
+					        <img src="/layouts/igrus_layout/img/screenshots/app-3.png" alt="App Screen 3">
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+				</div>	  
+			</div>    
+		</div>
+	 </header>
+	  
+	  
+	  <!-- PURCHASE
+	      ================================================== -->
+	  <section class="purchase">
+		  <div class="container">
+			  <div class="row">
+				  <div class="col-md-offset-2 col-md-8">
+					 <h1>등기의 신과 함께라면 모든 것이 쉬워집니다.</h1>
+					 	    <p class="lead">아래 구글 플레이 스토어에서 다운로드 받으세요</p>
+					 	    <button type="button" class="app-store"></button>	
+				  </div>
+			  </div>
+		  </div>
+	  </section>
+	  
+	  
+	  <!-- PAYOFF 
+	      ================================================== -->
+	  <section class="payoff">
+		<div class="container">
+			  <div class="row">
+				  <div class="col-md-12">
+					  <h1>셀프등기에서 시작해서 내 주변 법무사 연결 그리고 법무사 견적을 등기의 신 하나로 모두 해결하세요.</h1>
+				  </div>
+			  </div>
+		  </div>	  
+	  </section>
+	  
+	  
+	  <!-- DETAILS 
+	      ================================================== -->
+	  <section class="detail">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="carousel-example-generic-2" class="carousel slide">
+										
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner">
+					    <div class="item active">
+					      	<div class="row">
+					      		<div class="col-sm-12 col-md-offset-1 col-md-6">
+					      			<h1>등기의 신에서 <br/>등기비 계산하기</h1><br/>
+					      			<p>소유권 등기이전을 위해 드는 등기 비용을 등기의 신에서 간편하게 계산하세요. 등기비 계싼을 간편하고 쉽게 알려드립니다.</p>
+					      		</div>
+					      		<div class="col-sm-12 col-md-5">
+					      			<div class="app-screenshot">
+					      				<img src="/layouts/igrus_layout/img/screenshots/app-1.png" class="img-responsive" alt="App Screen 1">
+					      			</div>
+					      		</div>
+					      	</div>
+					    </div>
+					    <div class="item">
+					    	<div class="row">
+					    		<div class="col-sm-12 col-md-offset-1 col-md-6">
+					    			<h1>등기의 신 <br/> 셀프 등기하기</h1> <br/>
+					    			<p>이해하기 어렵고 힘든 셀프 등기과정을 처음부터 자세하게 등기의 신에서 알려드립니다.</p>
+					    		</div>
+					    		<div class="col-sm-12 col-md-5">
+					    			<div class="app-screenshot">
+					    				<img src="/layouts/igrus_layout/img/screenshots/app-2.png" class="img-responsive" alt="App Screen 2">
+					    			</div>
+					    		</div>
+					    	</div>
+						</div>
+					    <div class="item">
+					      <div class="row">
+					      	<div class="col-sm-12 col-md-offset-1 col-md-6">
+					      		<h1>등기의 신  <br/> 법무사를 통한 등기</h1>
+					      		<p>현재 자신이 있는곳에서 가장 가까운 법무사를 만나 보세요. 등기의 신에 등록된 법무사가 즉시 답변을 해 드립니다.</p>
+					      	</div>
+					      	<div class="col-sm-12 col-md-5">
+					      		<div class="app-screenshot">
+					      			<img src="/layouts/igrus_layout/img/screenshots/app-3.png" class="img-responsive" alt="App Screen 3">
+					      		</div>
+					      	</div>
+					      </div>
+					    </div>
+					  </div>
+					
+					  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+					    <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+					    <li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+					  </ol>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	  
+	  <!-- FEATURES
+	      ================================================== -->
+	  
+	  
+	
+	 <!-- SOCIAL
+	     ================================================== -->
+	  <section class="social">
+	  	<div class="container">
+	  		  <div class="row">
+	  			  <div class="col-md-12">
+	  			  	<h2>언제 어디서나 등기의 신을 이용하여 등기를 해결하세요.</h2>
+	  			  	어렵고 복잡한 등기도 등기의 신을 통해서 해낼 수 있습니다.
+	  			   </div>
+	  		  </div>
+	  	  </div>	  
+	  </section>
+	  
+	
+	 <!-- GET IT 
+	     ================================================== -->
+	  <section class="get-it">
+	  	<div class="container">
+	  		<div class="row">
+	  			<div class="col-md-12">
+	  				<h1>지금 등기의 신을 만나 보세요</h1>
+	  				<p class="lead">아래 링크를 통해 다운로드 받으실 수 있습니다.</p>
+	  				<button type="button" class="app-store"></button>
+	  			</div>
+	  			<div class="col-md-12">
+	  				<hr />
+		  			<ul>
+	                	<li><a href="#link-here">Contact</a></li>
+	                	
+                	</ul>
+	  			</div>
+	  		</div>
+	  	</div>
+	  </section>
+	  
+	 
+	 <!-- JAVASCRIPT
+	     ================================================== -->
+    <script src="/layouts/igrus_layout/js/jquery.js"></script>
+    <script src="/layouts/igrus_layout/js/bootstrap.min.js"></script>
+    <script src="/layouts/igrus_layout/js/animatescroll.js"></script>
+    <script src="/layouts/igrus_layout/js/scripts.js"></script>
+    <script src="/layouts/igrus_layout/js/retina.min.js"></script>
+  	

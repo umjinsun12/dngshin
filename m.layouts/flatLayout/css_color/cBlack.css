@@ -1,0 +1,69 @@
+/* baskcground color */
+header.main, .member-menu-top .profile-image, .main-logo, .login-wrap, .member-header-wrap, .read-control li:not(.comment-num) a, .read-control li:not(.comment-num) button, .flatBoard .login-wrap, .m-imagenews .info span.category, .m-ranking .rank-num, .main-image-wrap, .main-normal-image, .member-menu-top, .main-image
+{background-color: #222;}
+.social-login a, .member-header .profile-image, .member-header .member-menu li a, .global-search .btClose, .m-imagenews .info span.name, .read-control .num2 span
+{background-color: #151515;}
+.btDark, .flatMember .btSubmit, .flatBoard .btSubmit, .login-body .btLogin, .lang-list
+{background-color: #1b1b1b}
+.m-element nav ul, .m-element section h3, .member-menu-logged ul
+{background-color: #292929;}
+.m-element nav ul li.active a, .m-element section h3 span
+{background-color: #252525;}
+.notice-text
+{background-color: #83b8dd}
+.swiper-active-switch
+{background-color: #000;}
+.main-search button
+{background-color: #333;}
+
+
+/* border color */
+.member-menu-top a.btLogin	
+{border-right: 1px solid #151515;} /* @mCol_line */
+.member-menu-logged li	
+{border-bottom: 1px solid #222;} /* @mCol_line */
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="file"]:focus, input[type="password"]:focus, textarea:focus	
+{border: 1px solid #83b8dd;} /* @mCol */
+.lang-list:after
+{border-color: #1b1b1b transparent} /* @sCol */
+.gnb li ul li a.selected
+{border-left: 5px solid #83b8dd;}
+
+.searchinput2	{box-shadow: 0px 0px 0px 8px #83b8dd;}
+
+
+/* font color */
+.gnb li ul
+{color: #666 !important;} 
+.read-control li.comment-num .num, .gnb li ul li ul li.selected
+{color: #83b8dd}
+.write-form em, .flatMember em
+{color: #83b8dd !important;}
+header.main h1, .global-search .btClose, .member-menu-top a, .member-menu-top .name, .flatMember .btSubmit, .flatBoard .btSubmit, .member-top-title, .top-title	{color: #FFF;} /* @mCol_l */
+.member-menu-logged li a, .social-login h2, .member-header .member-menu li a
+{color: #EEE;}
+.m-list-reply
+{color: #DDD;}
+.read-control .num2 span, .member-menu-logged ul a
+{color: #AAA;}
+.login-body .btLogin, .btDark, .lang-list li button	
+{color: #dad0cc;} 
+.notice-text, .comment-control li a
+{color: #000;}
+
+.member-header .member-menu li a, .m-element nav a
+{opacity: 0.6;}
+.member-header .member-menu li a.active, .m-element nav li.active a, .m-element section h3
+{opacity: 1.0;}
+
+
+/* etc */
+.login-body, .signup-body, .find-body, .flatBoard .origin-body, .flatBoard .message-body	
+{box-shadow: 0 0 2px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 2px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);}
+
+/* phone color */
+@media screen and (max-width: 767px){	
+	/* board comment */
+	.comment-control li span	{background-color: #888; border-bottom: 1px solid #777;} /* mCol_l2 */
+	.comment-control li span.im	{background-color: #666; border-bottom: 1px solid #555;} /* @mCol_line */
+}

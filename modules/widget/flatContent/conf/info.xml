@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.2">
+	<title xml:lang="ko">Flat Mobile Content 위젯</title>
+	<description xml:lang="ko">게시판, 코멘트, 첨부파일 등 Content를 출력하는 위젯입니다.</description>
+	<version>0.1</version>
+	<date>2013-11-30</date>
+	<author email_address="studio02xe@gmail.com" link="http://studio02.co.kr/">
+		<name xml:lang="ko">studio02 / NHN</name>
+	</author>
+	<extra_vars>
+		<group>
+			<title xml:lang="ko">추출 대상</title>
+            <var id="content_type" type="select">
+                <name xml:lang="ko">추출대상</name>
+                <options>
+                    <value>document</value>
+                    <name xml:lang="ko">게시물</name>
+                </options>
+                <options>
+                    <value>comment</value>
+                    <name xml:lang="ko">댓글</name>
+                </options>
+            </var>
+            <var id="module_srls">
+                <type>module_srl_list</type>
+                <name xml:lang="ko">대상 페이지</name>
+                <description xml:lang="ko">선택한 페이지에 등록된 글을 대상으로 합니다.</description>
+            </var>
+            <var id="list_type">
+                <type>select</type>
+                <name xml:lang="ko">내용형태</name>
+                <options>
+                    <value>news</value>
+                    <name xml:lang="ko">뉴스형</name>
+                </options>
+                <options>
+                    <value>webzine</value>
+                    <name xml:lang="ko">웹진형</name>
+                </options>
+                <options>
+                    <value>imageNews</value>
+                    <name xml:lang="ko">이미지뉴스형</name>
+                </options>
+                <options>
+                    <value>gallery</value>
+                    <name xml:lang="ko">3단 갤러리형</name>
+                </options>
+                <options>
+                    <value>ranking</value>
+                    <name xml:lang="ko">랭킹형</name>
+                </options>
+                <options>
+                    <value>comment</value>
+                    <name xml:lang="ko">코멘트형</name>
+                </options>
+            </var>
+            <var id="tab_type">
+                <type>select</type>
+                <name xml:lang="ko">탭형태</name>
+                <options>
+                    <value>none</value>
+                    <name xml:lang="ko">없음</name>
+                </options>
+                <options>
+                    <value>tab</value>
+                    <name xml:lang="ko">상단탭</name>
+                </options>
+            </var>
+            <var id="tab_title">
+            	<type>text</type>
+                <name xml:lang="ko">탭 없을 때 제목</name>
+            </var>
+            <var id="tab_title_url">
+            	<type>text</type>
+                <name xml:lang="ko">제목을 클릭했을 때 이동할 주소 (탭 없을 때)</name>
+            </var>
+            <var id="use_more">
+                <type>select</type>
+                <name xml:lang="ko">더보기 버튼 사용</name>
+                <options>
+                    <value></value>
+                    <name xml:lang="ko">사용하지 않음</name>
+                </options>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">사용</name>
+                </options>
+            </var>
+            <var id="list_count" type="text">
+                <name xml:lang="ko">목록수</name>
+                <description xml:lang="ko">출력될 목록의 수를 정할 수 있습니다. (기본 3개)</description>
+            </var>
+            <var id="page_count" type="select">
+                <name xml:lang="ko">페이지 수</name>
+                <options>
+                    <value>1</value>
+                    <name xml:lang="ko">1</name>
+                </options>
+                <options>
+                    <value>2</value>
+                    <name xml:lang="ko">2</name>
+                </options>
+                <options>
+                    <value>3</value>
+                    <name xml:lang="ko">3</name>
+                </options>
+            </var>
+            <var id="subject_cut_size" type="text">
+                <name xml:lang="ko">제목 글자수</name>
+                <description xml:lang="ko">제목 글자수를 지정할 수 있습니다. (0또는 비우면 자르지 않습니다)</description>
+            </var>
+            <var id="content_cut_size" type="text">
+                <name xml:lang="ko">내용 글자수</name>
+            </var>
+        </group>
+        <group>
+            <title xml:lang="ko">목록 상세 설정</title>
+            <var id="show_category" type="select">
+                <name xml:lang="ko">분류 표시</name>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">출력</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">출력하지 않음</name>
+                </options>
+            </var>
+            <var id="show_info" type="select">
+                <name xml:lang="ko">글정보 표시 (글쓴이, 날짜, 코멘트수)</name>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">출력</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">출력하지 않음</name>
+                </options>
+            </var>
+            <var id="show_icon" type="select">
+                <name xml:lang="ko">아이콘 표시</name>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">출력</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">출력하지 않음</name>
+                </options>
+            </var>
+            <var id="duration_new" type="text">
+                <name xml:lang="ko">new 표시 시간 (hours)</name>
+                <description xml:lang="ko">새로 등록된 게시물의 new 표시시간을 정할 수 있습니다. (시간 단위)</description>
+            </var>
+        </group>
+        <group>
+			<title xml:lang="ko">정렬</title>
+            <var id="order_target" type="select">
+                <name xml:lang="ko">정렬 대상</name>
+                <description xml:lang="ko">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+                <options>
+                    <value>regdate</value>
+                    <name xml:lang="ko">최신 등록순</name>
+                </options>
+                <options>
+                    <value>list_order</value>
+                    <name xml:lang="ko">목록번호순</name>
+                </options>
+                <options>
+                    <value>update_order</value>
+                    <name xml:lang="ko">최근 변경순</name>
+                </options>
+                <options>
+                    <value>readed_count</value>
+                    <name xml:lang="ko">조회수순</name>
+                </options>
+                <options>
+                    <value>voted_count</value>
+                    <name xml:lang="ko">추천순</name>
+                </options>
+            </var>
+            <var id="order_type" type="select">
+                <name xml:lang="ko">정렬 방법</name>
+                <description xml:lang="ko">정렬대상을 내림차순 또는 올림차순으로 정렬할 수 있습니다.</description>
+                <options>
+                    <value>desc</value>
+                    <name xml:lang="ko">내림차순</name>
+                </options>
+                <options>
+                    <value>asc</value>
+                    <name xml:lang="ko">올림차순</name>
+                </options>
+            </var>
+			<var id="regdate">
+				<type>text</type>
+				<name xml:lang="ko">컨텐츠 시간 범위 (day)</name>
+				<name xml:lang="en">Duration of items</name>
+				<description xml:lang="ko">가져올 컨텐츠의 시간 범위를 정할 수 있습니다. (일 단위, 0 또는 비워두시면 범위를 지정하지 않음)</description>
+			</var>
+		</group>
+        <group>
+			<title xml:lang="ko">썸네일 크기</title>
+            <var id="thumbnail_width" type="text">
+                <name xml:lang="ko">썸네일가로</name>
+                <description xml:lang="ko">웹진형:260, 이미지뉴스형:640, 3단갤러리형:220 </description>
+            </var>
+            <var id="thumbnail_height" type="text">
+                <name xml:lang="ko">썸네일세로</name>
+                <description xml:lang="ko">웹진형:160, 이미지뉴스형:420이상(원하는 높이x2), 3단갤러리형:160 </description>
+            </var>
+        </group>
+        </extra_vars>
+</widget>

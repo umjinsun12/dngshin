@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">모바일EX 에드온</title>
+    <description xml:lang="ko">
+	모바일EX 모듈의 정보를 받아 실행하는 애드온입니다.
+    </description>
+    <version>0.5.1</version>
+    <date>2013-06-19</date>
+    <link>http://comsin.net</link>
+    <author email_address="comsinnet@naver.com">
+        <name xml:lang="ko">COMSIN</name>
+    </author>
+</addon>

@@ -1,0 +1,55 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/js_app.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/common.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_handler.js", true, '', -100000) }
+{@ Context::addJsFile("./common/js/xml_js_filter.js", true, '', -100000) }
+<load target="js/edit.js" cond="$comment_srl" />
+<include target="_header.html" />
+<span class="check-cancel-dummy cbt"></span>
+<div class="comment-el cWrite" cond="$oSourceComment->isExists()">
+	<div class="profile-image pad">
+		<img src="{$oSourceComment->getProfileImage()}" alt="profile image" width="40px" height="40px" cond="$oSourceComment->getProfileImage()" />
+	</div>
+	<span class="name" style="font-weight:bold"|cond="$oSourceComment->get('member_srl')">{$oSourceComment->getNickName()}</span>
+	<span class="date">{$oSourceComment->getRegdate('y-m-d H:i')}</span>
+	<div class="comment-body">
+		{$oSourceComment->getContent(false)}
+	</div>
+</div>
+<div class="comment-write">
+<form action="./" method="post" class="cWrite-body cWrite" onsubmit="return procFilter(this, insert_comment);">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$oComment->get('document_srl')}" />
+	<input type="hidden" name="comment_srl" value="{$oComment->get('comment_srl')}" />
+	<input type="hidden" name="parent_srl" value="{$oComment->get('parent_srl')}" />
+	<ul>
+		<li cond="$comment_srl && $act !=dispBoardReplyComment" class="disc">글 수정시 PC에서 작성하신 HTML태그가 삭제됩니다. PC에서 작성한 코멘트는 <a href="{getUrl('m',0)}">PC화면</a>에서 수정하는 것을 권장합니다.</li>
+		<li class="textarea-wrap">
+			<textarea name="content" id="rText" required placeholder="{$lang->comment}"><!--@if($oComment->getContentText())-->{$oComment->getContentText()}<!--@end--></textarea>
+		</li>
+		<!--@if(!$is_logged)-->
+		<li>
+			<input name="nick_name" type="text" id="uName" class="input100" required placeholder="{$lang->writer}" />
+		</li>
+		<li>
+			<input name="password" type="password" id="uPw" class="input100" required placeholder="{$lang->password}" />
+		</li>
+		<li>
+			<input name="email_address" type="email" id="uMail" class="input100" placeholder="{$lang->email_address}" />
+		</li>
+		<li>
+			<input name="homepage" type="url" id="uSite" class="input100" placeholder="{$lang->homepage}" />
+		</li>
+		<!--@endif-->
+		<li cond="$module_info->secret=='Y'" >
+			<input type="checkbox" name="is_secret" value="Y" id="is_secret" class="iCheck" />
+			<label for="is_secret"><span class="check-dummy"></span> <span>{$lang->secret}</span></label>
+		</li>
+	</ul>
+	<div class="bt-wrap clearfix bt-wrap-full">
+		<a href="javascript:history.back()" class="btCancel">{$lang->cmd_cancel}</a>
+		<button type="submit" class="btSubmit">{$lang->cmd_comment_registration}</button>
+	</div>
+</form>
+</div>
+<include target="_footer.html" />

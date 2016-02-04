@@ -1,0 +1,38 @@
+header.main .menu-trigger	{background-image: url('../images/wiMenu.png'); background-size: 18px 18px;} 
+header.main .btSearch	{background-image: url('../images/wiSearch.png'); background-size: 18px 18px;} 
+header.main .btPrev, header.main .btCancel	{background-image: url('../images/wiPrev.png'); background-size: 19px 16px; }
+
+.member-menu-top a.btLogin span	{background-image: url('../images/wiLogin.png'); background-size: 18px 18px;}
+.member-menu-top a.btSignup span	{background-image: url('../images/wiSignup.png'); background-size: 18px 18px;}
+
+.member-menu-top.arrowUp	{background-image: url('../images/wiArrowUp.png'); background-size: 12px 5px;}
+.member-menu-top.arrowDown	{background-image: url('../images/wiArrowDown.png'); background-size: 12px 5px;}
+
+.member-menu-logged a	{background-size: 18px 18px;}
+.member-menu-logged li:first-child a	{background-image:url('../images/wiInfo.png');}
+.member-menu-logged li:nth-child(2) a	{background-image: url('../images/wiScrap.png');}
+.member-menu-logged li:nth-child(3) a	{background-image: url('../images/wiSaved.png');}
+.member-menu-logged li:nth-child(4) a	{background-image: url('../images/wiDocument.png');}
+.member-menu-logged li a.btMemberAdmin	{background-image:url('../images/wiAdmin.png');}
+.member-menu-logged li a.btLogout	{background-image:url('../images/wiLogout.png');}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+	header.main .menu-trigger	{background-image: url('../images/wiMenu@2x.png');}
+	header.main .btSearch	{background-image: url('../images/wiSearch@2x.png');}
+	header.main .btPrev, header.main .btCancel	{background-image: url('../images/wiPrev@2x.png');}
+		
+	.member-menu-top a.btLogin span	{background-image: url('../images/wiLogin@2x.png');}
+	.member-menu-top a.btSignup span	{background-image: url('../images/wiSignup@2x.png');}
+	
+	.member-menu-top.arrowUp	{background-image: url('../images/wiArrowUp@2x.png');}
+	.member-menu-top.arrowDown	{background-image: url('../images/wiArrowDown@2x.png');}
+	.member-menu-logged li:first-child a	{background-image:url('../images/wiInfo@2x.png');}
+	.member-menu-logged li:nth-child(2) a	{background-image: url('../images/wiScrap@2x.png');}
+	.member-menu-logged li:nth-child(3) a	{background-image: url('../images/wiSaved@2x.png');}
+	.member-menu-logged li:nth-child(4) a	{background-image: url('../images/wiDocument@2x.png');}
+	.member-menu-logged li a.btMemberAdmin	{background-image:url('../images/wiAdmin@2x.png');}
+	.member-menu-logged li a.btLogout	{background-image:url('../images/wiLogout@2x.png');}
+}

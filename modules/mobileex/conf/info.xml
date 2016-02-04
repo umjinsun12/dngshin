@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">XE 모바일 확장</title>
+    <version>0.6.1</version>
+    <date>2013-06-19</date>
+    <category>service</category>
+    <author email_address="comsinnet@naver.com" link="http://comsin.net/">
+        <name xml:lang="ko">COMSIN</name>
+    </author>
+</module>

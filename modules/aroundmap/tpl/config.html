@@ -1,0 +1,76 @@
+<!--%import("css/aroundmap.css")-->
+<!--%import("js/aroundmap.js")-->
+<!--%import("filter/set_api_key.xml")-->
+
+<h3 class="xeAdmin">{$lang->aroundmap} <span class="gray">{$lang->cmd_management}</span></h3>
+<p class="summary">{$lang->about_aroundmap}</p>
+
+<form action="./" method="get" onsubmit="return procFilter(this, set_api_key);">
+    <input type="hidden" name="year" value="{$year}" />
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <th scope="row" width=200><div>{$lang->naver_api_key}</div></th>
+        <td>
+            <input type="text" id="naver_api_key" name="naver_api_key" value="{$naver_api_key}" size="40" />
+            <p>{$lang->about_naver_api_key}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->yahoo_api_key}</div></th>
+        <td>
+            <input type="text" id="yahoo_api_key" name="yahoo_api_key" value="{$yahoo_api_key}" size="40" />
+            <p>{$lang->about_yahoo_api_key}</p>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->apply_module}</div></th>
+        <td>
+            <select name="_apply_module" id="_apply_module" size="10" class="applyModuleList">
+                {@$apply_module_srls = array()}
+                <!--@foreach($apply_module as $v)-->
+                {@$apply_module_srls[] = $v->module_srl}
+                <option value="{$v->module_srl}">{$v->browser_title} ({$v->mid})</option>
+                <!--@end-->
+            </select>
+            <ul class="midCommand">
+                <li><a href="{getUrl('','module','module','act','dispModuleSelectList','id','apply_module')}" onclick="popopen(this.href, 'ModuleSelect');return false;" class="button blue"><span>{$lang->cmd_insert}</span></a></li>
+                <li><a href="#" onclick="removeApplyModule('apply_module');return false;" class="button red"><span>{$lang->cmd_delete}</span></a></li>
+            </ul>
+            <p>{$lang->about_apply_module}</p>
+            <input type="hidden" name="apply_module" id="apply_module" value="{implode(',',$apply_module_srls)}" />
+        </td>
+    </tr>
+    
+    </table>
+    
+ <h4 class="xeAdmin">{$lang->set_for_sphinx}</h4>
+ <p class="summary">{nl2br($lang->about_config_share)}</p>
+ 
+    <table cellspacing="0" class="rowTable">
+
+    <tr>
+        <th scope="row" width=200><div>{$lang->serverName}</div></th>
+        <td>
+            <input type="text" name="servername" value="{$serverName}" />
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><div>{$lang->serverPort}</div></th>
+        <td>
+            <input type="text" name="serverport" value="{$serverPort}" />
+        </td>
+    </tr>    
+    <tr>
+        <th scope="row"><div>{$lang->useSphinx}</div></th>
+        <td>
+            <input type="checkbox" name="usesphinx" value="true" <!--@if($useSphinx=="true")-->checked<!--@end-->>  {$lang->useSphinx}</input>
+     
+        </td>
+    </tr>
+    <tr class="row">
+        <th class="button" colspan="3">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_apply}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+</form>

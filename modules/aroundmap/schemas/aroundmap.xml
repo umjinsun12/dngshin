@@ -1,0 +1,10 @@
+<table name="aroundmap">
+    <column name="aroundmap_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="module_srl" type="number" size="11" default="0" notnull="notnull" index="idx_module_srl" />
+    <column name="document_srl" type="number" size="11" default="0" notnull="notnull" index="idx_document_srl" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_member_srl" />
+    <column name="title" type="varchar" size="250" notnull="notnull" />
+    <column name="lat" type="float" default="0" notnull="notnull" />
+    <column name="lon" type="float" default="0" notnull="notnull" />
+    <column name="map_size" type="number" size="11" notnull="notnull" />
+</table>

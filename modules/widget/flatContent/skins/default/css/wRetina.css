@@ -1,0 +1,11 @@
+.m-element .thumb-image.no-image	{background-image: url('../images/bgNoImage.png'); background-size: 31px 24px;}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+		
+	/* list basic set */
+	.m-element .thumb-image.no-image	{background-image: url('../images/bgNoImage@2x.png');}
+
+}

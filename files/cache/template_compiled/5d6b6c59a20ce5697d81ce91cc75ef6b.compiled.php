@@ -1,0 +1,1 @@
+<?php if(!defined("__XE__"))exit;?><script type='text/javascript'>document.location.replace('/');</script>

@@ -1,0 +1,100 @@
+{@
+	if (!$mi->best_comment) $mi->best_comment = 1000;
+	if (!$mi->blind_comment) $mi->blind_comment = 1000;
+}
+<div class="comment">
+	<ul class="comment-list" cond="$oDocument->getCommentcount()">
+		<li class="clearfix<!--@if($comment->get('depth'))--> indent<!--@if($mi->use_comment_indent == 'Y')--> indent{($comment->get('depth'))}<!--@end--><!--@end--><!--@if($comment->get('voted_count') >= $mi->best_comment)--> best-comment<!--@end-->" id="comment_{$comment->comment_srl}" loop="$oDocument->getComments()=>$key,$comment">
+			<div class="comment-el">
+				<div class="profile-image pad">
+					<img src="{$comment->getProfileImage()}" alt="profile image" width="40px" height="40px" cond="$comment->getProfileImage()" />
+				</div>
+				<span class="name member_{$comment->get('member_srl')} nName" style="font-weight:bold"|cond="$comment->get('member_srl')">
+					<span class="best-text" cond="$comment->get('voted_count') >= $mi->best_comment">best</span>{$comment->getNickName()}
+				</span>
+				<span class="date"><!--@if($t_date == $comment->getRegDate('Ymd'))-->{$comment->getRegDate("H:i")}<!--@else-->{$comment->getRegDate("y-m-d")}<!--@end--></span>
+				<div class="comment-body">
+					<!--@if(!$comment->isAccessible())-->
+					<form action="./" method="get" class="secret-comment" onsubmit="return procFilter(this, input_password)">
+						<div><input type="password" name="password" id="cpw_{$comment->comment_srl}" class="input100" required placeholder="{$lang->msg_is_secret}" /> <button type="submit" class="btCancel">{$lang->cmd_input}</button> </div>
+						<input type="hidden" name="mid" value="{$mid}" />
+						<input type="hidden" name="page" value="{$page}" />
+						<input type="hidden" name="document_srl" value="{$comment->get('document_srl')}" />
+						<input type="hidden" name="comment_srl" value="{$comment->get('comment_srl')}" />
+					</form>
+					<!--@else-->
+					<span class="blind-text" cond="-$comment->get('blamed_count') >= $mi->blind_comment">블라인드 처리되었습니다. [코멘트보기]</span>
+					<div class="blind-comment"|cond="-$comment->get('blamed_count') >= $mi->blind_comment">{$comment->getContent(false)}</div>
+					<!--@end-->
+				</div>
+				<block cond="$mi->use_comment_vote == 'Y' && $comment->isAccessible()">
+					<div class="comment-view-vote phone">
+						<span class="thumbText">{$lang->cmd_vote} <span class="thumbUpNum">{$comment->get('voted_count')}</span></span><span class="thumbText">{$lang->cmd_vote_down} <span class="thumbDownNum">{-$comment->get('blamed_count')}</span></span>
+					</div>
+					<div class="comment-view-vote pad">
+						<button class="thumbText" onclick="doCallModuleAction('comment','procCommentVoteUp','{$comment->comment_srl}');return false;"|cond="$is_logged">{$lang->cmd_vote} <span class="thumbUpNum">{$comment->get('voted_count')}</span></button><button class="thumbText" onclick="doCallModuleAction('comment','procCommentVoteDown','{$comment->comment_srl}')"|cond="$is_logged">{$lang->cmd_vote_down} <span class="thumbDownNum">{-$comment->get('blamed_count')}</span></button>
+					</div>
+				</block>
+			</div>
+			<table class="comment-control" cellpadding="0" cellspacing="0"><tr><td>
+				<ul class="clearfix">
+					{@ $not_me = $comment->member_srl && $is_logged && ($comment->member_srl != $logged_info->member_srl)}
+					<li><a href="{getUrl('act','dispBoardReplyComment','comment_srl',$comment->comment_srl)}"><span class="bt-cc-reply im"></span>{$lang->cmd_reply}</a></li>
+					<li cond="($comment->isGranted()||!$comment->get('member_srl'))"><a href="{getUrl('act','dispBoardModifyComment','comment_srl',$comment->comment_srl)}"><span class="bt-cc-edit im"></span>{$lang->cmd_modify}</a></li>
+					<li cond="$comment->isGranted()||!$comment->get('member_srl')"><a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$comment->comment_srl)}"><span class="bt-cc-del im"></span>{$lang->cmd_delete}</a></li>
+					<li cond="$is_logged && ($comment->member_srl != $logged_info->member_srl) && $mi->use_comment_declare == 'Y'"><a href="javascript:;" onclick="doCallModuleAction('comment','procCommentDeclare','{$comment->comment_srl}');return false;"><span class="bt-cc-declare im"></span>{$lang->cmd_declare}</a></li>
+					<li cond="$not_me && $mi->use_anonymous != 'Y'" class="phone"><a href="{getUrl('','mid',$mid,'act','dispMemberInfo','member_srl',$comment->member_srl)}"><span class="bt-cc-memberInfo"></span>{$lang->cmd_view_member_info}</a></li>
+					<li cond="$not_me && $mi->use_anonymous != 'Y'" class="phone"><a href="{getUrl('','mid',$mid,'search_target','nick_name','search_keyword',$comment->getNickName())}"><span class="bt-cc-document"></span>{$lang->cmd_view_own_document}</a></li>
+					<li cond="$not_me && $comment->get('email_address') && $mi->use_anonymous != 'Y'" class="phone"><a href="mailto:{$comment->get('email_address')}"><span class="bt-cc-email"></span>{$lang->cmd_send_email}</a></li>
+					<li class="pad" cond="$not_me"><button class="btBasic btMore">more..</button><button class="btAdmin btClose">close</button></li>
+					<li><a href="javascript:;" class="bt-cc-cancel">{$lang->cmd_cancel}</a></li>
+				</ul>
+				<div class="comment-vote phone" cond="$mi->use_comment_vote == 'Y' && $is_logged && $comment->member_srl != $logged_info->member_srl">
+					<button class="thumbUp" onclick="doCallModuleAction('comment','procCommentVoteUp','{$comment->comment_srl}');return false;">{$lang->cmd_vote}</button>
+					<button class="thumbDown" onclick="doCallModuleAction('comment','procCommentVoteDown','{$comment->comment_srl}')">{$lang->cmd_vote_down}</button>
+				</div>
+			</td></tr></table>
+		</li>
+	</ul>
+	<div class="paging" cond="$oDocument->comment_page_navigation">
+		<a href="{getUrl('cpage',1)}#comment" class="prev direction">{$lang->first_page}</a><block loop="$page_no=$oDocument->comment_page_navigation->getNextPage()"><span class="current" cond="$cpage==$page_no">{$page_no}</span><a href="{getUrl('cpage',$page_no)}#comment" cond="$cpage!=$page_no">{$page_no}</a></block><a href="{getUrl('cpage',$oDocument->comment_page_navigation->last_page)}#comment" class="next direction">{$lang->last_page}</a>
+	</div>
+</div>
+<div class="bg-dummy" id="comment-control-dummy"></div>
+
+<div class="comment-write" cond="$grant->write_comment && $oDocument->isEnableComment()">
+<div class="clearfix" cond="$mi->show_comment_write !='Y'"><button class="btOpenWrite">{$lang->write_comment}</button> <a href="{getUrl('document_srl','')}" class="btDark">{$lang->cmd_list}</a></div>
+<form action="./" method="post" class="cWrite-body" style="display:block"|cond="$mi->show_comment_write =='Y'" onsubmit="return procFilter(this, insert_comment);">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+	<input type="hidden" name="comment_srl" value="" />
+	<ul>
+		<li class="textarea-wrap">
+			<textarea name="content" id="rText" required placeholder="{$lang->comment}"></textarea>
+		</li>
+		<!--@if(!$is_logged)-->
+		<li>
+			<input name="nick_name" type="text" id="uName" class="input100" required placeholder="{$lang->writer}" />
+		</li>
+		<li>
+			<input name="password" type="password" id="uPw" class="input100" required placeholder="{$lang->password}" />
+		</li>
+		<li>
+			<input name="email_address" type="email" id="uMail" class="input100" placeholder="{$lang->email_address}" />
+		</li>
+		<li>
+			<input name="homepage" type="url" id="uSite" class="input100" placeholder="{$lang->homepage}" />
+		</li>
+		<!--@endif-->
+		<li cond="$module_info->secret=='Y'" >
+			<input type="checkbox" name="is_secret" value="Y" id="is_secret" class="iCheck" />
+			<label for="is_secret"><span class="check-dummy"></span> <span>{$lang->secret}</span></label>
+		</li>
+	</ul>
+	<div class="bt-wrap clearfix bt-wrap-full">
+		<a href="javascript:;" class="btCancel" style="display:none"|cond="$mi->show_comment_write =='Y'">{$lang->cmd_cancel}</a>
+		<button type="submit" class="btSubmit" style="width:80%; float:left;"|cond="$mi->show_comment_write =='Y'" >{$lang->cmd_comment_registration}</button>
+		<a href="{getUrl('document_srl','')}" class="btLight" cond="$mi->show_comment_write =='Y'">{$lang->cmd_list}</a>
+	</div>
+</form>
+</div>

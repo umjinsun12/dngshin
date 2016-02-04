@@ -1,0 +1,9 @@
+<nav class="use-more"|cond="$wi->use_more">
+	<ul class="clearfix">
+		{@$i=0}
+		<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+		<li class="tab{$i}"><a href="javascript:;">{$tab->title}</a> <a href="{$tab->url}" class="bt-more" cond="$wi->use_more">더보기</a></li>
+		{@$i++}
+		<!--@end-->
+	</ul>
+</nav>

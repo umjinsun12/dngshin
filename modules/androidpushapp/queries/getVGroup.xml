@@ -1,0 +1,27 @@
+<query id="getVGroup" action="select">
+    <tables>
+        <table name="androidpushapp_gcmregid" alias="gcm" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <query operation="equal" column="member_srl" alias="search">
+            <tables>
+                <table name="member_group_member" alias="m" />
+            </tables>
+            <columns>
+                <column name="member_srl" alias="mem_srl" />
+            </columns>
+            <conditions>
+                <condition operation="equal" column="m.group_srl" var="group_srl" />
+            </conditions>
+        </query>
+    </conditions>
+	<navigation>
+		<index default="regdate" var="sort_index" order="order_type" />
+		<list_count var="list_count" default="20" />
+		<page_count var="page_count" default="10" />
+		<page var="page" default="1" />
+	</navigation>
+</query>

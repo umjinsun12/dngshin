@@ -1,0 +1,118 @@
+<div class="hx h2">
+	<h2><a href="{getUrl('document_srl','','category','','page','','up_category','','cmt_list_mode','')}">{$mex_info->board_title}</a> 
+		<!--@if($module_info->use_category == "Y" && $oDocument->get('category_srl'))-->&rsaquo; <a href="{getUrl('document_srl','','category',$oDocument->get('category_srl'),'up_category','','cmt_list_mode','')}">{$category_list[$oDocument->get('category_srl')]->title}</a><!--@end--> &rsaquo; {$oDocument->getTitle()}</h2>
+	<span class="ex">{$oDocument->getNickName()} | {$oDocument->getRegdate()}</span>
+	<a href="{getUrl('act','dispBoardWrite','document_srl','','up_category','','cmt_list_mode','')}" class="write">{$lang->cmd_write}</a>
+</div>
+<!--@if($oDocument->isSecret() && !$oDocument->isGranted())-->
+		<form action="./" method="get" class="ff" onsubmit="return procFilter(this, input_password)">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="page" value="{$page}" />
+		<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+			<label for="cpw">{$lang->msg_is_secret}</label>
+			<input type="password" name="password" id="cpw" />
+			<input type="submit" value="{$lang->cmd_input}" class="bn dark" />
+		</form>
+<!--@else-->
+{@
+  $oMobileexModel = &getModel('mobileex');
+  $sub_comment_count = $oMobileexModel->getMobileexSubCommentCount($oDocument->document_srl,$up_category);
+  if(!$sub_comment_count) $sub_comment_count = 0;
+  $total_cmt_page_count = ceil($sub_comment_count / $mex_info->cmt_list_count);
+  
+  $parentComment = $oMobileexModel->getMobileexComment($up_category);
+  $back_url = getUrl('document_srl',$oDocument->document_srl,'comment_srl','','up_category','','cmt_list_mode','','paginate','','cmtlist_view',1);
+  if($parentComment->parent_srl || $parentComment->parent_srl != 0) $back_url = getUrl('document_srl',$oDocument->document_srl,'comment_srl','','up_category',$parentComment->parent_srl,'cmt_list_mode',1,'paginate','');
+}
+
+
+<script type="text/javascript">
+//<![CDATA[
+   totalSubCmtPageCount = {$total_cmt_page_count};
+//]]>
+</script>
+
+<!--@if($oDocument->allowComment() && $sub_comment_count)-->
+<div class="hx h3 scl">
+	<h3 id="clb">{$lang->cmd_sub_cmt} {$lang->cmd_list}<em>[{$sub_comment_count}]</em></h3> 
+	<a class="ba_btn" title="Back" href="{$back_url}">{$lang->cmd_back}</a>
+	<a class="dv_btn" title="Document View" href="{getUrl('document_srl',$oDocument->document_srl,'comment_srl','','up_category','','cmt_list_mode','','paginate','')}">{$lang->cmd_doc_view}</a>
+</div>
+<div id="cmt_list" style="display:none">
+    <div class="loading_box" id="cmtLoadingBox" style="display:none">
+            <div class="loading_bar">
+                 <img src="./modules/board/m.skins/mex_default/img/loading.gif" border="0"> 
+            </div>
+    </div>
+     <ul id="cl" class="rp tgoc">
+     
+     	  <li>
+             	  	{$parentComment->getContent(false)}
+             		<span class="auth">
+             			<em>{$parentComment->getNickName()}</em>
+             			<span class="time">{getTimeGap($parentComment->get('regdate'), "Y.m.d H:i:s")}</span>
+             		</span>
+         	  <ul id="scl" class="rp tgoc"></ul>	
+     	  </li>
+     </ul>
+</div>
+<!--@endif-->
+<!--@if($grant->write_comment && $oDocument->isEnableComment() )-->
+<form action="./" method="post" class="ff tgo open" onsubmit="return procFilter(this, insert_comment);" style="background:#fff">
+	<input type="hidden" name="mid" value="{$mid}" />
+	<input type="hidden" name="document_srl" value="{$oDocument->document_srl}" />
+	<input type="hidden" name="comment_srl" value="" />
+	<input type="hidden" name="parent_srl" value="{$up_category}" />
+	<input type="hidden" name="cmt_list_mode" value="1" />
+	<ul>
+		<li>
+			<label for="rText">{$lang->cmd_sub_cmt_write}</label>
+			<textarea name="content" cols="20" rows="5" id="rText"></textarea>
+		</li>
+		<!--@if(!$is_logged)-->
+		<li>
+			<label for="uName">{$lang->writer}</label>
+			<input name="nick_name" type="text" id="uName" />
+		</li>
+		<li>
+			<label for="uMail">{$lang->email_address}</label>
+			<input name="email_address" type="text" id="uMail" />
+		</li>
+		<li>
+			<label for="uPw">{$lang->password}</label>
+			<input name="password" type="password" id="uPw" />
+		</li>
+		<li>
+			<label for="uSite">{$lang->homepage}</label>
+			<input name="homepage" type="text" id="uSite" value="http://" />
+		</li>
+		<!--@endif-->
+	</ul>
+	<div class="bna">
+		<input name="" type="submit" value="{$lang->cmd_comment_registration}" class="bn dark" />
+	</div>
+</form>
+<!--@end-->
+<div style="height:1px;overflow:hidden;background:#ddd"></div>
+<div class="bna">
+	<span class="fl"><a href="{getUrl('document_srl','','up_category','','cmt_list_mode','','paginate','')}" class="bn white">{$lang->cmd_list}</a></span>
+	<span class="fr">
+		<a href="{$back_url}" title="Back"  class="bn white">{$lang->cmd_back}</a>
+      <a href="{getUrl('document_srl',$oDocument->document_srl,'comment_srl','','up_category','','cmt_list_mode','','paginate','')}" title="Document View" class="bn white" >{$lang->cmd_doc_view}</a>
+	</span>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+jQuery(function($){
+
+	var loadedSubCmtList = false;
+
+		if(!loadedSubCmtList) {
+			loadedSubCmtList = true;
+			loadSubCmtList({$oDocument->document_srl},1,{$mex_info->cmt_list_count},{$up_category})
+		}
+
+});
+//]]>
+</script>
+<!--@end-->

@@ -1,0 +1,60 @@
+<load target="./../../../../common/js/jquery.min.js" usecdn="true" index="-1000000" />
+<load target="./../../../../common/js/xe.min.js" usecdn="true" index="-1000000" />
+<load target="css/member.css" />
+<load target="../../tpl/js/signup_check.js" />
+<section class="flatMember">
+<div class="login-wrap">
+<div class="signup-body">
+	<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/m.skin/default/signup_form/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+		<p>{$XE_VALIDATOR_MESSAGE}</p>
+	</div>
+	<form ruleset="@insertMember" id="fo_insert_member" class="ff" action="./" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="module" value="member" />
+		<input type="hidden" name="act" value="procMemberInsert" />
+		<input type="hidden" name="xe_validator_id" value="modules/member/m.skin/default/signup_form/1" />
+		<!--@if(!$is_logged && $member_config->agreement)-->
+		<div class="terms-container">
+			<div class="terms-body">{$member_config->agreement}</div>
+			<input type="checkbox" id="agree-terms" name="accept_agreement" value="Y" /> <label for="agree-terms"><span class="check-dummy"></span> <span>{$lang->about_accept_agreement}</span></label> 
+		</div>
+		<!--@end-->
+		<div class="signup-form">
+			<dl>
+				<dt><label for="{$identifierForm->name}"><em>*</em> {$identifierForm->title}</label></dt>
+				<dd><input type="text"|cond="$identifierForm->name!='email_address'" type="email"|cond="$identifierForm->name=='email_address'" name="{$identifierForm->name}" id="{$identifierForm->name}" value="{$identifierForm->value}" /></dd>
+				
+				<dt><label for="password"><em>*</em> {$lang->password}</label></dt>
+				<dd><input type="password" name="password" id="password" value=""/></dd>
+				
+				<dt><label for="password2"><em>*</em> {$lang->password3}</label></dt>
+				<dd><input type="password" name="password2" id="password2" value=""/><p class="help-block"></dd>
+				
+				<!--<block loop="$formTags=>$formTag" cond="$formTag->name != 'signature'"><dt><label for="{$formTag->name}">{$formTag->title}</label></dt><dd>{$formTag->inputTag}</dd></block>-->
+				
+				<dt><label for="{$formTag->name}">{$formTags[0]->title}</label></dt>
+				<dd>{$formTags[0]->inputTag}</dd>
+
+				<dt><label for="{$formTag->name}">{$formTags[1]->title}</label></dt>
+				<dd>{$formTags[1]->inputTag}</dd>
+				
+				<dt><label for="{$formTag->name}">{$formTags[2]->title}</label></dt>
+				<dd>{$formTags[2]->inputTag}</dd>
+				
+				<dt><label for="{$formTag->name}">{$formTags[3]->title}</label></dt>
+				<dd>{$formTags[3]->inputTag}</dd>
+										
+				<input type="hidden" name="allow_mailing" id="mailingYes" value="Y" checked="checked"|cond="$member_info->allow_mailing == 'Y'" /> <label for="mailingYes" class="next-radio"></label>
+				<input type="hidden" name="allow_message" value="{$key}" checked="checked"|cond="$member_info->allow_message == $key || (!$member_info && $key == 'Y')" id="allow_{$key}" /> <label for="allow_{$key}" class="next-radio"></label>									
+				
+			</dl>
+			<div class="warn"><em>*</em> 필수입력사항(required)</div>
+		</div>
+		<div class="bt-wrap clearfix">
+			<a href="javascript:history.go(-1)" class="btCancel">{$lang->cmd_cancel}</a>
+			<button type="submit" class="btSubmit">{$lang->cmd_registration}</button>
+		</div>
+	</form>
+</div>
+</div>
+</section>
+

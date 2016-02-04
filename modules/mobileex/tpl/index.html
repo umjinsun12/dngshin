@@ -1,0 +1,179 @@
+<!--#include("header.html")-->
+
+<!--%import("../../widget/tpl/js/widget_admin.js")-->
+<!--@if($xe_ver > 4)-->
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form ruleset="insertConfig" action="./" method="post" class="form" >
+<input type="hidden" name="act" value="procMobileexAdminInsertConfig" />
+<input type="hidden" name="module" value="admin" />
+<input type="hidden" name="target_module_srl" id="target_module_srl" value="{$config->target_module_srl}" />
+<!--@else-->
+<!--%import("filter/insert_config.xml")-->
+<form action="./" method="get" onsubmit="return procFilter(this, insert_config)">
+<input type="hidden" name="target_module_srl" id="target_module_srl" value="{$config->target_module_srl}" />
+<!--@end-->
+
+	<div class="table">
+		<table width="100%" border="1" cellspacing="0" class="rowTable">
+			
+		<tr>
+			<th scope="row"><label for="file_config_use">{$lang->file_config_use}</label></th>
+			<td class="text">
+				<input type="radio" name="file_config_use" value="Y" id="file_config_use_y" checked="checked"|cond="$config->file_config_use == 'Y'" /> <label for="file_config_use_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="file_config_use" value="N" id="file_config_use_n" checked="checked"|cond="$config->file_config_use == 'N'" /> <label for="file_config_use_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_mobile_each_config}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="allowed_filesize">{$lang->allowed_filesize}</label></th>
+			<td class="text">
+				<input type="text" name="allowed_filesize" id="allowed_filesize" value="{$config->allowed_filesize}"  size="3" style="width:30px" /> MB
+				<p class="desc">{$lang->about_allowed_filesize}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="allowed_attach_size">{$lang->allowed_attach_size}</label></th>
+			<td class="text">
+				<input type="text" name="allowed_attach_size" id="allowed_attach_size" value="{$config->allowed_attach_size}" size="3" style="width:30px" /> MB
+				/ {ini_get('upload_max_filesize')}
+				<p class="desc">{$lang->about_allowed_attach_size}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="allowed_filetypes">{$lang->allowed_filetypes}</label></th>
+			<td class="text">
+				<input type="text" name="allowed_filetypes" id="allowed_filetypes" value="{$config->allowed_filetypes}" />
+				<p class="desc">{$lang->about_allowed_filetypes}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="img_resize_width">{$lang->img_resize_width}</label></th>
+			<td class="text">
+				<input type="text" name="img_resize_width" id="img_resize_width" value="<!--@if($config->img_resize_width)-->{$config->img_resize_width}<!--@else-->0<!--@end-->" />
+				<p class="desc">{$lang->about_img_resize_width}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="img_resize_height">{$lang->img_resize_height}</label></th>
+			<td class="text">
+				<input type="text" name="img_resize_height" id="img_resize_height" value="<!--@if($config->img_resize_height)-->{$config->img_resize_height}<!--@else-->0<!--@end-->" />
+				<p class="desc">{$lang->about_img_resize_height}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_use">{$lang->addfile_use}</label></th>
+			<td class="text">
+				<input type="radio" name="addfile_use" value="Y" id="addfile_use_y" checked="checked"|cond="$config->addfile_use == 'Y' || !$config->addfile_use" /> <label for="addfile_use_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="addfile_use" value="N" id="addfile_use_n" checked="checked"|cond="$config->addfile_use == 'N'" /> <label for="addfile_use_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_addfile_use}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_auto">{$lang->addfile_auto}</label></th>
+			<td class="text">
+				<input type="radio" name="addfile_auto" value="Y" id="addfile_auto_y" checked="checked"|cond="$config->addfile_auto == 'Y'" /> <label for="addfile_auto_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="addfile_auto" value="N" id="addfile_auto_n" checked="checked"|cond="$config->addfile_auto == 'N' || !$config->addfile_auto" /> <label for="addfile_auto_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_addfile_auto}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="pcimg_view">{$lang->pcimg_view}</label></th>
+			<td class="text">
+				<input type="radio" name="pcimg_view" value="Y" id="pcimg_view_y" checked="checked"|cond="$config->pcimg_view == 'Y' || !$config->pcimg_view" /> <label for="pcimg_view_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="pcimg_view" value="N" id="pcimg_view_n" checked="checked"|cond="$config->pcimg_view == 'N'" /> <label for="pcimg_view_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_pcimg_view}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_thumb_use">{$lang->addfile_thumb_use}</label></th>
+			<td class="text">
+				<input type="radio" name="addfile_thumb_use" value="Y" id="addfile_thumb_use_y" checked="checked"|cond="$config->addfile_thumb_use == 'Y' || !$config->addfile_thumb_use" /> <label for="addfile_thumb_use_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="addfile_thumb_use" value="N" id="addfile_thumb_use_n" checked="checked"|cond="$config->addfile_thumb_use == 'N'" /> <label for="addfile_thumb_use_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_addfile_thumb_use}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_thumb_size">{$lang->addfile_thumb_size}</label></th>
+			<td class="text">
+				<input type="text" name="addfile_thumb_size" id="addfile_thumb_size" value="<!--@if($config->addfile_thumb_size)-->{$config->addfile_thumb_size}<!--@else-->700<!--@end-->" />
+				<p class="desc">{$lang->about_addfile_thumb_size}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_btn">{$lang->addfile_btn}</label></th>
+			<td class="text">
+				<input type="radio" name="addfile_btn" value="Y" id="addfile_btn_y" checked="checked"|cond="$config->addfile_btn == 'Y' || !$config->addfile_btn" /> <label for="addfile_btn_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="addfile_btn" value="N" id="addfile_btn_n" checked="checked"|cond="$config->addfile_btn == 'N'" /> <label for="addfile_btn_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_addfile_btn}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_view_type">{$lang->addfile_view_type}</label></th>
+			<td class="text">
+				<input type="radio" name="addfile_view_type" value="F" id="addfile_view_type_f" checked="checked"|cond="$config->addfile_view_type == 'F'" /> <label for="addfile_view_type_f">{$lang->cmd_full}</label>
+				<input type="radio" name="addfile_view_type" value="S" id="addfile_view_type_s" checked="checked"|cond="$config->addfile_view_type == 'S' || !$config->addfile_view_type" /> <label for="addfile_view_type_s">{$lang->cmd_small}</label>
+				<p class="desc">{$lang->about_addfile_view_type}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="addfile_min_size">{$lang->addfile_min_size}</label></th>
+			<td class="text">
+				<input type="text" name="addfile_min_size" id="addfile_min_size" value="<!--@if($config->addfile_min_size)-->{$config->addfile_min_size}<!--@else-->120<!--@end-->" />
+				<p class="desc">{$lang->about_addfile_min_size}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="pcmode_addfile_view">{$lang->pcmode_addfile_view}</label></th>
+			<td class="text">
+				<input type="radio" name="pcmode_addfile_view" value="Y" id="pcmode_addfile_view_y" checked="checked"|cond="$config->pcmode_addfile_view == 'Y' || !$config->pcmode_addfile_view" /> <label for="pcmode_addfile_view_y">{$lang->cmd_yes}</label>
+				<input type="radio" name="pcmode_addfile_view" value="N" id="pcmode_addfile_view_n" checked="checked"|cond="$config->pcmode_addfile_view == 'N'" /> <label for="pcmode_addfile_view_n">{$lang->cmd_no}</label>
+				<p class="desc">{$lang->about_pcmode_addfile_view}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="mskin">{$lang->mobile_skin}</label></th>
+			<td class="text">
+				 <select name="mskin" id="mskin">
+                <!--@foreach($mskin_list as $key=>$val)-->
+                <option value="{$key}" <!--@if($module_info->mskin==$key ||(!$config->mskin && $key=='default'))-->selected="selected"<!--@end-->>{$val->title}</option>
+                <!--@end-->
+            </select>
+            <p class="desc">{$lang->about_mobileex_mskin}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="target">{$lang->mobile_integration_search} {$lang->target}</label></th>
+			<td class="text">
+            <select name="target" id="target">
+                <option value="include">{$lang->include_search_target}</option>
+                <option value="exclude" <!--@if($config->target=='exclude')-->selected="selected"<!--@end-->>{$lang->exclude_search_target}</option>
+            </select>
+            <select name="_target_module_srl" id="_target_module_srl" size="8" class="w200" style="display:block;margin:10px 0; min-width:300px;"></select>
+
+            <a href="{getUrl('','module','module','act','dispModuleSelectList','id','target_module_srl')}" onclick="popopen(this.href, 'ModuleSelect');return false;" class="button blue"><span>{$lang->cmd_insert}</span></a>
+            <a href="#" onclick="midRemove('target_module_srl');return false;" class="button red"><span>{$lang->cmd_delete}</span></a>
+
+            <script type="text/javascript">
+                jQuery( function() { getModuleSrlList('target_module_srl'); } );
+            </script>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">{$lang->mobile_integration_search} {$lang->sample_code}</th>
+			<td class="text">
+				<textarea class="inputTypeTextArea fullWidth" readonly="readonly" style="width:100%">{$sample_code}</textarea>
+				<p class="desc">{$lang->about_sample_code}</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<div class="btnArea" style="padding-bottom:20px;text-align:center">
+		<!--@if($xe_ver > 4)-->
+		<span class="btn"><input type="submit" value="{$lang->cmd_registration}" /></span>
+		<!--@else-->
+		<span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+		<!--@end-->
+	</div>
+</form>

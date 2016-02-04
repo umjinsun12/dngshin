@@ -1,0 +1,14 @@
+<query id="getAroundmapList" action="select">
+    <tables>
+        <table name="aroundmap" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="aroundmap_srl" var="aroundmap_srl" filter="number" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="title" order="asc" />
+    </navigation>    
+</query>

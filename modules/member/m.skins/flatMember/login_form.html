@@ -1,0 +1,59 @@
+<include target="./member_header.html" />
+ 
+<script src="js/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700"]
+      }
+    });
+    
+  </script>
+  
+
+
+<div class="login-wrap">
+<div class="login-body">
+	<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/m.skin/default/login_form/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+		<p>{$XE_VALIDATOR_MESSAGE}</p>
+	</div>
+	<form action="./" method="POST" class="ff">
+		<input type="hidden" name="module" value="member" />
+		<input type="hidden" name="act" value="procMemberLogin" />
+		<input type="hidden" name="redirect_url" value="{getUrl('act','')}" />
+		<input type="hidden" name="xe_validator_id" value="modules/member/m.skin/default/login_form/1" />
+		<div class="login-form-wrap">
+			<input class="w-input input-form" type="text" cond="$identifier == 'user_id'" name="user_id" id="email-field" required placeholder="{$lang->user_id}" title="{$lang->user_id}" />
+			<div class="separator-fields"></div>
+			<input class="w-input input-form" type="email" cond="$identifier != 'user_id'" name="user_id" id="email-field" required placeholder="{$lang->email_address}" title="{$lang->email_address}" />
+			<input class="w-input input-form" type="password" name="password" id="password-field" required placeholder="{$lang->password}" title="{$lang->password}" />
+			<div class="separator-fields"></div>
+			<input type="hidden" name="keep_signed" id="autoLogin" value="Y" /><label for="autoLogin"></label>
+			<div class="hp" id="keep_msg" style="display:none;">
+				{$lang->about_keep_warning}
+			</div>
+			<div class="separator-fields"></div>
+			<button type="submit" class="w-button action-button">{$lang->cmd_login}</button>
+		</div>
+		<div class="bt-wrap2" style="padding-top:22px;">
+			<a href="{getUrl('act','dispMemberSignUpForm')}" class="btLeft btSignup">{$lang->cmd_signup}</a>
+			<a href="{getUrl('act','dispMemberFindAccount')}" class="btRight btFind">{$lang->cmd_find_member_account}</a>
+		</div>
+	</form>
+</div>
+</div>
+<include target="./member_footer.html" />
+
+<script>
+jQuery(function($){
+	var keep_msg = $('#keep_msg');
+	keep_msg.hide();
+	$('#autoLogin').change(function(){
+		if($(this).is(':checked')){
+			keep_msg.show();
+		} else {
+			keep_msg.hide();
+		}
+	});
+});
+</script>

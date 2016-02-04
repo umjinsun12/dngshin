@@ -1,0 +1,49 @@
+header.main .menu-trigger	{background-image: url('../images/biMenu.png'); background-size: 18px 18px;} 
+header.main .btSearch	{background-image: url('../images/biSearch2.png'); background-size: 18px 18px;} 
+header.main .btPrev, header.main .btCancel	{background-image: url('../images/biPrev.png'); background-size: 19px 16px; }
+
+.main-logo, .main-normal-image	{padding: 40px 0 !important;}
+.main-noImage	{background-image: url('../images/main_no_image2.png') !important;}
+
+.member-menu-top a.btLogin span	{background-image: url('../images/biLogin.png'); background-size: 18px 18px;}
+.member-menu-top a.btSignup span	{background-image: url('../images/biSignup.png'); background-size: 18px 18px;}
+
+.member-menu-top.arrowUp	{background-image: url('../images/biArrowUp.png'); background-size: 7px 5px;}
+.member-menu-top.arrowDown	{background-image: url('../images/biArrowDown.png'); background-size: 7px 5px;}
+
+.member-menu-logged a	{background-size: 18px 18px;}
+.member-menu-logged li:first-child a	{background-image:url('../images/biInfo.png');}
+.member-menu-logged li:nth-child(2) a	{background-image: url('../images/biScrap.png');}
+.member-menu-logged li:nth-child(3) a	{background-image: url('../images/biSaved.png');}
+.member-menu-logged li:nth-child(4) a	{background-image: url('../images/biDocument.png');}
+.member-menu-logged li a.btMemberAdmin	{background-image:url('../images/biAdmin.png');}
+.member-menu-logged li a.btLogout	{background-image:url('../images/biLogout.png');}
+
+.member-header.scrap	{background-image: url('../images/mibScrap.png') !important;}
+.member-header.document	{background-image: url('../images/mibDocument.png') !important;}
+.member-header.saved	{background-image: url('../images/mibSaved.png') !important;}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+	header.main .menu-trigger	{background-image: url('../images/biMenu@2x.png');}
+	header.main .btSearch	{background-image: url('../images/biSearch2@2x.png');}
+	header.main .btPrev, header.main .btCancel	{background-image: url('../images/biPrev@2x.png');}
+		
+	.member-menu-top a.btLogin span	{background-image: url('../images/biLogin@2x.png');}
+	.member-menu-top a.btSignup span	{background-image: url('../images/biSignup@2x.png');}
+	
+	.member-menu-top.arrowUp	{background-image: url('../images/biArrowUp@2x.png');}
+	.member-menu-top.arrowDown	{background-image: url('../images/biArrowDown@2x.png');}
+	.member-menu-logged li:first-child a	{background-image:url('../images/biInfo@2x.png');}
+	.member-menu-logged li:nth-child(2) a	{background-image: url('../images/biScrap@2x.png');}
+	.member-menu-logged li:nth-child(3) a	{background-image: url('../images/biSaved@2x.png');}
+	.member-menu-logged li:nth-child(4) a	{background-image: url('../images/biDocument@2x.png');}
+	.member-menu-logged li a.btMemberAdmin	{background-image:url('../images/biAdmin@2x.png');}
+	.member-menu-logged li a.btLogout	{background-image:url('../images/biLogout@2x.png');}
+
+.member-header.scrap	{background-image: url('../images/mibScrap@2x.png') !important;}
+.member-header.document	{background-image: url('../images/mibDocument@2x.png') !important;}
+.member-header.saved	{background-image: url('../images/mibSaved@2x.png') !important;}
+}

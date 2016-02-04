@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">법무사 등록 게시판 스킨</title>
+    <description xml:lang="ko">
+    	법무사 등록 게시판 스킨입니다.
+    </description>    
+    <version>0.1</version>
+    <date>2013-12-24</date>
+    <author email_address="studio02xe@gmail.com" link="http://studio02.co.kr/">
+        <name xml:lang="ko">studio02</name>
+    </author>
+    <extra_vars>
+    	<group>
+    		<title xml:lang="ko">1. 기본</title> 
+	    	<var name="board_type" type="select">
+	    		<title xml:lang="ko">게시판 타입</title>
+	    		<description xml:lang="ko">게시판의 타입을 설정합니다.</description>
+				<options value="board">
+					<title xml:lang="ko">일반 게시판 (기본)</title>
+				</options>
+				<options value="news">
+					<title xml:lang="ko">뉴스</title>
+				</options>
+				<options value="webzine">
+					<title xml:lang="ko">웹진</title>
+				</options>
+				<options value="gallery">
+					<title xml:lang="ko">갤러리</title>
+				</options>
+				<options value="blogBox">
+					<title xml:lang="ko">블로그박스</title>
+				</options>
+				<options value="talkBox">
+					<title xml:lang="ko">토크박스</title>
+				</options>
+	    	</var>
+	    	<var name="video" type="select">
+	    		<title xml:lang="ko">본문 동영상(유투브, 비메오) 리사이징 사용</title>
+	    		<description xml:lang="ko">유투브와 비메오 동영상을 모바일 화면크기에 맞게 자동으로 리사이징 해줍니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용함</title>
+				</options>
+	    	</var>
+    	</group>
+    	<group>
+    		<title xml:lang="ko">2. 목록 설정</title> 
+	    	<var name="show_notice" type="select">
+	    		<title xml:lang="ko">공지사항 항상펼침</title>
+	    		<description xml:lang="ko">공지사항을 항상 펼쳐놓습니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="show_category" type="select">
+	    		<title xml:lang="ko">목록에 카테고리이름 표시</title>
+	    		<description xml:lang="ko">목록에 카테고리이름을 표시할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">표시안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">표시함</title>
+				</options>
+	    	</var>
+	    	<var name="show_comment" type="select">
+	    		<title xml:lang="ko">목록에 코멘트 표시</title>
+	    		<description xml:lang="ko">목록에 코멘트수를 표시할지 여부에 대해서 설정합니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">표시함 (기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">표시안함</title>
+				</options>
+	    	</var>
+	    	<var name="show_icon" type="select">
+	    		<title xml:lang="ko">목록에 아이콘 표시</title>
+	    		<description xml:lang="ko">목록에 아이콘을 표시할지 여부에 대해서 설정합니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">표시함 (기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">표시안함</title>
+				</options>
+	    	</var>
+	    	<var name="title_cut_size" type="text">
+	    		<title xml:lang="ko">목록에 표시될 제목 글자수</title>
+	    		<description xml:lang="ko">목록에 표시될 제목 글자수를 정합니다.</description>
+	    	</var>
+	    	<var name="content_cut_size" type="text">
+	    		<title xml:lang="ko">목록에 표시될 요약 글자수</title>
+	    		<description xml:lang="ko">목록에 표시될 요약 글자수를 정합니다.</description>
+	    	</var>
+	    	<var name="pageType" type="select">
+	    		<title xml:lang="ko">페이지 표시형식</title>
+	    		<description xml:lang="ko">하단에 보일 페이지 표시형식을 설정합니다.</description>
+				<options value="default">
+					<title xml:lang="ko">펼침 페이지 (기본)</title>
+				</options>
+				<options value="num">
+					<title xml:lang="ko">압축형 페이지</title>
+				</options>
+	    	</var>
+    	</group>
+    	<group>
+    		<title xml:lang="ko">3. 글 읽기 화면 설정</title> 
+	    	<var name="use_more" type="select">
+	    		<title xml:lang="ko">다음글, 이전글 사용/사용안함</title>
+	    		<description xml:lang="ko">본문 하단에 다음글, 이전글 보기 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="show_file" type="select">
+	    		<title xml:lang="ko">파일목록 항상 펼치기</title>
+	    		<description xml:lang="ko">파일 목록을 항상 펼칩니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="use_declare" type="select">
+	    		<title xml:lang="ko">신고 사용/사용안함</title>
+	    		<description xml:lang="ko">글 신고 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="use_vote" type="select">
+	    		<title xml:lang="ko">글 추천 사용/사용안함</title>
+	    		<description xml:lang="ko">글 추천 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">사용 (기본)</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">사용안함</title>
+				</options>
+	    	</var>
+	    	<var name="use_blame" type="select">
+	    		<title xml:lang="ko">글 비추천 사용/사용안함</title>
+	    		<description xml:lang="ko">글 비추천 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+    	</group>
+    	<group>
+    		<title xml:lang="ko">4. 코멘트 설정</title> 
+	    	<var name="use_comment_declare" type="select">
+	    		<title xml:lang="ko">코멘트 신고 사용/사용안함</title>
+	    		<description xml:lang="ko">코멘트 신고 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="use_comment_indent" type="select">
+	    		<title xml:lang="ko">대댓글 표시 사용/사용안함</title>
+	    		<description xml:lang="ko">대댓글이 달렸을 때 왼쪽에 여백을 두어 대댓글을 표시합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="use_comment_vote" type="select">
+	    		<title xml:lang="ko">코멘트 추천 사용/사용안함</title>
+	    		<description xml:lang="ko">코멘트 추천 기능을 사용할지 여부에 대해서 설정합니다.</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+	    	<var name="best_comment" type="text">
+	    		<title xml:lang="ko">ㄴ 베스트 코멘트 추천 수</title>
+	    		<description xml:lang="ko">일정 수 이상의 추천을 받은 댓글에 표시를 합니다.</description>
+	    	</var>
+	    	<var name="blind_comment" type="text">
+	    		<title xml:lang="ko">ㄴ 블라인드 코멘트 비추천 수</title>
+	    		<description xml:lang="ko">일정 수 이상의 비추천을 받은 댓글을 블라인드 처리합니다..</description>
+	    	</var>
+	    	<var name="show_comment_write" type="select">
+	    		<title xml:lang="ko">코멘트쓰기 항상펼치기</title>
+	    		<description xml:lang="ko">코멘트 쓰기부분을 항상 보이게 설정</description>
+				<options value="N">
+					<title xml:lang="ko">사용안함 (기본)</title>
+				</options>
+				<options value="Y">
+					<title xml:lang="ko">사용</title>
+				</options>
+	    	</var>
+    	</group>
+    	<group>
+    		<title xml:lang="ko">5. 글 쓰기 화면 설정</title> 
+	    	<var name="pre_inserted" type="textarea">
+	    		<title xml:lang="ko">글 쓰기 폼 기본 입력 글</title>
+	    		<description xml:lang="ko">글 쓰기 폼에 미리 입력해 놓을 문구를 설정합니다.</description>
+	    	</var>
+    	</group>
+    </extra_vars>
+</skin>

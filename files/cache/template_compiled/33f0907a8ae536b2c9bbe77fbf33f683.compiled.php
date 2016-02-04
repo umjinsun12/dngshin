@@ -1,0 +1,3 @@
+<?php if(!defined("__XE__"))exit;?><h3 class="clearfix<?php if($__Context->wi->use_more){ ?> use-more<?php } ?>"><a<?php if($__Context->wi->tab_title_url){ ?> href="<?php echo $__Context->wi->tab_title_url ?>"<?php } ?>><span><?php if($__Context->wi->tab_title){;
+echo $__Context->wi->tab_title;
+}else{ ?>위젯코드에 제목을 입력하세요 (tab_title="제목")<?php } ?></span></a> <?php if($__Context->wi->use_more){ ?><a href="<?php echo $__Context->wi->tab_title_url ?>" class="bt-more"><span>더보기</span></a><?php } ?></h3>

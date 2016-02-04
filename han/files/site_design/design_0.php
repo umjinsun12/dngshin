@@ -1,0 +1,10 @@
+<?php if(!defined("__XE__")) exit();
+$designInfo = new stdClass;
+$designInfo->layout_srl = 67; 
+$designInfo->mlayout_srl = 68;
+$designInfo->module = new stdClass;
+$designInfo->module->page = new stdClass;
+$designInfo->module->page->mskin = 'default';
+$designInfo->module->page->skin = 'default';
+$designInfo->module->board = new stdClass;
+$designInfo->module->board->mskin = 'default';

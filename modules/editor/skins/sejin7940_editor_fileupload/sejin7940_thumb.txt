@@ -1,0 +1,95 @@
+1. documents  table 에 항목 추가 
+
+phpmyadmin 을 통해 직접 xe_documents 테이블 내에  thumb_image - varchar(50) - utf8_general_ci  로 추가하셔도 되고
+
+또는
+
+
+modules/editor/editor.class.php 에다가
+
+function checkUpdate() {  끝에  return false; 위에 추가
+
+	// 2012.07.14  - sejin7940 - 썸네일 강제지정 위해
+	if(!$oDB->isColumnExists("documents","thumb_image")) return true;
+
+function moduleUpdate() {  끝에  return new Object(0, 'success_updated');  위에다가 추가
+
+
+            // 2012.07.14  - sejin7940 - 썸네일 강제지정 위해
+            if(!$oDB->isColumnExists("documents","thumb_image")) 
+                $oDB->addColumn("documents","thumb_image","varchar",50);
+
+
+를 넣은 후, 관리자 페이지가면,  editor 업데이트 가 뜰겁니다. 업데이트하면 DB에 해당 항목이 추가됩니다
+
+
+
+
+2. modules/document/queries/insertDocument.xml  에서
+<column name="thumb_image" var="thumb_image" />  추가
+
+
+
+3. modules/document/queries/updateDocument.xml  에서
+<column name="thumb_image" var="thumb_image" />  추가
+
+
+여기까지 한 후 관리자페이지에서  캐시파일 재생성을 해주세요
+
+
+
+4. modules/document/document.item.php 에서
+
+function getThumbnail  에서
+
+ // Define thumbnail information  바로 위에다가
+
+
+
+			// thumb_image 강제 지정 기능 - sejin7940 ( 시작)
+			$args->document_srl = $this->document_srl;
+			$output_thumb = executeQuery('document.getDocument', $args, $this->columnList);
+			$thumb_image_srl = $output_thumb->data->thumb_image;
+			if($thumb_image_srl) {
+				$thumbnail_path = sprintf('files/cache/thumbnails/%s',getNumberingPath($this->document_srl, 3));
+				$thumbnail_file = sprintf('%sthumb_%dx%d.%s.jpg', $thumbnail_path, $width, $height, $thumbnail_type);
+				$thumbnail_url  = Context::getRequestUri().$thumbnail_file;
+				if(file_exists($thumbnail_file)) {
+					if(filesize($thumbnail_file)>=1) return $thumbnail_url;
+				}
+				// Find an iamge file among attached files if exists
+				if($this->get('uploaded_count')) {
+					$oFileModel = &getModel('file');
+					$file_list = $oFileModel->getFiles($this->document_srl);
+					if(count($file_list)) {
+						foreach($file_list as $file) {
+							if($thumb_image_srl == $file->file_srl) {
+								if(!preg_match("/\.(jpg|png|jpeg|gif|bmp)$/i",$file->source_filename)) continue;
+								$source_file = $file->uploaded_filename;
+								if(!file_exists($source_file)) $source_file = null;
+								else break;
+							}
+						}
+					}
+					if($source_file){
+						$output_thumb_image = FileHandler::createImageFile($source_file, $thumbnail_file, $width, $height, 'jpg', $thumbnail_type);
+					}
+					// Return its path if a thumbnail is successfully genetated
+					if($output_thumb_image) return $thumbnail_url;
+				}
+			}
+			// thumb_image 강제 지정 기능 - sejin7940 (  끝)
+
+
+
+5. modules/editor/lang/lang.xml  끝부분에
+
+</lang> 앞에 추가
+
+
+	<item name="thumb_image_chk">
+		<value xml:lang="ko"><![CDATA[이 파일을 섬네일로 지정합니다.]]></value>
+		<value xml:lang="en"><![CDATA[Select this file for Thumbnail image]]></value>
+	</item>
+
+

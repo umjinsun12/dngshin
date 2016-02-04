@@ -1,0 +1,35 @@
+.login-body .bt-wrap2 a	{background-size: 16px 16px;}
+.login-body .btSignup	{background-image: url('../images/biJoin.png');}
+.login-body .btFind	{background-image: url('../images/biSearch2.png');}
+
+.member-header.scrap	{background-image: url('../images/miScrap.png'); background-size: 47px 60px;}
+.member-header.document	{background-image: url('../images/miDocument.png'); background-size: 45px 60px;}
+.member-header.saved	{background-image: url('../images/miSaved.png'); background-size: 44px 60px;}
+
+.flatMember .paging .direction	{background-size: 5px 7px;}
+.flatMember .paging .prev	{background-image: url('../images/biArrowLeft.png');}
+.flatMember .paging .next	{background-image: url('../images/biArrowRight.png');}
+
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5){
+	/*** flat member style ***/
+	/* login */
+	.social-login a.btTwitter	{background-image: url('../images/wsiTwitter@2x.png');}
+	.social-login a.btFacebook	{background-image: url('../images/wsiFacebook@2x.png');}
+	.social-login a.btMeto	{background-image: url('../images/wsiMeto@2x.png');}
+	
+	.login-body .btSignup	{background-image: url('../images/biJoin@2x.png');}
+	.login-body .btFind	{background-image: url('../images/biSearch2@2x.png');}
+	
+	/* member header */
+	.member-header.scrap	{background-image: url('../images/miScrap@2x.png');}
+	.member-header.document	{background-image: url('../images/miDocument@2x.png');}
+	.member-header.saved	{background-image: url('../images/miSaved@2x.png');}
+	
+	/* paging */
+	.flatMember .paging .prev	{background-image: url('../images/biArrowLeft@2x.png');}
+	.flatMember .paging .next	{background-image: url('../images/biArrowRight@2x.png');}
+	/*** end flat member style ***/
+}

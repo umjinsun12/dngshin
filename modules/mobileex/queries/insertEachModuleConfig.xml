@@ -1,0 +1,24 @@
+<query id="insertEachModuleConfig" action="insert">
+    <tables>
+        <table name="mobileex_config" />
+    </tables>
+    <columns>
+        <column name="module_srl" var="module_srl" notnull="notnull" />
+        <column name="module" var="module" notnull="notnull" />
+        <column name="file_config_use" var="file_config_use" />
+        <column name="allowed_filesize" var="allowed_filesize" />
+        <column name="allowed_attach_size" var="allowed_attach_size" />
+        <column name="allowed_filetypes" var="allowed_filetypes" />
+        <column name="img_resize_width" var="img_resize_width" />
+        <column name="img_resize_height" var="img_resize_height" />
+        <column name="addfile_use" var="addfile_use" />
+        <column name="addfile_auto" var="addfile_auto" />
+        <column name="pcimg_view" var="pcimg_view" />
+        <column name="addfile_thumb_use" var="addfile_thumb_use" />
+        <column name="addfile_thumb_size" var="addfile_thumb_size" />
+        <column name="addfile_btn" var="addfile_btn" />
+        <column name="addfile_view_type" var="addfile_view_type" />
+        <column name="addfile_min_size" var="addfile_min_size" />
+        <column name="pcmode_addfile_view" var="pcmode_addfile_view" />
+    </columns>
+</query>

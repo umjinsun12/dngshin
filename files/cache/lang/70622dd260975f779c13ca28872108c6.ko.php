@@ -1,0 +1,22 @@
+<?php
+$lang->site_status='사이트 현황';
+$lang->elearning_status='수강신청 현황';
+$lang->nstore_status='쇼핑몰 주문처리별 현황';
+$lang->nstore_digital_status='콘텐츠몰 주문처리별 현황';
+$lang->new_members='신규가입';
+$lang->latest_documents='새로운글';
+$lang->latest_comments='최근댓글';
+$lang->registrations='수강신청';
+$lang->elearning_sales='매출';
+$lang->current_play='현재 재생중인 강좌';
+$lang->product_sell='상품판매';
+$lang->product_sales='상품매출';
+$lang->sunday='일요일';
+$lang->monday='월요일';
+$lang->tuesday='화요일';
+$lang->wednesday='수요일';
+$lang->thursday='목요일';
+$lang->friday='금요일';
+$lang->saturday='토요일';
+$lang->dashboard='XE 제어판';
+$lang->about_dashboard='더욱 세밀한 환경설정을 하실 수 있습니다.';

@@ -1,0 +1,44 @@
+{@
+	if (!$mi->thumb_width) $mi->thumbnail_width = 260;
+	if (!$mi->thumb_height) $mi->thumbnail_height = 130;
+	if (!$mi->title_cut_size) $mi->title_cut_size = 36;
+	if (!$mi->content_cut_size) $mi->content_cut_size = 66;
+	$t_date = date(Ymd);
+}
+<include target="_list_header.html" />
+
+<div class="m-webzine m-element webzine-style">
+	<ul class="notice-list"|cond="$mi->show_notice != Y" class="notice-list on"|cond="$mi->show_notice == Y">
+		<!--@foreach($notice_list as $no => $document)-->
+		<li class="has-comment"|cond="$document->getCommentCount()">
+			<a href="{getUrl('document_srl', $document->document_srl)}" class="list-link"></a>
+			<span class="notice-text notice-el">{$lang->notice}</span> 
+			<span class="notice-el">{$document->getTitle()} {$document->printExtraImages(60*60*$module_info->duration_new)}</span>
+			<block cond="$document->getCommentCount()"><!--@if($layout_info->mCol == 'black')--><img src="./images/biComment2@2x.png" alt="comment" width="14px" height="12px" class="comment-image" /><!--@else--><img src="./images/biComment@2x.png" alt="comment" width="14px" height="12px" class="comment-image" /><!--@end--><a href="{$document->getPermanentUrl()}#comment" class="reply m-list-reply">{$document->getCommentCount()}</a></block>
+		</li>
+		<!--@end-->
+		<li class="no-list" cond="!$notice_list"><span class="notice-text">{$lang->notice}</span>  {$lang->no_documents}</li>
+	</ul>
+	<ul class="list">
+		<!--@foreach($document_list as $no => $document)-->
+		<li class="clearfix">
+			<a href="{getUrl('document_srl', $document->document_srl)}" class="list-link"></a>
+			<div class="thumb-image"|cond="$document->thumbnailExists()" class="thumb-image no-image"|cond="!$document->thumbnailExists()" style="background-image: url({$document->getThumbnail($mi->thumbnail_width, $mi->thumbnail_height, crop)});"|cond="$document->thumbnailExists()"></div>
+			<div class="webzine-container">
+				<div class="title el"><span class="category" cond="$module_info->use_category=='Y' && $mi->show_category != 'N'">{$category_list[$document->get('category_srl')]->title}</span> {$document->getTitle($mi->title_cut_size)}<block cond="$mi->show_icon != 'N'"> {$document->printExtraImages(60*60*$module_info->duration_new)}</block></div>
+				<p class="summary el" cond="$list_config['summary']">
+					{$document->getSummary($mi->content_cut_size)}
+				</p>
+				<div class="info el">
+					<span class="author" cond="$list_config['nick_name']"><span class="member_{$document->get('member_srl')} nName">{$document->getNickName()}</span></span>
+					<span class="date" cond="$list_config['regdate']"><!--@if($t_date == $document->getRegDate('Ymd'))-->{$document->getRegDate("h:i")}<!--@else-->{$document->getRegDate("m-d")}<!--@end--></span>
+					<a href="#" class="reply" cond="$mi->show_comment != 'N'">{$document->getCommentCount()}</a>
+				</div>
+			</div>
+		</li>
+		<!--@end-->
+		<li class="no-list" cond="!$document_list">{$lang->no_documents}</li>
+	</ul>
+</div>
+
+<include target="_list_footer.html" />

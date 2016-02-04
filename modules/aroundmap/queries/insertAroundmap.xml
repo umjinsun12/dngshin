@@ -1,0 +1,15 @@
+<query id="insertAroundmap" action="insert">
+    <tables>
+        <table name="aroundmap" />
+    </tables>
+    <columns>
+        <column name="aroundmap_srl" var="aroundmap_srl" notnull="notnull" default="sequence()" />
+        <column name="module_srl" var="module_srl" filter="number" notnull="notnull" />
+        <column name="document_srl" var="document_srl" filter="number" notnull="notnull" />
+        <column name="member_srl" var="member_srl" filter="number" notnull="notnull" />
+        <column name="title" var="marker_title" notnull="notnull" />
+        <column name="lat" var="lat" notnull="notnull" />
+        <column name="lon" var="lon" notnull="notnull" />
+        <column name="map_size" var="map_size" filter="number" notnull="notnull" />
+    </columns>
+</query>

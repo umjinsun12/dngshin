@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">Content 위젯 기본 스킨</title>
+    <description xml:lang="ko">Content 위젯 기본 스킨 입니다.</description>
+    <version>1.0</version>
+    <date>2013-11-30</date>
+    <link>http://studio02.co.kr/</link>
+
+    <author email_address="studio02xe@gmail.com" link="http://studio02.co.kr/">
+        <name xml:lang="ko">studio02</name>
+    </author>
+</skin>

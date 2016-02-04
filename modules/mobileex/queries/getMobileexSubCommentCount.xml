@@ -1,0 +1,12 @@
+<query id="getMobileexSubCommentCount" action="select">
+	<tables>
+		<table name="comments" alias="comments" />
+	</tables>
+	<columns>
+		<column name="count(*)" alias="count" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="comments.document_srl" var="document_srl" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="comments.parent_srl" var="parent_srl" default="0" notnull="notnull" pipe="and" />
+	</conditions>
+</query>

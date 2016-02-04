@@ -1,0 +1,20 @@
+<query id="getTempleTownList" action="select">
+    <tables>
+        <table name="aroundmap" alias="ar" />
+        <table name="documents" alias="doc" />
+    </tables>
+    <columns>
+        <column name="ar.title" />
+        <column name="ar.document_srl" />
+        <column name="ar.lat" />
+        <column name="ar.lon" />
+        <column name="doc.category_srl" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="ar.aroundmap_srl" var="aroundmap_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="ar.document_srl" default="doc.document_srl" filter="number" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="category_srl, title" order="asc" />
+    </navigation>    
+</query>

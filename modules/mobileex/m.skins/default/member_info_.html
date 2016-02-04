@@ -1,0 +1,126 @@
+<!--#include("./member_header.html")-->
+<div class="member_info_wrap"> 
+    <h3 class="p_tit">{$lang->cmd_view_member_info}</h3>
+    <table class="mb_tbl">
+        <colgroup>
+        	  <col style="width:140px">
+        	  <col>
+        	</colgroup>
+    <tr>
+        <th><div>{$lang->user_name}</div></th>
+        <td class="wide">{htmlspecialchars($member_info->user_name)}</td>
+    </tr>
+    <tr>
+        <th><div>{$lang->nick_name}</div></th>
+        <td>{htmlspecialchars($member_info->nick_name)}</td>
+    </tr>
+    <!--@if($member_info->profile_image->src)-->
+    <tr>
+        <th><div>{$lang->profile_image}</div></th>
+        <td><img src="{$member_info->profile_image->src}" border="0" alt="profile_image" /></td>
+    </tr>
+    <!--@end-->
+    <!--@if($member_info->image_name->src)-->
+    <tr>
+        <th><div>{$lang->image_name}</div></th>
+        <td><img src="{$member_info->image_name->src}" border="0" alt="image_name" /></td>
+    </tr>
+    <!--@end-->
+    <!--@if($member_info->image_mark->src)-->
+    <tr>
+        <th><div>{$lang->image_mark}</div></th>
+        <td><img src="{$member_info->image_mark->src}" border="0" alt="image_mark" /></td>
+    </tr>
+    <!--@end-->
+    <tr>
+        <th><div>{$lang->homepage}</div></th>
+        <td><!--@if($member_info->homepage)--><a href="{htmlspecialchars($member_info->homepage)}" onclick="window.open(this.href); return false;">{htmlspecialchars($member_info->homepage)}</a><!--@else-->&nbsp;<!--@end--></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->blog}</div></th>
+        <td><!--@if($member_info->blog)--><a href="{htmlspecialchars($member_info->blog)}" onclick="window.open(this.href); return false;">{htmlspecialchars($member_info->blog)}</a><!--@else-->&nbsp;<!--@end--></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->birthday}</div></th>
+        <td><!--@if($member_info->birthday)-->{zdate($member_info->birthday,"Y-m-d")}<!--@else-->&nbsp;<!--@end--></td>
+    </tr>
+    <!--@if($member_info->signature)-->
+    <tr>
+        <th><div>{$lang->signature}</div></th>
+        <td>{$member_info->signature}</td>
+    </tr>
+    <!--@end-->
+    <tr>
+        <th><div>{$lang->group}</div></th>
+        <td><!--@foreach($member_info->group_list as $key => $val)-->{$val} <!--@end--></td>
+    </tr>
+    <tr>
+        <th><div>{$lang->signup_date}</div></th>
+        <td>{zdate($member_info->regdate,"Y-m-d H:i")}</td>
+    </tr>
+
+    <!--@if($member_info->member_srl == $logged_info->member_srl || $logged_info->is_admin == 'Y' )-->
+    <tr>
+        <th><div>{$lang->last_login}</div></th>
+        <td>{zdate($member_info->last_login,"Y-m-d H:i")}</td>
+    </tr>
+    <!--@end-->
+
+    <!--@if($member_config->enable_openid=="Y")-->
+    <!--@if(sizeof($openids) > 0)-->
+    <tr>
+        <th colspan="2" class="title"><div>{$lang->openid} </div></th>
+    </tr>
+    <!--@foreach($openids as $openid)-->
+    <tr>
+        <th><div>{$lang->openid}</div></th>
+        <td> <a href="{$openid->bookmarklet}">{$openid->openid}</a> </td>
+    </tr>
+    <!--@end-->
+    <!--@end-->
+    <!--@end-->
+
+    <!--@if($extend_form_list)-->
+    {@ $dummy_chk = 0 }
+    <!--@foreach($extend_form_list as $key => $val)-->
+    <tr <!--@if($dummy_chk==0)-->class="first-child" {@ $dummy_chk = 1; }<!--@end-->>
+        <th>
+            <div>
+                {htmlspecialchars($val->column_title)}
+            </div>
+        </th>
+        <td>
+            <!--@if($val->is_private)-->
+                <span class="privateItem">{$lang->private}</span>
+            <!--@else--> 
+                <!--@if($val->column_type=='tel' && $val->value[0] && $val->value[1] && $val->value[2])-->
+                    {htmlspecialchars($val->value[0])} 
+                        <!--@if($val->value[1])-->-<!--@end-->
+                    {htmlspecialchars($val->value[1])} 
+                        <!--@if($val->value[2])-->-<!--@end-->
+                    {htmlspecialchars($val->value[2])}
+                <!--@elseif($val->column_type=='kr_zip')-->
+                    {htmlspecialchars($val->value[0])}<!--@if($val->value[1]&&$val->value[0])--><br /><!--@end-->{htmlspecialchars($val->value[1])}
+                <!--@elseif($val->column_type=='checkbox' && is_array($val->value))-->
+                    {htmlspecialchars(implode(", ",$val->value))}&nbsp;
+                <!--@elseif($val->column_type=='date' && $val->value)-->
+                    {zdate($val->value, "Y-m-d")}&nbsp;
+                <!--@else-->
+                    {nl2br(htmlspecialchars($val->value))}&nbsp;
+                <!--@end-->
+            <!--@end--> 
+        </td>
+    </tr>
+    <!--@end-->
+    <!--@end-->
+    </table>
+   <p class="info_msg">
+		가입 시 입력하셨던 회원정보를 확인할 수<br> 있습니다. 회원정보를 변경하려면 <a href="{getUrl('m',0)}" title="PC버전의 홈페이지 바로가기">PC버전의 홈페이지</a>에서 해주세요.
+	</p>
+   <p class="info_msg msg2">
+		비밀번호를 변경하시려면? <a href="{getUrl('act','dispMobileexModifyPassword','member_srl','')}" title="{$lang->cmd_modify_member_password}">{$lang->cmd_modify_member_password}</a>
+	</p>
+    
+</div>
+
+

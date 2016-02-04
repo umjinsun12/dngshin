@@ -1,0 +1,8 @@
+<query id="deleteEachModuleConfig" action="delete">
+    <tables>
+        <table name="mobileex_config" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="module_srl" var="module_srl" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

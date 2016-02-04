@@ -1,0 +1,119 @@
+<div class="content<!--@if($layout_info->page_type == 'sub_normal')--> sub-page<!--@end-->"<!--@if($layout_info->page_type == 'main')--> id="grid-content"<!--@end-->>
+	<!--@if($layout_info->page_type == 'main')-->
+	<div class="main-con" cond="$act != NULL">{$content}</div>
+	<div class="inside clearfix" cond="$act == NULL"><!--@if($layout_info->main_code)-->{$layout_info->main_code}<!--@else--><div class="f-message">레이아웃 메인버전입니다.<br /><a href="{getUrl('','module','admin','act','dispLayoutAdminInstanceList','type','M','layout','flatLayout')}" target="_blank">레이아웃 설정</a>에서 위젯코드를 입력하세요.</div><!--@end--></div>
+	<!--@else-->
+	<h2 class="top-title" cond="!$member_config"><!--@if($selected_menu)-->{$selected_menu['text']}<!--@else-->{$layout_info->site_name}<!--@end--></h2>
+	{$content}
+	<!--@end-->
+</div><!-- //content-->
+
+<!-- 새로운 레이아웃 -->
+
+<div class="main-con" cond="$act != NULL">{$content}</div>
+
+
+<block cond="$layout_info->page_type == 'main' && !$member_config">
+<!--@if($layout_info->main_type == 'image')-->
+<div class="main-image-wrap">
+	<div class="dummy"></div>
+	<div class="main-image<!--@if(!$layout_info->main_image)--> main-noImage<!--@end-->" style="background-image: url('{$layout_info->main_image}');"|cond="$layout_info->main_image"></div>
+</div>
+<!--@elseif($layout_info->main_type == 'normal_image')-->
+<div class="main-normal-image">
+	<!--@if($layout_info->main_normal_image)-->
+	<img src="{$layout_info->main_normal_image}" width="{$layout_info->m_width/2}" height="auto" alt="{$layout_info->site_name}" />
+	<!--@else-->
+	<img src="./images/main_normal_image.png" width="229" height="auto" alt="메인이미지를 등록하세요" />
+	<!--@end-->
+</div>
+<!--@elseif($layout_info->main_type == 'search')-->
+<div class="main-search main-normal-image">
+	<form action="{getUrl()}" method="post">
+		<input type="hidden" name="vid" value="{$vid}" />
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="act" value="IS" />
+		<input type="hidden" name="search_target" value="title_content" />
+		<fieldset>
+			<legend>{$lang->cmd_search}</legend>
+			<input name="is_keyword" type="search" title="Search" class="searchinput2" accesskey="S" required placeholder="사이트 통합검색"  />
+			<button type="submit">{$lang->cmd_search}</button>
+	</form>
+</div>
+<!--@elseif($layout_info->main_type == 'none')--><!--@else-->
+<div class="main-logo">
+	<!--@if($layout_info->logo)-->
+	<img src="{$layout_info->logo}" width="200px" height="auto" alt="{$layout_info->site_name}" />
+	<!--@else-->
+	<img src="./images/main_logo_image.png" width="200px" height="auto" alt="로고이미지를 등록하세요" />
+	<!--@end-->
+</div>
+<!--@end-->
+</block>
+
+
+<a class="w-clearfix w-inline-block nav-menu-link" href="login.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-download-outline"></div>
+              </div>
+              <div class="nav-menu-titles">로그인</div>
+            </a>
+            
+            <a class="w-clearfix w-inline-block nav-menu-link" href="signup.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-cloud-upload-outline"></div>
+              </div>
+              <div class="nav-menu-titles">회원가입</div>
+            </a>
+            
+            <a class="w-clearfix w-inline-block nav-menu-link" href="forgot.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-unlocked-outline"></div>
+              </div>
+              <div class="nav-menu-titles">아이디/패스워드 찾기</div>
+            </a>
+            
+
+<a class="w-clearfix w-inline-block nav-menu-link" href="addnew.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-checkmark-outline"></div>
+              </div>
+              <div class="nav-menu-titles">New To Do</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="messages.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-albums-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Messages</div>
+              <div class="nav-menu-text-right">8</div>
+            </a>
+            
+            <a class="w-clearfix w-inline-block nav-menu-link" href="groups.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-keypad-outline"></div>
+              </div>
+              <div class="nav-menu-titles">News Groups</div>
+              <div class="nav-menu-text-right">12</div>
+            </a>
+            
+            <a class="w-clearfix w-inline-block nav-menu-link" href="newitem.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-compose-outline"></div>
+              </div>
+              <div class="nav-menu-titles">News Post</div>
+              <div class="nav-menu-text-right">14</div>
+            </a>
+            
+            <a class="w-clearfix w-inline-block nav-menu-link" href="maps.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-location-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Maps</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href="elements.html" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-box-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Elements</div>
+            </a>
+    

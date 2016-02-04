@@ -1,0 +1,11 @@
+<query id="updateLast" action="update">
+    <tables>
+        <table name="androidpushapp_gcmregid" />
+    </tables>
+	<columns>		
+		<column name="last_login" var="last_login" notnull="notnull" />        
+    </columns>
+	<conditions> 
+		<condition operation="equal" column="reg_id" var="reg_id" notnull="notnull" />		
+	</conditions>
+</query>

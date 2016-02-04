@@ -1,0 +1,31 @@
+<!--%import("filter/insert_bookmark.xml")-->
+<!--%import("js/bookmark.js")-->
+<table>
+    <col width="200" />
+    <col width="500" />
+    <tr> <th> 제목 </th> <th> 설명 </th> </tr>
+    <!--@foreach($bookmark_list as $val)-->
+    <tr> <td align="center"><a href="{$val->link}">{$val->title}</a>
+         <td align="center">{$val->description}</td></tr>
+    <!--@end-->
+ 
+    <tr> <td colspan="2" align="center">
+    <a href="{getUrl('page','','module_srl','')}" class="goToFirst"><img src="../../admin/tpl/images/bottomGotoFirst.gif" alt="{$lang->first_page}" width="7" height="5" /></a>
+    <!--@while($page_no = $page_navigation->getNextPage())-->
+        <!--@if($page == $page_no)-->
+            <span class="current">{$page_no}</span>
+        <!--@else-->
+            <a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a>
+        <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="goToLast"><img src="../../admin/tpl/images/bottomGotoLast.gif" alt="{$lang->last_page}" width="7" height="5" /></a>
+    </td></tr>
+ 
+    <tr> <td colspan="2" align="center">
+    <form action="./" method="POST" onsubmit="return procFilter(this, insert_bookmark);">
+        <label>link<input type="text" name="link" /></label>&nbsp;
+        <label>title<input type="text" name="title" /></label>&nbsp;
+        <label>description<input type="text" name="description" /></label>&nbsp;
+        <input type="submit" value="입력"/>
+    </td></tr>
+</table>

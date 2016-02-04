@@ -1,0 +1,24 @@
+{@ Context::loadLang('./modules/board/m.skins/mex_default/lang')}
+<!--@if(!$oDocument->getComments())-->
+  <p>{$lang->msg_not_comments}</p>
+<!--@else-->
+   <!--@foreach($comment_list as $oComment)-->
+   	<li>
+   		{$oComment->getContent(false)}
+   		<span class="auth">
+   			<em>{$oComment->getNickName()}</em>
+   			<span class="time">{getTimeGap($oComment->get('regdate'), "Y.m.d H:i:s")}</span>
+   			<!--@if($oComment->get('sub_comment_count'))--><span class="reply"><a href="{getUrl('body','','act','','cmt_list_mode','1','up_category',$oComment->get('comment_srl'),'module','','target_module','','skin_name','','view_count','','last_comment_srl','')}" style="text-decoration:underline">{$lang->cmd_sub_cmt} : <strong>{$oComment->get('sub_comment_count')}</strong></a></span><!--@end-->
+   			<!--@if($oComment->isGranted() || !$oComment->get('member_srl'))-->
+   			<a href="{getUrl('act','dispBoardModifyComment','comment_srl',$oComment->get('comment_srl'),'module',$target_module,'target_module','','skin_name','','view_count','','last_comment_srl','','up_category','')}" class="btn ed">{$lang->cmd_modify}</a>
+   			<a href="{getUrl('act','dispBoardDeleteComment','comment_srl',$oComment->get('comment_srl'),'module',$target_module,'target_module','','skin_name','','view_count','','last_comment_srl','','up_category','')}" class="btn de">{$lang->cmd_delete}</a>
+   			<!--@endif-->
+   			<a href="{getUrl('act','dispBoardReplyComment','comment_srl',$oComment->get('comment_srl'),'module',$target_module,'target_module','','skin_name','','view_count','','last_comment_srl','','up_category','')}" class="btn re cmt_reply_btn">{$lang->cmd_reply}</a>
+   		</span>
+   	</li>
+   	{@$last_comment_srl = $oComment->get('comment_srl')}
+   	<!--@end-->
+   <a class="more_btn" id="cmb" onclick="loadCmtList({$document_srl},{$last_comment_srl}, {$view_count});">{$lang->comment} {$lang->cmd_more_view}</a>
+<!--@end-->
+
+

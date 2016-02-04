@@ -1,0 +1,98 @@
+{@
+	if (!$wi->subject_cut_size) $wi->subject_cut_size = 36;
+	if (!$wi->content_cut_size) $wi->content_cut_size = 64;
+}
+
+<div class="m-webzine m-element webzine-style gridEl">
+	<section class="swiper"|cond="$wi->tab_type == 'tab' || $wi->page_count>1">
+		<include target="_tab.html" cond="$wi->tab_type == 'tab'" />
+		<!--@if($wi->tab_type == 'tab')-->
+		<ul class="swiper-wrapper">
+			{@$i=0}
+			<!--@foreach($widget_info->tab as $module_srl => $tab)-->
+			<li class="swiper-slide slide slide{$i}"><ul class="list">
+			{@$widget_info->content_items = $tab->content_items}
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && !is_int($_idx/($wi->list_count*$wi->page_count-$wi->page_count)))-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li class="clearfix">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"></div>
+				<div class="webzine-container">
+					<div class="title el"><span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span> {$item->getTitle($wi->subject_cut_size)} <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+					<p class="summary el">
+						{$item->getContent($wi->content_cut_size)}
+					</p>
+					<div class="info el" cond="$wi->show_info == 'Y'">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply">{$item->getCommentCount()>0?$item->getCommentCount():'0'}</a>
+					</div>
+				</div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			{@$i++}
+			</ul></li>
+			<!--@end-->
+		</ul>
+		<div class="swiper-pagination"></div>			
+		<!--@elseif($wi->tab_type == 'none' && $wi->page_count>1)-->
+		<include target="_title.html" />
+		<ul class="swiper-wrapper">
+			<li class="swiper-slide slide"><ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<!--@if($wi->page_count !=1 && is_int($_idx/$wi->list_count) && $_idx/$wi->list_count !=0)-->
+				</ul></li>
+				<li class="swiper-slide"><ul class="list">
+			<!--@end-->
+			<li class="clearfix">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"></div>
+				<div class="webzine-container">
+					<div class="title el"><span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span> {$item->getTitle($wi->subject_cut_size)} <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+					<p class="summary el">
+						{$item->getContent($wi->content_cut_size)}
+					</p>
+					<div class="info el" cond="$wi->show_info == 'Y'">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply">{$item->getCommentCount()>0?$item->getCommentCount():'0'}</a>
+					</div>
+				</div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+			</ul></li>
+		</ul>
+		<div class="swiper-pagination"></div>
+		<!--@else-->
+		<include target="_title.html" />
+		<ul class="list">
+			{@$_idx=0}
+		    <!--@foreach($widget_info->content_items as $key => $item)-->
+			<li class="clearfix">
+				<a href="{$item->getLink()}" class="list-link"></a>
+				<div class="thumb-image"|cond="$item->getThumbnail()" class="thumb-image no-image"|cond="!$item->getThumbnail()" style="background-image: url({$item->getThumbnail()});"|cond="$item->getThumbnail()"></div>
+				<div class="webzine-container">
+					<div class="title el"><span class="category" cond="$item->get('category_srl') && $wi->show_category == 'Y'">{$item->getCategory()}</span> {$item->getTitle($wi->subject_cut_size)} <span class="icon" cond="$wi->show_icon=='Y'">{$item->printExtraImages()}</span></div>
+					<p class="summary el">
+						{$item->getContent($wi->content_cut_size)}
+					</p>
+					<div class="info el" cond="$wi->show_info == 'Y'">
+						<span class="author">{$item->getNickName()}</span>
+						<span class="date"><!--@if($t_date == $item->getRegDate('Ymd'))-->{$item->getRegdate("H:i")}<!--@else-->{$item->getRegdate("m-d")}<!--@end--></span>
+						<a href="#" class="reply">{$item->getCommentCount()>0?$item->getCommentCount():'0'}</a>
+					</div>
+				</div>
+			</li>
+			{@$_idx++}
+			<!--@end-->
+		</ul>
+		<!--@end-->
+	</section>
+</div>

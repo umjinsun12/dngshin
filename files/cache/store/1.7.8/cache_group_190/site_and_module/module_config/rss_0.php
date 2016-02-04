@@ -1,0 +1,3 @@
+<?php
+if(!defined('__XE__')) { exit(); }
+return 'O:8:\"stdClass\":10:{s:16:\"error_return_url\";s:45:\"/index.php?module=admin&act=dispRssAdminIndex\";s:7:\"ruleset\";s:15:\"insertRssConfig\";s:6:\"module\";s:3:\"rss\";s:3:\"act\";s:24:\"procRssAdminInsertConfig\";s:15:\"xe_validator_id\";s:33:\"modules/rss/tpl/rss_admin_index/1\";s:14:\"use_total_feed\";s:1:\"Y\";s:10:\"feed_title\";s:16:\"스포츠 피드\";s:16:\"feed_description\";s:26:\"스포츠 피드입니다.\";s:19:\"feed_document_count\";i:15;s:5:\"image\";N;}';

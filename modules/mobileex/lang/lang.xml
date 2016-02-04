@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="each_config_module">
+		<value xml:lang="ko"><![CDATA[설정대상모듈]]></value>
+	</item>
+	<item name="mobile_integration_search">
+		<value xml:lang="ko"><![CDATA[모바일 통합검색]]></value>
+	</item>
+	<item name="integration_search">
+		<value xml:lang="ko"><![CDATA[통합검색]]></value>
+		<value xml:lang="en"><![CDATA[Integrated Search]]></value>
+	</item>
+	<item name="sample_code">
+		<value xml:lang="ko"><![CDATA[샘플코드]]></value>
+		<value xml:lang="en"><![CDATA[Sample Code]]></value>
+	</item>
+	<item name="addfile_thumb_use">
+		<value xml:lang="ko"><![CDATA[섬네일 생성]]></value>
+	</item>
+	<item name="addfile_thumb_size">
+		<value xml:lang="ko"><![CDATA[섬네일 가로사이즈]]></value>
+	</item>
+	<item name="img_resize_width">
+		<value xml:lang="ko"><![CDATA[이미지파일 가로 리사이즈]]></value>
+	</item>
+	<item name="img_resize_height">
+		<value xml:lang="ko"><![CDATA[이미지파일 세로 리사이즈]]></value>
+	</item>
+	<item name="file_delete">
+		<value xml:lang="ko"><![CDATA[파일삭제]]></value>
+	</item>
+	<item name="addfile_auto">
+		<value xml:lang="ko"><![CDATA[이미지 본문 자동첨부]]></value>
+	</item>
+	<item name="file_upload">
+		<value xml:lang="ko"><![CDATA[파일업로드]]></value>
+	</item>
+	<item name="pcimg_view">
+		<value xml:lang="ko"><![CDATA[PC작성글 이미지 자동출력]]></value>
+	</item>
+	<item name="pcmode_addfile_view">
+		<value xml:lang="ko"><![CDATA[PC환경에서 본문첨부이미지 출력]]></value>
+	</item>
+	<item name="cmd_scrapped">
+		<value xml:lang="ko"><![CDATA[스크랩]]></value>
+	</item>
+	<item name="cmd_saved_document">
+		<value xml:lang="ko"><![CDATA[저장함]]></value>
+	</item>
+	<item name="cmd_own_document">
+		<value xml:lang="ko"><![CDATA[작성글]]></value>
+	</item>
+	<item name="cmd_friend">
+		<value xml:lang="ko"><![CDATA[친구]]></value>
+	</item>
+	<item name="cmd_message_box">
+		<value xml:lang="ko"><![CDATA[쪽지함]]></value>
+	</item>
+	<item name="cmd_each_config">
+		<value xml:lang="ko"><![CDATA[개별설정]]></value>
+	</item>
+	<item name="cmd_manage_mobile_skin">
+		<value xml:lang="ko"><![CDATA[모바일스킨설정]]></value>
+	</item>
+	<item name="cmd_full">
+		<value xml:lang="ko"><![CDATA[최대]]></value>
+	</item>
+	<item name="cmd_small">
+		<value xml:lang="ko"><![CDATA[축소]]></value>
+	</item>
+	<item name="addfile_min_size">
+		<value xml:lang="ko"><![CDATA[첨부이미지 최소사이즈]]></value>
+	</item>
+	<item name="addfile_view_type">
+		<value xml:lang="ko"><![CDATA[첨부된 이미지 초기 출력타입]]></value>
+	</item>
+	<item name="addfile_use">
+		<value xml:lang="ko"><![CDATA[본문 이미지 첨부]]></value>
+	</item>
+	<item name="addfile_btn">
+		<value xml:lang="ko"><![CDATA[첨부이미지 확대및축소]]></value>
+	</item>
+	<item name="file_config_use">
+		<value xml:lang="ko"><![CDATA[모바일 파일설정]]></value>
+	</item>
+	<item name="mobileex">
+		<value xml:lang="ko"><![CDATA[모바일 확장모듈]]></value>
+	</item>
+	<item name="allowed_filesize">
+		<value xml:lang="ko"><![CDATA[파일 제한 크기]]></value>
+	</item>
+	<item name="allowed_attach_size">
+		<value xml:lang="ko"><![CDATA[문서 첨부 제한]]></value>
+	</item>
+	<item name="allowed_filetypes">
+		<value xml:lang="ko"><![CDATA[허용 확장자]]></value>
+	</item>
+	<item name="msg_confirm_store_message">
+		<value xml:lang="ko"><![CDATA[쪽지를 저장하시겠습니까?]]></value>
+	</item>
+	<item name="msg_not_message_srl">
+		<value xml:lang="ko"><![CDATA[쪽지번호가 없습니다.]]></value>
+	</item>
+	<item name="msg_no_file">
+		<value xml:lang="ko"><![CDATA[파일이 선택해주세요]]></value>
+	</item>
+	<item name="msg_file_upload_error">
+		<value xml:lang="ko"><![CDATA[파일 업로드 중 에러가 발생하였습니다.]]></value>
+	</item>
+	<item name="msg_not_fileupload_grant">
+		<value xml:lang="ko"><![CDATA[업로드 권한이 없습니다.]]></value>
+	</item>
+	<item name="msg_not_allowed_filesize">
+		<value xml:lang="ko"><![CDATA[업로드하신 파일은 관리자가 허용한 파일크기보다 큽니다.]]></value>
+	</item>
+	<item name="msg_not_allowed_attach_size">
+		<value xml:lang="ko"><![CDATA[이 문서에는 더이상 첨부파일을 업로드하실 수 없습니다.]]></value>
+	</item>
+	<item name="msg_upload_process">
+		<value xml:lang="ko"><![CDATA[중입니다.]]></value>
+	</item>
+	<item name="msg_not_allowed_filetype">
+		<value xml:lang="ko"><![CDATA[파일은 올리실 수 없습니다.]]></value>
+	</item>
+	<item name="msg_not_file_exist">
+		<value xml:lang="ko"><![CDATA[이미 삭제되거나 존재하지 않는 파일입니다.]]></value>
+	</item>
+	<item name="msg_not_permitted_delete">
+		<value xml:lang="ko"><![CDATA[파일은 삭제할 권한이 없습니다.]]></value>
+	</item>
+	<item name="msg_not_mobile_document">
+		<value xml:lang="ko"><![CDATA[PC모드에서 등록한 글이거나 PC모드에서 수정을 한 문서에는 파일을 첨부하실 수 없습니다.]]></value>
+	</item>
+	<item name="msg_no_keyword">
+		<value xml:lang="ko"><![CDATA[검색어를 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[Please enter keyword to search]]></value>
+	</item>
+	<item name="msg_document_more_search">
+		<value xml:lang="ko"><![CDATA['계속 검색' 버튼을 선택하시면 아직 검색하지 않은 부분까지 계속 검색 하실 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[Click 'Search Next' button to keep searching.]]></value>
+	</item>
+	<item name="about_mobileex_mskin">
+		<value xml:lang="ko"><![CDATA[모바일EX에서 사용(모바일검색,모바일회원정보,모바일쪽지등..)할 모바일스킨을 설정해주세요]]></value>
+	</item>
+	<item name="about_mobile_each_config">
+		<value xml:lang="ko"><![CDATA[모바일에서 따로 파일설정을 할 수 있습니다. 아니오를 선택하시면 게시판 기본설정으로 처리합니다.]]></value>
+	</item>
+  <item name="about_allowed_filesize">
+		<value xml:lang="ko"><![CDATA[하나의 파일에 대해 최고 용량을 지정할 수 있습니다. (관리자는 제외)]]></value>
+	</item>
+	<item name="about_allowed_attach_size">
+		<value xml:lang="ko"><![CDATA[하나의 문서에 첨부할 수 있는 최고 용량을 지정할 수 있습니다. (관리자는 제외)]]></value>
+	</item>
+	<item name="about_addfile_use">
+		<value xml:lang="ko"><![CDATA[본문에 이미지를 첨부하는 기능 사용여부를 지정할 수 있습니다.]]></value>
+	</item>
+	<item name="about_allowed_filetypes">
+		<value xml:lang="ko"><![CDATA["*.확장자"로 지정할 수 있고 ";" 으로 여러 개 지정이 가능합니다. 예) *.* or *.jpg;*.gif;]]></value>
+	</item>
+	<item name="about_addfile_view_type">
+		<value xml:lang="ko"><![CDATA[본문에 첨부한 이미지를 출력시 처음상태를 지정할 수 있습니다.]]></value>
+	</item>
+	<item name="about_addfile_min_size">
+		<value xml:lang="ko"><![CDATA[본문에 첨부된 이미지를 출력시 최소사이즈를 지정할 수 있습니다.]]></value>
+	</item>
+	<item name="about_addfile_thumb_use">
+		<value xml:lang="ko"><![CDATA[모바일에서 이미지파일 업로드 or 글보기시 섬네일을 생성하실 수 있습니다.]]></value>
+	</item>
+	<item name="about_addfile_thumb_size">
+		<value xml:lang="ko"><![CDATA[본문에 첨부된 이미지의 섬네일 사이즈(가로 px - 800정도가 적당합니다.)]]></value>
+	</item>
+	<item name="about_img_resize_width">
+		<value xml:lang="ko"><![CDATA[이미지 업로드시 설정한 너비px보다 큰 이미지일경우 설정값으로 리사이즈하여 저장합니다. 0이면 리사이즈하지 않으며 가로,세로 둘다 설정할경우 작은값 위주로 리사이즈됩니다. (너비 px 단위로 적어주세요 예:1024)]]></value>
+	</item>
+	<item name="about_img_resize_height">
+		<value xml:lang="ko"><![CDATA[이미지 업로드시 설정한 높이px보다 큰 이미지일경우 설정값으로 리사이즈하여 저장합니다. 0이면 리사이즈하지 않으며 가로,세로 둘다 설정할경우 작은값 위주로 리사이즈됩니다.(높이 px 단위로 적어주세요 예:1024)]]></value>
+	</item>
+	<item name="about_addfile_auto">
+		<value xml:lang="ko"><![CDATA[첨부파일중 이미지파일은 자동으로 본문에 첨부합니다.]]></value>
+	</item>
+	<item name="about_addfile_btn">
+		<value xml:lang="ko"><![CDATA[첨부이미지를 클릭하면 확대(최대사이즈) 및 축소(최소사이즈)하는 기능 사용여부를 설정할 수 있습니다.]]></value>
+	</item>
+	<item name="about_pcimg_view">
+		<value xml:lang="ko"><![CDATA[PC작성글중 본문에 첨부된 이미지가 없을경우 첨부파일중 이미지파일을 자동으로 출력합니다.]]></value>
+	</item>
+	<item name="about_pcmode_addfile_view">
+		<value xml:lang="ko"><![CDATA[PC환경에서도 본문 첨부이미지를 출력합니다.]]></value>
+	</item>
+	<item name="about_target_module">
+		<value xml:lang="ko"><![CDATA[선택된 모듈만 검색 대상으로 정합니다. 권한설정에 대한 주의를 바랍니다.]]></value>
+		<value xml:lang="en"><![CDATA[Only chosen modules are the target. Please be careful on setting the permissions.]]></value>
+	</item>
+	<item name="about_sample_code">
+		<value xml:lang="ko"><![CDATA[위 코드를 레이아웃, 스킨 등에 추가하시면 통합검색이 가능합니다.]]></value>
+		<value xml:lang="en"><![CDATA[You can use integrated search by adding the above code in the layout or other things.]]></value>
+	</item>
+	<item name="about_mobile_integration_search">
+		<value xml:lang="ko"><![CDATA[모바일환경에 최적화된 통합검색을 사용합니다]]></value>
+	</item>
+	<item name="is_result_text">
+		<value xml:lang="ko"><![CDATA[<strong>'%s'</strong>에 대한 검색결과 <strong>%d</strong>건]]></value>
+		<value xml:lang="en"><![CDATA[There are <strong>%d</strong> result(s) for <strong>'%s'</strong>]]></value>
+		<value xml:lang="jp"><![CDATA[<strong>'%s'</strong>に対する検索結果<strong>%d</strong>件]]></value>
+		<value xml:lang="zh-CN"><![CDATA[符合<strong>'%s'</strong>的搜索结果约有<strong>%d</strong>项]]></value>
+		<value xml:lang="zh-TW"><![CDATA[符合<strong>'%s'</strong>的搜尋結果，約有<strong>%d</strong>項]]></value>
+		<value xml:lang="fr"><![CDATA[Il y a <strong>%d</strong> résultat(s) pour <strong>'%s'</strong>]]></value>
+		<value xml:lang="ru"><![CDATA[<strong>%d</strong> результатов для <strong>%s</strong>]]></value>
+		<value xml:lang="es"><![CDATA[<strong>%d</strong> Resultados con la palabra <strong>'%s'</strong> ]]></value>
+		<value xml:lang="tr"><![CDATA[<strong>'%s'</strong> için yaklaşık <strong>%d</strong> sonuç bulundu ]]></value>
+		<value xml:lang="vi"><![CDATA[Tìm thấy <strong>%d</strong> kết quả cho <strong>'%s'</strong>]]></value>
+	</item>
+	<item name="multimedia">
+		<value xml:lang="ko"><![CDATA[이미지/동영상]]></value>
+		<value xml:lang="en"><![CDATA[Images/Video]]></value>
+		<value xml:lang="jp"><![CDATA[画像/動画]]></value>
+		<value xml:lang="zh-CN"><![CDATA[图片/视频]]></value>
+		<value xml:lang="zh-TW"><![CDATA[圖片/影片]]></value>
+		<value xml:lang="ru"><![CDATA[Картинки/Видео]]></value>
+		<value xml:lang="tr"><![CDATA[Resimler/ Görüntüler]]></value>
+		<value xml:lang="vi"><![CDATA[Hình ảnh/ Video]]></value>
+	</item>
+	<item name="include_search_target">
+		<value xml:lang="ko"><![CDATA[선택된 대상만 검색]]></value>
+		<value xml:lang="en"><![CDATA[Search for selected modules]]></value>
+		<value xml:lang="jp"><![CDATA[選択された対象のみ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[只搜索所选对象]]></value>
+		<value xml:lang="zh-TW"><![CDATA[尋找所選模組]]></value>
+		<value xml:lang="fr"><![CDATA[Seulement dans certaines cibles ]]></value>
+		<value xml:lang="ru"><![CDATA[Поиск только для выбранных модулей]]></value>
+		<value xml:lang="es"><![CDATA[Sólo en determinados ]]></value>
+		<value xml:lang="tr"><![CDATA[Seçili modüller içinde ara]]></value>
+	</item>
+	<item name="exclude_search_target">
+		<value xml:lang="ko"><![CDATA[선택된 대상을 검색에서 제외]]></value>
+		<value xml:lang="en"><![CDATA[Exclude selected modules from search]]></value>
+		<value xml:lang="jp"><![CDATA[選択した対象を検索から除外]]></value>
+		<value xml:lang="zh-CN"><![CDATA[所选对象从搜索中排除]]></value>
+		<value xml:lang="zh-TW"><![CDATA[排除所選模組]]></value>
+		<value xml:lang="fr"><![CDATA[Recherche de la destination sélectionnée à partir de]]></value>
+		<value xml:lang="ru"><![CDATA[Исключить выбранные модули из поиска]]></value>
+		<value xml:lang="es"><![CDATA[Búsqueda para el destino de]]></value>
+		<value xml:lang="tr"><![CDATA[Seçili modülleri arama dışında tut]]></value>
+	</item>
+	<item name="is_search_option" type="array">
+		<item name="document" type="array">
+			<item name="title_content">
+				<value xml:lang="ko"><![CDATA[제목+내용]]></value>
+				<value xml:lang="en"><![CDATA[Subject+Content]]></value>
+				<value xml:lang="jp"><![CDATA[タイトル+内容]]></value>
+				<value xml:lang="zh-CN"><![CDATA[标题+内容]]></value>
+				<value xml:lang="zh-TW"><![CDATA[標題+內容]]></value>
+				<value xml:lang="fr"><![CDATA[Titre+Contenu]]></value>
+				<value xml:lang="ru"><![CDATA[Заголовок+Содержание]]></value>
+				<value xml:lang="es"><![CDATA[Título+Contenido]]></value>
+				<value xml:lang="tr"><![CDATA[Konu+İçerik]]></value>
+				<value xml:lang="vi"><![CDATA[T.Đề+N.Dung]]></value>
+			</item>
+			<item name="title">
+				<value xml:lang="ko"><![CDATA[제목]]></value>
+				<value xml:lang="en"><![CDATA[Subject]]></value>
+				<value xml:lang="jp"><![CDATA[タイトル]]></value>
+				<value xml:lang="zh-CN"><![CDATA[标题]]></value>
+				<value xml:lang="zh-TW"><![CDATA[標題]]></value>
+				<value xml:lang="fr"><![CDATA[Titre]]></value>
+				<value xml:lang="ru"><![CDATA[Тема]]></value>
+				<value xml:lang="es"><![CDATA[Título]]></value>
+				<value xml:lang="tr"><![CDATA[Konu]]></value>
+				<value xml:lang="vi"><![CDATA[Tiêu đề]]></value>
+			</item>
+			<item name="content">
+				<value xml:lang="ko"><![CDATA[내용]]></value>
+				<value xml:lang="en"><![CDATA[Content]]></value>
+				<value xml:lang="jp"><![CDATA[内容]]></value>
+				<value xml:lang="zh-CN"><![CDATA[内容]]></value>
+				<value xml:lang="zh-TW"><![CDATA[內容]]></value>
+				<value xml:lang="fr"><![CDATA[Contenu]]></value>
+				<value xml:lang="ru"><![CDATA[Содержание]]></value>
+				<value xml:lang="es"><![CDATA[Contenido]]></value>
+				<value xml:lang="tr"><![CDATA[İçerik]]></value>
+				<value xml:lang="vi"><![CDATA[Nội dung]]></value>
+			</item>
+			<item name="tag">
+				<value xml:lang="ko"><![CDATA[태그]]></value>
+				<value xml:lang="en"><![CDATA[Tags]]></value>
+				<value xml:lang="jp"><![CDATA[タグ]]></value>
+				<value xml:lang="zh-CN"><![CDATA[标签]]></value>
+				<value xml:lang="zh-TW"><![CDATA[標籤]]></value>
+				<value xml:lang="fr"><![CDATA[Balise]]></value>
+				<value xml:lang="ru"><![CDATA[Теги]]></value>
+				<value xml:lang="es"><![CDATA[Etiqueta]]></value>
+				<value xml:lang="tr"><![CDATA[Etiketler]]></value>
+				<value xml:lang="vi"><![CDATA[Tag]]></value>
+			</item>
+		</item>
+		<item name="trackback" type="array">
+			<item name="url">
+				<value xml:lang="ko"><![CDATA[대상 URL]]></value>
+				<value xml:lang="en"><![CDATA[Target URL]]></value>
+				<value xml:lang="jp"><![CDATA[対象URL]]></value>
+				<value xml:lang="zh-CN"><![CDATA[对象URL]]></value>
+				<value xml:lang="zh-TW"><![CDATA[目標網址]]></value>
+				<value xml:lang="fr"><![CDATA[URL objectif]]></value>
+				<value xml:lang="ru"><![CDATA[URL]]></value>
+				<value xml:lang="es"><![CDATA[URL objetivo]]></value>
+				<value xml:lang="tr"><![CDATA[Hedef URL]]></value>
+				<value xml:lang="vi"><![CDATA[URL]]></value>
+			</item>
+			<item name="blog_name">
+				<value xml:lang="ko"><![CDATA[대상 사이트 이름]]></value>
+				<value xml:lang="en"><![CDATA[Target Site Name]]></value>
+				<value xml:lang="jp"><![CDATA[対象サイト（ブログ）名]]></value>
+				<value xml:lang="zh-CN"><![CDATA[对象网站名称]]></value>
+				<value xml:lang="zh-TW"><![CDATA[目標網站名稱]]></value>
+				<value xml:lang="fr"><![CDATA[Nom du Site objectif]]></value>
+				<value xml:lang="ru"><![CDATA[Имя сайта]]></value>
+				<value xml:lang="es"><![CDATA[Ojetivo del nombre de sitio]]></value>
+				<value xml:lang="tr"><![CDATA[Hedef Site İsmi]]></value>
+				<value xml:lang="vi"><![CDATA[Tên Website]]></value>
+			</item>
+			<item name="title">
+				<value xml:lang="ko"><![CDATA[제목]]></value>
+				<value xml:lang="en"><![CDATA[Title]]></value>
+				<value xml:lang="jp"><![CDATA[タイトル]]></value>
+				<value xml:lang="zh-CN"><![CDATA[标题]]></value>
+				<value xml:lang="zh-TW"><![CDATA[標題]]></value>
+				<value xml:lang="fr"><![CDATA[Titre]]></value>
+				<value xml:lang="ru"><![CDATA[Заголовок]]></value>
+				<value xml:lang="es"><![CDATA[Título]]></value>
+				<value xml:lang="tr"><![CDATA[Başlık]]></value>
+				<value xml:lang="vi"><![CDATA[Tiêu đề]]></value>
+			</item>
+			<item name="excerpt">
+				<value xml:lang="ko"><![CDATA[내용]]></value>
+				<value xml:lang="en"><![CDATA[Excerpt]]></value>
+				<value xml:lang="jp"><![CDATA[内容]]></value>
+				<value xml:lang="zh-CN"><![CDATA[内容]]></value>
+				<value xml:lang="zh-TW"><![CDATA[內容]]></value>
+				<value xml:lang="fr"><![CDATA[Contenu]]></value>
+				<value xml:lang="ru"><![CDATA[Содержание]]></value>
+				<value xml:lang="es"><![CDATA[Contenido]]></value>
+				<value xml:lang="tr"><![CDATA[Alıntı]]></value>
+				<value xml:lang="vi"><![CDATA[Trích mô tả]]></value>
+			</item>
+		</item>
+	</item>
+	<item name="is_sort_option" type="array">
+		<item name="regdate">
+			<value xml:lang="ko"><![CDATA[등록일]]></value>
+			<value xml:lang="en"><![CDATA[Registered Date]]></value>
+			<value xml:lang="jp"><![CDATA[登録日]]></value>
+			<value xml:lang="zh-CN"><![CDATA[日期]]></value>
+			<value xml:lang="zh-TW"><![CDATA[日期]]></value>
+			<value xml:lang="fr"><![CDATA[Enrégistré]]></value>
+			<value xml:lang="ru"><![CDATA[Дата регистрации]]></value>
+			<value xml:lang="es"><![CDATA[Fecha del registro]]></value>
+			<value xml:lang="tr"><![CDATA[Kayıt Zamanı]]></value>
+			<value xml:lang="vi"><![CDATA[Ngày gửi]]></value>
+		</item>
+		<item name="comment_count">
+			<value xml:lang="ko"><![CDATA[댓글 수]]></value>
+			<value xml:lang="en"><![CDATA[Number of Comments]]></value>
+			<value xml:lang="jp"><![CDATA[コメント数]]></value>
+			<value xml:lang="zh-CN"><![CDATA[评论]]></value>
+			<value xml:lang="zh-TW"><![CDATA[評論]]></value>
+			<value xml:lang="fr"><![CDATA[Commentaires]]></value>
+			<value xml:lang="ru"><![CDATA[Кол-во комментариев]]></value>
+			<value xml:lang="es"><![CDATA[Número de commentarios]]></value>
+			<value xml:lang="tr"><![CDATA[Yorum Sayısı]]></value>
+			<value xml:lang="vi"><![CDATA[Số bình luận]]></value>
+		</item>
+		<item name="readed_count">
+			<value xml:lang="ko"><![CDATA[조회 수]]></value>
+			<value xml:lang="en"><![CDATA[Number of Hits]]></value>
+			<value xml:lang="jp"><![CDATA[閲覧数]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看]]></value>
+			<value xml:lang="zh-TW"><![CDATA[檢視]]></value>
+			<value xml:lang="fr"><![CDATA[Vues]]></value>
+			<value xml:lang="ru"><![CDATA[Кол-во хитов]]></value>
+			<value xml:lang="es"><![CDATA[Número de query]]></value>
+			<value xml:lang="tr"><![CDATA[Tıklanma Sayısı]]></value>
+			<value xml:lang="vi"><![CDATA[Lượt xem]]></value>
+		</item>
+		<item name="voted_count">
+			<value xml:lang="ko"><![CDATA[추천 수]]></value>
+			<value xml:lang="en"><![CDATA[Number of Votes]]></value>
+			<value xml:lang="jp"><![CDATA[推薦数]]></value>
+			<value xml:lang="zh-CN"><![CDATA[推荐]]></value>
+			<value xml:lang="zh-TW"><![CDATA[推薦]]></value>
+			<value xml:lang="fr"><![CDATA[Recommandés]]></value>
+			<value xml:lang="ru"><![CDATA[Кол-во голосов]]></value>
+			<value xml:lang="es"><![CDATA[Número de recomendaciones]]></value>
+			<value xml:lang="tr"><![CDATA[Oylanma Sayısı]]></value>
+			<value xml:lang="vi"><![CDATA[Bình chọn]]></value>
+		</item>
+	</item>
+</lang>

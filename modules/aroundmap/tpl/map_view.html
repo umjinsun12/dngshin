@@ -1,0 +1,117 @@
+<!--%import("css/aroundmap.css")-->
+<div id='mapContainer' style='width:400px; height:300px; border:1px solid #bbb;'></div>
+
+<input type="hidden" id="title" name="title" value="{htmlspecialchars($aroundmapData->title)}" />
+<input type="hidden" id="lat" name="lat" value="{htmlspecialchars($aroundmapData->lat)}" />
+<input type="hidden" id="lon" name="lon" value="{htmlspecialchars($aroundmapData->lon)}" />
+<input type="hidden" id="map_size" name="map_size" value="{htmlspecialchars($aroundmapData->map_size)}" />
+<!--@for($i=0; $i<count($aroundmapList); $i++)-->
+	<input type="hidden" name="aroundmap_title" value="{htmlspecialchars($aroundmapList[$i]->title)}" />
+	<input type="hidden" name="aroundmap_lat" value="{$aroundmapList[$i]->lat}" />
+	<input type="hidden" name="aroundmap_lon" value="{$aroundmapList[$i]->lon}" />
+	<input type="hidden" name="aroundmap_full_url" value="{$full_url}?document_srl={$aroundmapList[$i]->document_srl}" />
+<!--@end-->
+
+<SCRIPT type="text/javascript" src="http://map.naver.com/js/naverMap.naver?key={$naver_api_key}"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var markerType = { "selfType":0, "otherType":1 };
+	// Make Naver Map Instance
+	var mapObj = new NMap(document.getElementById('mapContainer'), 400, 300);
+	
+	function init() {
+	    // Add Zoom Control
+	    var zoom =new NZoomControl();
+	    zoom.setAlign("left");
+	    zoom.setValign("bottom");
+	    mapObj.addControl(zoom);
+	    
+	    // 현재 문서의 위치정보 마킹
+	    markingCurPlace();
+	    // 현재 문서의 주변 지도정보 마킹
+	    markingAroundPlace();
+	    
+	}
+	
+	// 현재 문서의 위치정보 마킹
+	function markingCurPlace() {
+	    // Get Current Document's Marker Map Size & Title & Position
+	    var cur_map_size = jQuery("#map_size").val();
+	    var cur_title = jQuery("#title").val();
+	    var cur_pos = new NPoint( jQuery("#lon").val(), jQuery("#lat").val() );
+	    cur_pos = mapObj.fromLatLngToTM128( cur_pos );
+	    
+	    // Set Map's Position & Zoom
+	    mapObj.setCenterAndZoom(cur_pos, cur_map_size);
+	    
+	    // Set Current Document's Marker
+	    setMarker( cur_pos, cur_title, markerType.selfType);
+	}
+	
+	// 현재 문서의 주변 지도정보 마킹
+	function markingAroundPlace() {
+	    // Set Around Map Marker's Data
+	    var aroundmapTitleList = document.getElementsByName("aroundmap_title");
+	    var aroundmapLatList = document.getElementsByName("aroundmap_lat");
+	    var aroundmapLonList = document.getElementsByName("aroundmap_lon");
+	    var aroundmapFullUrlList = document.getElementsByName("aroundmap_full_url");
+		
+	    // Set Around Map Marker
+	    for( i=0; i<aroundmapTitleList.length; i++ ) {
+		var pos = new NPoint(aroundmapLonList[i].value, aroundmapLatList[i].value);
+		pos = mapObj.fromLatLngToTM128(pos);
+		
+		var marker = setMarker( pos, aroundmapTitleList[i].value, markerType.otherType );
+		
+		setClickListener ( marker, aroundmapFullUrlList[i].value );
+	    }
+	}	
+	
+	// 지도에 마킹
+	function setMarker(pos, title, type)
+	{
+	    if( type == markerType.selfType ) {
+		var iconUrl = "{$tpl_path}images/mappin_self.png";
+		marker = new NMark( pos, new NIcon(iconUrl, new NSize(47,41 )) );
+	    } else {
+		var iconUrl = "{$tpl_path}images/mappin_other.png";
+		marker = new NMark( pos, new NIcon(iconUrl, new NSize(32,29 )) );
+	    }
+            
+            mapObj.addOverlay( marker );
+	    
+	    setInfoWin(marker, title);
+	    
+	    return marker;
+	}
+	
+	// 마커에 마우스 오버시 정보 윈도우창 띄우기
+	function setInfoWin(marker, title) {
+	    var infoWin = new NInfoWindow();
+	    
+	    NEvent.addListener(marker, "mouseover", function(pos) {
+		var titleBox = 	'<div class="aroundmap_title_box">' + title + '</div>';
+		infoWin.set(pos, titleBox);
+		infoWin.setOpacity( 0.8 );
+		infoWin.showWindow();
+	    });
+	    NEvent.addListener(marker, "mouseout", function() {
+		infoWin.hideWindow();
+	    });
+	    
+	    mapObj.addOverlay( infoWin );
+	}
+	
+	// 클릭 이벤트 세팅
+	function setClickListener( marker, fullUrl )
+	{
+	    NEvent.addListener(marker, "click", function() {
+		window.location = fullUrl;
+	    });
+	}
+	
+	// 초기화 함수 실행
+	init();
+
+//-->
+</SCRIPT>

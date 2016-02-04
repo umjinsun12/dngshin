@@ -1,0 +1,22 @@
+<ul class="lt">
+	<!--@foreach($notice_list as $no => $document)-->
+	<li>
+		<a href="{getUrl('document_srl', $document->document_srl)}">
+		<span class="title"><span class="notice">{$lang->notice}</span> <!--@if($module_info->use_category == "Y" && $mex_info->list_category == 'Y' && $document->get('category_srl'))-->{$category_list[$document->get('category_srl')]->title} &rsaquo;<!--@end--> <strong>{$document->getTitle($module_info->subject_cut_size)}</strong> <!--@if($document->getCommentCount())--><em>[{$document->getCommentCount()}]</em><!--@endif--></span>
+			<span class="auth"><strong>{$document->getNickName()}</strong> <span class="time">{$document->getRegDate("Y.m.d")}</span></span>
+		</a>
+	</li>
+	<!--@end-->
+
+	<!--@foreach($document_list as $no => $document)-->
+	
+	<li class="gal">
+		<a href="{getUrl('document_srl', $document->document_srl)}"><span class="thumb_box"><!--@if($document->getThumbnail(200, 200,'crop'))--><img width="96" height="97" alt="" src="{$document->getThumbnail(200, 200,'crop')}" alt=""><!--@else-->No Image<!--@end--></span>
+			<span class="title">{$document->getTitle($mex_info->subject_cut_size)}{$document->is_mobile}{$document->printExtraImages(60*60*$mex_info->duration_new)}
+				<span class="etc_info"><em class="na">{$document->getNickName()}</em>{$document->getRegDate("Y.m.d")}</span>
+			</span>
+		</a>
+	</li>
+	
+	<!--@end-->
+</ul>

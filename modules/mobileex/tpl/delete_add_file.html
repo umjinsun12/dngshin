@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	
+<!--@if($msg)-->
+   var msg = '{$msg}';
+   parent.completeSubmit(msg);
+	
+<!--@else-->
+   var fileSrl = {$file_srl};
+	parent.aftermobileAddFileDelete(fileSrl);
+
+<!--@end-->
+</script>
+

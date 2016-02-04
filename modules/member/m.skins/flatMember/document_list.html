@@ -1,0 +1,29 @@
+<include target="./member_header.html" />
+<h2 class="member-top-title">{$member_title = $lang->cmd_view_own_document}</h2>
+<div class="member-header-wrap">
+<div class="member-header document">
+	<ul class="member-menu">
+		<li><a href="{getUrl('act','dispMemberScrappedDocument','member_srl','')}">{$lang->cmd_view_scrapped_document}</a></li>
+		<li><a href="{getUrl('act','dispMemberSavedDocument','member_srl','')}">{$lang->cmd_view_saved_document}</a></li>
+		<li><a href="{getUrl('act','dispMemberOwnDocument','member_srl','')}" class="active">{$lang->cmd_view_own_document}</a></li>
+	</ul>
+</div>
+</div>
+
+<div class="document-body m-element m-list">
+	<ul class="list">
+		<li loop="$document_list => $no,$oDocument">
+			<a href="{getUrl('','document_srl',$oDocument->document_srl)}" class="list-link"></a>
+			<ul class="list-element">
+				<li class="title">{$oDocument->getTitleText()}</li>
+				<li class="date el">{$oDocument->getRegdate("m-d")}</li>
+				<li class="hit el">{$lang->readed_count} {$oDocument->get('readed_count')}</li>
+				<li class="hit el">{$lang->voted_count} {$oDocument->get('voted_count')}</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="paging">
+	<a href="{getUrl('page','','module_srl','')}" class="prev direction">{$lang->first_page}</a><!--@while($page_no = $page_navigation->getNextPage())--><span class="current" cond="$page == $page_no">{$page_no}</span><a href="{getUrl('page',$page_no,'module_srl','')}" cond="$page != $page_no">{$page_no}</a><!--@end--><a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="next direction">{$lang->last_page}</a>
+</div>
+<include target="./member_footer.html" />

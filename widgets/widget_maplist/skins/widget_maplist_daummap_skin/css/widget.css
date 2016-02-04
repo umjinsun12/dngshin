@@ -1,0 +1,44 @@
+﻿@charset "utf-8";
+
+
+.widget_maplist_daummap_skin { position:relative; width:100%; overflow:hidden; border:0px; }
+.widget_maplist_daummap_skin * {
+  box-sizing:content-box !important;
+  -moz-box-sizing:content-box !important;
+  -webkit-box-sizing:content-box !important;
+}
+
+
+.widget_maplist_daummap_skin .map_list_wrap { position:absolute; top:0px; right:-302px; width:300px; padding:0px; margin:0px; overflow:hidden; overflow-y:auto; border:1px solid #ccc; background:#fff; z-index:2; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list { position:relative; padding:0px; margin:0px; overflow:hidden; display:block; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list { position:relative; padding:0px; margin:0px; display:block; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list .link { position:relative; padding:5px; border-bottom:1px solid #ccc; overflow:hidden; display:block; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list .link:hover { background:#fafafa; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list #link_on { background:#fafafa; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list .link .thumbnail { padding:0px; margin:0px 10px 0px 0px; border:0px; float:left; display:inline-block; }
+.widget_maplist_daummap_skin .map_list_wrap .map_list .list .link .title { display:block; }
+.widget_maplist_daummap_skin .preload { position:absolute; top:0px; left:0px; width:300px; opacity: 0.5; filter:alpha(opacity=50); background:#fff url(../images/loading.gif) no-repeat center center; }
+
+.widget_maplist_daummap_skin .btn_open_map_list { position:absolute; top:50%; right:0px; padding:30px 5px !important; margin-top:-37px; overflow:hidden; border:1px solid #ccc; border-top-left-radius:20px; border-bottom-left-radius:20px; line-height:14px; font-size:12px !important; text-align:center; cursor:pointer; background:#fff; display:inline-block !important; z-index:3; }
+
+
+/* 지도 마커 InfoWindow 내용 CSS */
+.widget_maplist_daummap_skin .map_canvas { position:relative; overflow:hidden; z-index:1; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content { position:relative; padding:10px; overflow:hidden; line-height:normal; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .title_area { position:relative; padding:0px 0px 3px 0px; margin:0px 0px 10px 0px; border-bottom:1px solid #ccc; white-space:nowrap; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .title_area .title { white-space:nowrap; display:inline-block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .content_area { position:relative; padding-bottom:0px !important; overflow:hidden; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .content_area .thumbnail { position:relative; padding:0px; border:0px; margin-bottom:5px !important; margin-right:10px; border-radius:0px; float:left; overflow:hidden; display:inline-block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .content_area .content { position:relative; padding:0px; margin-top:0px; margin-bottom:5px !important; overflow:hidden; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars { position:relative; padding:0px; margin:5px 0px 10px 0px; border:0px; border-top:1px solid #ccc; border-right:1px solid #ccc; display:block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td { padding:0px; margin:0px; border:0px; border-bottom:1px solid #ccc; border-left:1px solid #ccc; font-size:12px; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td.name { padding:5px 5px; font-weight:bold; white-space:nowrap; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .extarvars td.value { padding:5px 5px; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .etc_area { position:relative; padding-top:5px; margin-top:5px; border-top:1px solid #ccc; text-align:center; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .etc_area .btn_streetview { cursor:pointer; display:inline-block; }
+.widget_maplist_daummap_skin .map_canvas .map_info_content .etc_area .btn_vr { display:inline-block; }
+
+.widget_maplist_daummap_skin .preload { position:absolute; top:0px; left:0px; width:100%; opacity: 0.5; filter:alpha(opacity=50); background:#fff url(../images/loading.gif) no-repeat center center; z-index:5; }
+
+
+#daum_roadview { position:relative; display:none; }

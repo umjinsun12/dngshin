@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="0.2">
+    <title xml:lang="ko">등기의 신 법무사 리스트 위젯</title>
+    <description xml:lang="ko">법무사 글을 리스트로 출력하는 위젯입니다.</description>
+    <version>0.1</version>
+    <date>2015-07</date>
+
+    <author email_address="umjinsun12@gmail.com" link="http://igrus.inha.ac.kr/">
+        <name xml:lang="ko">IGRUS</name>
+    </author>
+
+    <extra_vars>
+        <group>
+            <title xml:lang="ko">목록 설정</title>
+            <var id="module_srls">
+                <type>module_srl_list</type>
+                <name xml:lang="ko">대상 모듈</name>
+                <description xml:lang="ko">선택하신 모듈에 등록된 글을 대상으로 합니다.</description>
+            </var>
+            <var id="list_count" type="text">
+                <name xml:lang="ko">목록수</name>
+                <description xml:lang="ko">출력될 목록의 수를 입력하세요.(기본: 20)</description>
+            </var>
+            <var id="order_target" type="select">
+                <name xml:lang="ko">정렬 대상</name>
+                <description xml:lang="ko">등록된 순서 또는 변경된 순서로 정렬을 할 수 있습니다.</description>
+                <options>
+                    <value>regdate</value>
+                    <name xml:lang="ko">등록순</name>
+                </options>
+                <options>
+                    <value>update_order</value>
+                    <name xml:lang="ko">변경순</name>
+                </options>
+                <options>
+                    <value>readed_count</value>
+                    <name xml:lang="ko">조회순</name>
+                </options>
+                <options>
+                    <value>voted_count</value>
+                    <name xml:lang="ko">추천순</name>
+                </options>
+            </var>
+            <var id="order_type" type="select">
+                <name xml:lang="ko">정렬 방법</name>
+                <description xml:lang="ko">정렬대상을 내림차순 또는 올림차순으로 정렬할 수 있습니다.</description>
+                <options>
+                    <value>desc</value>
+                    <name xml:lang="ko">내림차순</name>
+                </options>
+                <options>
+                    <value>asc</value>
+                    <name xml:lang="ko">올림차순</name>
+                </options>
+            </var>
+            <var id="shuffle_type" type="select">
+                <name xml:lang="ko">무작위 정렬유무</name>
+                <description xml:lang="ko">무작위 정렬유무를 선택하세요. 목록이 무작위로 정렬됩니다.</description>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">무작위 정렬 안함</name>
+                </options>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">무작위 정렬</name>
+                </options>
+            </var>
+
+            <var id="show_list" type="select">
+                <name xml:lang="ko">목록 출력유무</name>
+                <description xml:lang="ko">목록 출력유무를 선택하세요.</description>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">출력</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">출력 안함</name>
+                </options>
+            </var>
+        </group>
+
+
+        <group>
+            <title xml:lang="ko">지도기본 설정</title>
+            <var id="map_width" type="text">
+                <name xml:lang="ko">지도 가로크기</name>
+                <description xml:lang="ko">지도 가로크기를 입력하세요. (기본: 100%)</description>
+            </var>
+            <var id="map_height" type="text">
+                <name xml:lang="ko">지도 세로크기</name>
+                <description xml:lang="ko">지도 세로크기를 입력하세요. (기본: 500)</description>
+            </var>
+            <var id="m_map_width" type="text">
+                <name xml:lang="ko">모바일 지도 가로크기</name>
+                <description xml:lang="ko">모바일 지도 가로크기를 입력하세요. (기본: 100%)</description>
+            </var>
+            <var id="m_map_height" type="text">
+                <name xml:lang="ko">모바일 지도 세로크기</name>
+                <description xml:lang="ko">모바일 지도 세로크기를 입력하세요. (기본: 300)</description>
+            </var>
+
+            <var id="current_type" type="select">
+                <name xml:lang="ko">현위치 기준 목록출력 유무</name>
+                <description xml:lang="ko">현위치 기준으로 목록을 출력할 것인지를 선택하세요. 단, GPS가능지역이어야 합니다.</description>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">현위치 기준 출력안함</name>
+                </options>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">현위치 기준 출력</name>
+                </options>
+            </var>
+        </group>
+
+
+        <group>
+            <title xml:lang="ko">지도 정보박스 설정</title>
+            <var id="info_content_width" type="text">
+                <name xml:lang="ko">정보박스 가로크기</name>
+                <description xml:lang="ko">지도 정보박스 가로크기를 입력하세요. (기본: 300)</description>
+            </var>
+            <var id="info_content_height" type="text">
+                <name xml:lang="ko">정보박스 세로크기</name>
+                <description xml:lang="ko">정보박스 세로크기를 입력하세요.</description>
+            </var>
+            <var id="subject_cut_size" type="text">
+                <name xml:lang="ko">정보박스 제목 글자수</name>
+                <description xml:lang="ko">정보박스 제목 글자수를 입력하세요. (0또는 비워주시면 자르지 않습니다.)</description>
+            </var>
+            <var id="content_cut_size" type="text">
+                <name xml:lang="ko">정보박스 내용 글자수</name>
+                <description xml:lang="ko">정보박스 내용 글자수를 입력하세요. (기본: 100)</description>
+            </var>
+            <var id="thumbnail_width" type="text">
+                <name xml:lang="ko">정보박스 썸네일 가로크기</name>
+                <description xml:lang="ko">출력될 썸네일의 가로크기를 입력하세요. (기본: 100)</description>
+            </var>
+            <var id="thumbnail_height" type="text">
+                <name xml:lang="ko">정보박스 썸네일 세로크기</name>
+                <description xml:lang="ko">썸네일의 세로크기를 입력하세요. (기본: 75)</description>
+            </var>
+            <var id="show_info_content_extarvars" type="select">
+                <name xml:lang="ko">정보박스 하단 사용자정의 출력유무</name>
+                <description xml:lang="ko">정보박스 하단 사용자정의 출력유무를 선택하세요.</description>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">출력</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">출력안함</name>
+                </options>
+            </var>
+            <var id="info_content_extar_eids" type="text">
+                <name xml:lang="ko">정보박스 사용자정의 지정출력</name>
+                <description xml:lang="ko">정보박스에 출력할 사용자정의이름(eid)을 입력하세요. 정보박스에 지정한 사용자정의만 출력합니다. 여러개일 경우 콤마(,)로 구분하여 입력하세요. 입력하지 않을 경우 전체를 출력합니다.</description>
+            </var>
+
+
+            <var id="m_info_content_width" type="text">
+                <name xml:lang="ko">모바일 정보박스 가로크기</name>
+                <description xml:lang="ko">모바일 지도 정보박스 가로크기를 입력하세요. (기본: 220)</description>
+            </var>
+            <var id="m_info_content_height" type="text">
+                <name xml:lang="ko">모바일 정보박스 세로크기</name>
+                <description xml:lang="ko">모바일 정보박스 세로크기를 입력하세요.</description>
+            </var>
+            <var id="m_subject_cut_size" type="text">
+                <name xml:lang="ko">모바일 정보박스 제목 글자수</name>
+                <description xml:lang="ko">정보박스 제목 글자수를 입력하세요. (0또는 비워주시면 자르지 않습니다.)</description>
+            </var>
+            <var id="m_content_cut_size" type="text">
+                <name xml:lang="ko">모바일 정보박스 내용 글자수</name>
+                <description xml:lang="ko">정보박스 내용 글자수를 입력하세요. (기본: 100)</description>
+            </var>
+            <var id="m_thumbnail_width" type="text">
+                <name xml:lang="ko">모바일 정보박스 썸네일 가로크기</name>
+                <description xml:lang="ko">모바일 출력될 썸네일의 가로크기를 입력하세요. (기본: 80)</description>
+            </var>
+            <var id="m_thumbnail_height" type="text">
+                <name xml:lang="ko">모바일 정보박스 썸네일 세로크기</name>
+                <description xml:lang="ko">모바일 썸네일의 세로크기를 입력하세요. (기본: 50)</description>
+            </var>
+        </group>
+
+
+        <group>
+            <title xml:lang="ko">구글지도 설정(구글스킨)</title>
+            <var id="google_map_key" type="text">
+                <name xml:lang="ko">구글지도 API KEY</name>
+                <description xml:lang="ko">구글지도 API KEY를 입력하세요. (필수)</description>
+            </var>
+            <var id="google_markercluster" type="select">
+                <name xml:lang="ko">마커클러스터 적용유무</name>
+                <description xml:lang="ko">마커클러스터 적용유무를 선택하세요. 적용할 경우, 서로 가까운 마커는 그룹화되어 나타납니다.</description>
+                <options>
+                    <value>Y</value>
+                    <name xml:lang="ko">적용</name>
+                </options>
+                <options>
+                    <value>N</value>
+                    <name xml:lang="ko">적용 안함</name>
+                </options>
+            </var>
+            <var id="map_zoom" type="text">
+                <name xml:lang="ko">지도 줌번호</name>
+                <description xml:lang="ko">지도 줌번호를 입력하세요. 0~18 사이의 숫자를 입력하세요. (기본: 13)</description>
+            </var>
+
+            <var id="map_lat_range" type="text">
+                <name xml:lang="ko">지도 위도 초기범위</name>
+                <description xml:lang="ko">지도 위도 초기범위를 입력하세요. 숫자만 입력하세요. (기본: 1)</description>
+            </var>
+            <var id="map_lng_range" type="text">
+                <name xml:lang="ko">지도 경도 초기범위</name>
+                <description xml:lang="ko">지도 경도 초기범위를 입력하세요. 숫자만 입력하세요. (기본: 1)</description>
+            </var>
+        </group>
+
+
+        <group>
+            <title xml:lang="ko">다음지도 설정(다음스킨)</title>
+            <var id="daum_map_key" type="text">
+                <name xml:lang="ko">다음지도 API KEY</name>
+                <description xml:lang="ko">다음지도 API KEY를 입력하세요. (필수)</description>
+            </var>
+            <var id="daum_map_zoom" type="text">
+                <name xml:lang="ko">지도 줌번호</name>
+                <description xml:lang="ko">지도 줌번호를 입력하세요. 1~14 사이의 숫자를 입력하세요. (기본: 3)</description>
+            </var>
+        </group>
+
+
+        <group>
+            <title xml:lang="ko">기타 설정</title>
+            <var id="m_scroll_top" type="text">
+                <name xml:lang="ko">모바일 목록 스크롤 상단위치</name>
+                <description xml:lang="ko">모바일 목록을 클릭 시 스크롤이동 상단위치를 입력하세요. 지원하는 스킨에만 적용가능합니다. (기본: 100)</description>
+            </var>
+        </group>
+    </extra_vars>
+</widget>

@@ -1,0 +1,14 @@
+<query id="updateAroundmap" action="update">
+    <tables>
+        <table name="aroundmap" />
+    </tables>
+    <columns>
+        <column name="title" var="marker_title" notnull="notnull" />
+        <column name="lat" var="lat" notnull="notnull" />
+        <column name="lon" var="lon" notnull="notnull" />
+        <column name="map_size" var="map_size" filter="number" notnull="notnull" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="document_srl" var="document_srls" notnull="notnull" />
+    </conditions>
+</query>

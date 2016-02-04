@@ -1,0 +1,56 @@
+/* baskcground color */
+header.main, .notice-text, .m-imagenews .info span.category, .swiper-active-switch, .m-ranking .list li:before
+{background-color: #f99d0c;} /* @mCol */
+.member-header .profile-image, .member-header .member-menu li a, .global-search .btClose, .m-imagenews .info span.name
+{background-color: #f99d0c;} /* @mCol_d */
+.btDark, .flatMember .btSubmit, .flatBoard .btSubmit, .login-body .btLogin, .m-element nav ul, .m-element section h3, .lang-list, .main-search button, .member-menu-top .profile-image, .member-menu-logged ul, .read-control li:not(.comment-num) a, .read-control li:not(.comment-num) button
+{background-color: #e14344} /* @sCol */
+.m-element nav ul li.active a, .m-element section h3 span, .member-menu-top, .read-control .num2 span
+{background-color: #c7393a} /* @sCol_d */
+
+.main-logo, .login-wrap, .member-header-wrap, .main-image-wrap, .main-normal-image
+{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fdb50b), to(#f99d0c)); background: -webkit-linear-gradient(top, #f99d0c, #fdb50b);}
+
+
+/* border color */
+.member-menu-top a.btLogin	
+{border-right: 1px solid #ae3637;} /* @mCol_line */
+.member-menu-logged li	
+{border-bottom: 1px solid #c7393a;} /* @mCol_line */
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="file"]:focus, input[type="password"]:focus, textarea:focus	
+{border: 1px solid #f99d0c;} /* @mCol */
+.lang-list:after
+{border-color: #e14344 transparent} /* @sCol */
+
+.searchinput2	{box-shadow: 0px 0px 0px 8px #e14344;}
+
+.gnb li ul li a.selected
+{border-left: 5px solid #f99d0c;}
+
+/* font color */
+.flatMember em, .write-form em, .gnb li ul li ul li.selected
+{color: #f99d0c !important;} /* @mCol */
+header.main h1, .global-search .btClose, .member-menu-top a, .member-menu-top .name, .flatMember .btSubmit, .flatBoard .btSubmit, .read-control .num2 span, .m-element .notice-list li .notice-text, .member-top-title, .top-title, .member-menu-logged li a, .social-login h2, .member-header .member-menu li a, .m-element nav li.active a, .m-element nav a, .m-element section h3, .login-body .btLogin, .btDark, .lang-list li button, .main-search button, .m-element section h3 a
+{color: #FFF;} /* @mCol_l */
+.m-list-reply	
+{color: #333;} /* @sCol_l3 */
+.read-control li.comment-num .num
+{color: #e14344;}
+
+.member-header .member-menu li a, .m-element nav a	
+{opacity: 0.6;}
+.member-header .member-menu li a.active, .m-element nav li.active a
+{opacity: 1.0;}
+
+
+/* etc */
+.login-body, .signup-body, .find-body, .flatBoard .origin-body, .flatBoard .message-body	
+{box-shadow: 0 0 10px rgba(0,0,0,0.2); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);}
+
+
+/* phone color */
+@media screen and (max-width: 767px){	
+	/* board comment */
+	.comment-control li span	{background-color: #ffd166; border-bottom: 1px solid #ecc15d;} /* mCol_l2 */
+	.comment-control li span.im	{background-color: #fdb50b; border-bottom: 1px solid #edab0e;} /* @mCol_line */
+}

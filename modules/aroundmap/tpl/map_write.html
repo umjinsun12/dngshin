@@ -1,0 +1,143 @@
+<!--%import("css/aroundmap.css")-->
+<div style="position: relative; height: 320px; padding-left: 410px;">
+    <div id='mapContainer' style='width:400px; height:300px; border:1px solid #c2c2c2; position: absolute; left: 0px;'></div>
+    <input type="hidden" id="lat" name="lat" value="{htmlspecialchars($aroundmapData->lat)}" />
+    <input type="hidden" id="lon" name="lon" value="{htmlspecialchars($aroundmapData->lon)}" />
+    <input type="hidden" id="map_size" name="map_size" value="{htmlspecialchars($aroundmapData->map_size)}" />
+    
+    <SCRIPT type="text/javascript" src="http://map.naver.com/js/naverMap.naver?key={$naver_api_key}"></SCRIPT>
+    <SCRIPT LANGUAGE="JavaScript">
+    <!--
+	    // GLOBAL
+	    var mapObj = new NMap(document.getElementById('mapContainer'),400,300);
+	    var marker = null;
+	    
+	    // 초기화 함수
+	    function init() {
+		// 좌표 정보가 있으면 맵을 좌표정보로 이동
+		if( jQuery("#lat").val() ) {
+		    var pos = mapObj.fromLatLngToTM128( new NPoint( jQuery("#lon").val(), jQuery("#lat").val() ) );
+		    var map_size = jQuery("#map_size").val();
+		    
+		    mapObj.setCenterAndZoom( pos, map_size );
+		    saveMapSize(3, 3);
+		    
+		    clicked( pos );
+		}
+		// 좌표정보가 없으면 맵을 임의의 위치로 이동
+		else {
+		    var pos = mapObj.fromLatLngToTM128( new NPoint(126.98296595239, 37.571999923405) );
+		    mapObj.setCenterAndZoom(pos, 3);
+		    saveMapSize(3, 3);
+		}
+		
+		// 지도에 이벤트 리스너 등록
+		NEvent.addListener(mapObj, "click", clicked);
+		NEvent.addListener(mapObj, "zoom", saveMapSize);
+		
+		// 줌 컨트롤러 등록
+		var zoom =new NZoomControl();
+		zoom.setAlign("left");
+		zoom.setValign("bottom");
+		mapObj.addControl(zoom);
+	    }
+    
+	    // 지도 클릭 이벤트 핸들러
+	    function clicked(pos)
+	    {
+		var iconUrl = "{$tpl_path}images/mappin_self.png";
+		
+		if( marker != null ) {
+		    mapObj.removeOverlay( marker );
+		}
+		
+		marker = new NMark( pos, new NIcon(iconUrl, new NSize(48, 48)) );
+		mapObj.addOverlay( marker );
+		
+		var convertedPos = mapObj.fromTM128ToLatLng( pos );
+		
+		jQuery("#lat").val( convertedPos.y );
+		jQuery("#lon").val( convertedPos.x );
+	    }
+	    
+	    // 주소 검색
+	    function addressSearch() {
+		jQuery("#aroundmap_result_view").text("");
+		var address = jQuery("#aroundmap_address").val();
+		
+		if( address == "" ) {
+		    alert( "Please input address!!" );
+		} else {
+		    
+		    
+		    jQuery.getJSON("?module=aroundmap&act=dispQueryAddress",{address:address},function(data) {
+			
+			//alert(data.api_type);
+			if (data.items)
+			{		    
+			    jQuery("#aroundmap_result_view").append("<ul>");
+			    jQuery.each (data.items, function (i,item) {
+				
+				var parseStr = "<li><a href='javascript:markMapAtAddress(" +
+							item.lon + "," + item.lat +
+							");'>" + item.address + "</a></li>";
+				jQuery("#aroundmap_result_view").append(parseStr);
+			    });
+			    jQuery("#aroundmap_result_view").append("</ul>");
+			    if( data.api_type == "yahoo" ) {
+				jQuery("#aroundmap_result_view").append("<br /><br /><div>Powered by Yahoo</div>");
+			    } else {
+				jQuery("#aroundmap_result_view").append("<br /><br /><div>Powered by Naver</div>");
+			    }
+			    
+			}
+			else
+			{
+			    jQuery("#aroundmap_result_view").append("Not founded");
+			}
+		    });
+		    
+		}
+	    }
+	    
+	    // 넘겨받은 좌표에 마킹
+	    function markMapAtAddress(x, y) {
+		pos = mapObj.fromLatLngToTM128( new NPoint(x, y) );
+		mapObj.setCenter( pos );
+		clicked(pos);
+	    }
+	    
+	    // 맵 줌컨트롤러 이벤트 핸들러
+	    function saveMapSize(newLevel, oldLevel) {
+		jQuery("#map_size").val( newLevel );
+	    }
+    
+	    // 초기화 함수 실행
+	    init();
+    //-->
+    </SCRIPT>
+    <div style="height: 280px; border: 1px solid #ddd; padding: 10px;">
+	<table class="aroundmap_tb">
+	    <tr>
+		<td class="aroundmap_tb_name">Title</td>
+		<td class="aroundmap_tb_field"><input type="text" id="marker_title" name="marker_title" style="width: 100%;" value="{htmlspecialchars($aroundmapData->title)}"></td>
+	    </tr>
+	    <tr>
+		<td class="aroundmap_tb_name">Search</td>
+		<td class="aroundmap_tb_field">
+		    <div>
+			<input id="aroundmap_address" name="aroundmap_address" type="text" style="width: 100%; margin-bottom: 5px;">
+			<input type="button" value="Search" onclick="addressSearch();" style="float: right;">
+		    </div>
+		</td>
+	    </tr>
+	    <tr>
+		<td class="aroundmap_tb_name">Result</td>
+		<td class="aroundmap_tb_field">
+		    <div id="aroundmap_result_view" style="overflow-x: hidden; overflow-y: auto; height: 160px;">
+		    </div>
+		</td>
+	    </tr>
+	</table>
+    </div>
+</div>

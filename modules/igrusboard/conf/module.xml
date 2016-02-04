@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<grants>
+		<grant name="list" default="guest">
+			<title xml:lang="ko">목록 보기</title>	
+		</grant>
+		<grant name="view" default="guest">
+			<title xml:lang="ko">내용 보기</title>	
+		</grant>
+		<grant name="write_document" default="guest">
+			<title xml:lang="ko">글 쓰기</title>	
+		</grant>
+		<grant name="write_comment" default="guest">
+			<title xml:lang="ko">댓글 쓰기</title>	
+		</grant>
+	</grants>
+	<permissions>
+		<permission action="procIgrusboardAdminUpdateSimpleSetup" target="manager" />
+		<permission action="getIgrusboardAdminSimpleSetup" target="manager" />
+	</permissions>
+	<actions>
+		<action name="procIgrusboardAdminUpdateSimpleSetup" type="controller" />
+		<action name="getIgrusboardAdminSimpleSetup" type="model" simple_setup_index="true" /><!--모델 설정같은거 저장 함-->
+		<action name="dispIgrusboardWrite" type="view" standalone="false"/><!--view 보이는거-->
+		<action name="dispIgrusboardContent" type="view" standalone="false" index="true" />
+		
+		<action name="procIgrusboardWrite" type="controller" standalone="false"/><!--controller 실제 동작-->
+	</actions>
+</module>

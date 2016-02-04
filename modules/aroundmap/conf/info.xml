@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">주변 지도</title>
+    <title xml:lang="en">Around Map</title>
+    <description xml:lang="ko">게시글에 입력된 위치 정보를 기반으로 주변 위치를 지도에 표기합니다.</description>
+    <description xml:lang="en">Append a map to board based on user created geographic information.</description>
+    <version>0.1</version>
+    <date>2010-11-16</date>
+    <category>content</category>
+
+    <author email_address="ironyjk@embian.com" link="http://me2day.net/ironyjk">
+        <name xml:lang="ko">최희철</name>
+        <name xml:lang="en">Choi Hee Chul</name>
+    </author>
+    
+    <author email_address="neverdie@embian.com" link="http://twitter.com/bbuggi">
+        <name xml:lang="ko">김진환</name>
+        <name xml:lang="en">Kim Jin Hwan</name>
+    </author>
+
+    <author email_address="sunyoung@embian.com" link="">
+        <name xml:lang="ko">박선영</name>
+        <name xml:lang="en">Park Sun Young</name>
+    </author>
+	
+
+</module>

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function submit()
+			{
+				var giform = document.form1.gi1;
+				if(giform.value < 100 || giform.value >999)
+				{
+					document.alert("입력한 숫자는 100~999 사이여야합니다.");
+					form.giform.focus();
+					return;
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>자바스크립트 야구게임</h1>
+		<hr>
+		<form name="form1">
+			<input name="gi1" type="text" />
+			<input type="button" value="확인" onclick="submit();"/>
+		</form>
+	</body>
+</html>

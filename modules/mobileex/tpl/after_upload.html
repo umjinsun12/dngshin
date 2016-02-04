@@ -1,0 +1,17 @@
+<script type="text/javascript">
+<!--@if($msg)-->
+   var msg = '{$msg}';
+   parent.completeSubmit(msg);
+<!--@else-->
+   var moduleSrl = {$module_srl};
+   var uploadTargetSrl = {$upload_target_srl};
+   var isImg = "{$is_img}";
+   var fileSrl = {$file_srl};
+   var sourceFilename = "{$source_filename}";
+   var fileSize = {$file_size};
+   var imgHref = "{$img_href}";
+   var autoFileadd = "{$auto_fileadd}";
+	parent.aftermobileFileUpload(moduleSrl,uploadTargetSrl,fileSrl,isImg,sourceFilename,fileSize,imgHref,autoFileadd);
+<!--@end-->
+</script>
+

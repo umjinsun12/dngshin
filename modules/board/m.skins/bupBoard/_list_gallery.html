@@ -1,0 +1,32 @@
+{@
+	if (!$mi->thumb_width) $mi->thumbnail_width = 220;
+	if (!$mi->thumb_height) $mi->thumbnail_height = 160;
+	if (!$mi->subject_cut_size) $mi->subject_cut_size = 36;
+}
+<include target="_list_header.html" />
+<div class="m-gallery m-element">
+	<ul class="notice-list"|cond="$mi->show_notice != Y" class="notice-list on"|cond="$mi->show_notice == Y">
+		<!--@foreach($notice_list as $no => $document)-->
+		<li class="has-comment"|cond="$document->getCommentCount()">
+			<a href="{getUrl('document_srl', $document->document_srl)}" class="list-link"></a>
+			<span class="notice-text notice-el">{$lang->notice}</span> 
+			<span class="notice-el">{$document->getTitle()} {$document->printExtraImages(60*60*$module_info->duration_new)}</span>
+			<block cond="$document->getCommentCount()"><!--@if($layout_info->mCol == 'black')--><img src="./images/biComment2@2x.png" alt="comment" width="14px" height="12px" class="comment-image" /><!--@else--><img src="./images/biComment@2x.png" alt="comment" width="14px" height="12px" class="comment-image" /><!--@end--><a href="{$document->getPermanentUrl()}#comment" class="reply m-list-reply">{$document->getCommentCount()}</a></block>
+		</li>
+		<!--@end-->
+		<li class="no-list" cond="!$notice_list"><span class="notice-text">{$lang->notice}</span>  {$lang->no_documents}</li>
+	</ul>
+	<ul class="list clearfix">
+		<!--@foreach($document_list as $no => $document)-->
+		<li>
+			<a href="{getUrl('document_srl', $document->document_srl)}" class="list-link"></a>
+			<div class="thumb-image"|cond="$document->thumbnailExists()" class="thumb-image no-image"|cond="!$document->thumbnailExists()" style="background-image: url({$document->getThumbnail($mi->thumbnail_width, $mi->thumbnail_height, crop)});"|cond="$document->thumbnailExists()"><span class="gr" cond="$document->getCommentCount() && $mi->show_comment != 'N'">{$document->getCommentCount()}</span></div>
+			<div class="category" cond="$module_info->use_category=='Y' && $mi->show_category != 'N'">{$category_list[$document->get('category_srl')]->title}</div>
+			<div class="title">{$document->getTitle($mi->subject_cut_size)}<block cond="$mi->show_icon != 'N'"> {$document->printExtraImages(60*60*$module_info->duration_new)}</block></div>
+			<div class="info"><span class="name" cond="$list_config['nick_name']"><span class="member_{$document->get('member_srl')} nName">{$document->getNickName()}</span></span> <block cond="$list_config['regdate']"><!--@if($t_date == $document->getRegDate('Ymd'))-->{$document->getRegDate("H:i")}<!--@else-->{$document->getRegDate("m-d")}<!--@end--></block></div>
+		</li>
+		<!--@end-->
+		<li class="no-list" cond="!$document_list">{$lang->no_documents}</li>
+	</ul>
+</div>
+<include target="_list_footer.html" />

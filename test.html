@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		var request = require('request');
+		var cheerio = require('cheerio');
+
+		var url = "http://codenamu.org/blog/";
+		var blog = [];
+
+		function getData (url) {
+			request(url, function (err, res, html) {
+				if (!err) {
+					var $ = cheerio.load(html);
+
+			// Title 정보 가져오기
+			$(".entry-title > a").each(function () {
+				var json = {"title": "", "link": "", "summary": "", "category": []};
+				var data = $(this);
+				
+				json["title"] = data.text();
+				json["link"] = data.attr("href");
+				
+				blog.push(json);
+			});
+
+			// 블로그 요약 내용 가져오기
+			$(".entry-summary > p").each(function (i) {
+				blog[i].summary = $(this).text();
+			})
+
+			// 블로그 카테고리 가져오기
+			$(".entry-categories").each(function (i) {
+				$(this).children('a').each(function () {
+					blog[i].tag.push($(this).text());
+				});
+			})
+
+			console.log(blog);
+
+		} else {
+			new  Error(err);
+		}
+	})
+}
+
+
+getData(url);
+		</script>		
+	</head>
+	<body>
+		<div id="demo">
+			
+		</div>
+		
+	</body>
+</html>
